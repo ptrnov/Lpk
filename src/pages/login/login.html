@@ -1,0 +1,55 @@
+<!-- -->
+<ion-content>
+    <!-- Logo -->
+    <div padding-horizontal text-center class="animated fadeInDown">
+       <!-- <div class="header-logo"></div> -->
+      <div class="header-logo"></div>
+      <ion-label class="text-logo1">
+        <b>"ONLINE APPLICATION KORLANTAS"</b>
+      </ion-label>
+      <ion-label class="text-logo2">
+          KEPOLISIAN NEGARA REPUBLIK INDONESIA
+      </ion-label>
+    </div>
+    <ion-grid style="margin-top:-10px">
+      <ion-row justify-content-center>
+          <ion-col col-8 >
+              <ion-item style="background-color: transparent">
+                  <ion-label floating >
+                    <ion-icon name="ios-person" item-start ></ion-icon>
+                    Username
+                  </ion-label>
+                  <ion-input type="text" [(ngModel)]="userData.username"></ion-input>
+                  <!-- <ion-input type="email"></ion-input> -->
+              </ion-item>
+          </ion-col>
+      </ion-row>
+      <ion-row justify-content-center style="margin-top: -30px">
+          <ion-col col-8>
+              <ion-item  style="background-color: transparent;">
+                <ion-label floating>
+                  <ion-icon name="lock" item-start ></ion-icon>
+                  Password
+                </ion-label>
+                <ion-input type="password" [(ngModel)]="userData.password"></ion-input>
+              </ion-item>
+        </ion-col>
+      </ion-row>
+      <ion-row justify-content-center style="margin-top: 0px">
+        <ion-col col-8>
+           <button ion-button icon-start block (click)="login()" class="tombolLogin" style="border-radius: 30px 30px 30px 30px;">
+                <ion-icon name="log-in"></ion-icon>
+                LOGIN
+            </button>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+
+
+
+    <!-- Other links -->
+    <!-- <div text-center margin-top>
+      <span ion-text color="secondary" tappable (click)="register()">New here? <strong>Sign up</strong></span>
+    </div> -->
+  <!-- </ion-card> -->
+</ion-content>

@@ -1,0 +1,63 @@
+<!-- <ion-menu [content]="content"> -->
+<ion-menu side="left" [content]="content">
+    <ion-header>
+        <ion-toolbar class="user-profile">
+          <ion-grid>
+            <ion-row>
+              <ion-col col-4>
+                  <div class="user-avatar">
+                    <img src="assets/imgs/avatar.jpg" height:100px>
+                  </div>
+              </ion-col>
+              <!-- <ion-col padding-top col-8 *ngFor="let item of profileData"> -->
+              <ion-col padding-top col-8>
+                <h3 ion-text class="no-margin bold text-white" >
+                Piter
+                </h3>
+                <span ion-text color="text-white">
+                Seda
+                </span><br>
+                <!-- <span ion-text color="putih">Area</span> -->
+              </ion-col>
+
+            </ion-row>
+
+            <ion-row no-padding class="other-data">
+              <ion-col no-padding class="column">
+                <!-- <button ion-button icon-left small full menuClose enable>
+                  <ion-icon name="contact"></ion-icon>
+                  Edit Profile
+                </button> -->
+              </ion-col>
+              <ion-col no-padding class="column">
+                <button ion-button icon-left small full  menuClose (click)="logout()"  class="buttonSignOut">
+                  <ion-icon class="fa fa-power-off"></ion-icon>
+                  Log Out
+                </button>
+              </ion-col>
+            </ion-row>
+
+          </ion-grid>
+
+        </ion-toolbar>
+      </ion-header>
+
+  <ion-content>
+    <!-- <ion-list>
+      <button menuClose ion-item *ngFor="let p of pages" (click)="openPage(p)">
+        {{p.title}}
+      </button>
+    </ion-list> -->
+    <ion-list class="user-list">
+        <button [id]="menuItem.id" ion-item menuClose color="{{menuItem.color}}" *ngFor="let menuItem of appMenuItems" (click)="openPage(menuItem)" >
+        <!-- <button [id]="menuItem.id" ion-item menuClose class="text-1x" *ngFor="let menuItem of appMenuItems" (click)="openPage(menuItem)" [class.active]="checkActivePage(p)"> -->
+            <ion-icon item-left  [name]="menuItem.icon"></ion-icon>
+            <span text-wrap ion-text>{{menuItem.title}}</span>
+        </button>
+    </ion-list>
+  </ion-content>
+
+</ion-menu>
+
+<!-- Disable swipe-to-go-back because it's poor UX to combine STGB with side menus -->
+<ion-nav [root]="rootPage" #content swipeBackEnabled="true" ></ion-nav>

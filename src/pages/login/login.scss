@@ -1,0 +1,73 @@
+page-login{
+
+    .content {
+        // background-color: #684331; //Background
+        background-image: url('../assets/imgs/background.jpg');
+        background-repeat: no-repeat;
+        background-size: cover;
+    }
+    .header-logo{
+        background-image: url('../assets/imgs/tri-brata.png');
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: 120px;
+        height: 35vh;
+        width: auto;
+        margin-bottom: -25px;
+    }
+    .text-logo1{
+        margin-top: -10px;
+        // font-size: 15px;
+        font-size: 4vw;
+        font-family:"Arial Black";
+        color:rgba(255, 255, 239, 0.911);
+    }
+    .text-logo2{
+      margin-top: -10px;
+      // font-size: 15px;
+      font-size: 3vw;
+      font-family:"Arial Black";
+      color:rgba(255, 255, 239, 0.911);
+    }
+
+    .tombolLogin {
+      background:-webkit-gradient(linear, left top, left bottom, color-stop(0.05, #d1c55a), color-stop(1, #e4dc4a));
+      background:-moz-linear-gradient(top, #d1c55a 5%, #e4dc4a 100%);
+      background:-webkit-linear-gradient(top, #d1c55a 5%, #e4dc4a 100%);
+      background:-o-linear-gradient(top, #d1c55a 5%, #e4dc4a 100%);
+      background:-ms-linear-gradient(top, #d1c55a 5%, #e4dc4a 100%);
+      background:linear-gradient(to bottom, #d1c55a 5%, #e4dc4a 100%);
+      filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#d1c55a', endColorstr='#e4dc4a',GradientType=0);
+      background-color:#d1c55a;
+      -moz-border-radius:42px;
+      -webkit-border-radius:42px;
+      border-radius:42px;
+      border:1px solid #f5e285;
+      display:inline-block;
+      cursor:pointer;
+      color:#804F27;
+      font-family:Verdana;
+      font-size:18px;
+      font-weight:bold;
+      padding:23px 76px;
+      text-decoration:none;
+      text-shadow:0px 0px 33px #ffd83d;
+    }
+    .myButton:hover {
+      background:-webkit-gradient(linear, left top, left bottom, color-stop(0.05, #e4dc4a), color-stop(1, #d1c55a));
+      background:-moz-linear-gradient(top, #e4dc4a 5%, #d1c55a 100%);
+      background:-webkit-linear-gradient(top, #e4dc4a 5%, #d1c55a 100%);
+      background:-o-linear-gradient(top, #e4dc4a 5%, #d1c55a 100%);
+      background:-ms-linear-gradient(top, #e4dc4a 5%, #d1c55a 100%);
+      background:linear-gradient(to bottom, #e4dc4a 5%, #d1c55a 100%);
+      filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#e4dc4a', endColorstr='#d1c55a',GradientType=0);
+      background-color:#e4dc4a;
+    }
+    .myButton:active {
+      position:relative;
+      top:1px;
+    }
+
+
+}
+
