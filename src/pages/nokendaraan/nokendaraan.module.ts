@@ -4,10 +4,10 @@ import { NokendaraanPage } from './nokendaraan';
 
 @NgModule({
   declarations: [
-    NokendaraanPage,
+    // NokendaraanPage,
   ],
   imports: [
-    IonicPageModule.forChild(NokendaraanPage),
+    // IonicPageModule.forChild(NokendaraanPage),
   ],
 })
 export class NokendaraanPageModule {}

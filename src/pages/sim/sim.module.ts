@@ -4,10 +4,10 @@ import { SimPage } from './sim';
 
 @NgModule({
   declarations: [
-    SimPage,
+    // SimPage,
   ],
   imports: [
-    IonicPageModule.forChild(SimPage),
+    // IonicPageModule.forChild(SimPage),
   ],
 })
 export class SimPageModule {}
