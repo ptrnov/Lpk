@@ -40,104 +40,559 @@
             </ion-card>
       </ion-col>
     </ion-row>
-    <ion-row justify-content-left class="row-satu full-width">
-      <ion-col col-3 class="satu">
-          <ion-row justify-content-left>
-            <!-- reff: https://id.wikipedia.org/wiki/Kepolisian_daerah -->
-            <ion-col col-3 class="nomor">
-                <ion-label text-wrap class="label">1</ion-label>
-            </ion-col>
-            <ion-col col-9 class="col_right">
-                <ion-card class="card">
-                    <ion-card-header class="header">
-                        <ion-label text-wrap class="label">
-                            PROVENSI/ POLDA
-                        </ion-label>
-                    </ion-card-header>
-                    <ion-card-content class="continer">
-                        <!-- <ion-input class="input" type="text" placeholder="Pilih"></ion-input> -->
-                        <!-- <ion-item class="input"> -->
-                            <select-searchable
-                              item-content
-                              [(ngModel)]="port"
-                              [items]="ports"
-                              itemValueField="id"
-                              itemTextField="name"
-                              [canSearch]="true"
-                              (onChange)="portChange($event)">
-                          </select-searchable>
-                        <!-- </ion-item> -->
-                    </ion-card-content>
-                </ion-card>
-            </ion-col>
-          </ion-row>
-      </ion-col>
 
-      <ion-col col-3 class="satu">
-          <ion-row justify-content-left>
-            <!-- reff: https://id.wikipedia.org/wiki/Kepolisian_daerah -->
-            <ion-col col-3 class="nomor">
-                <ion-label text-wrap class="label">2</ion-label>
-            </ion-col>
-            <ion-col col-9 class="col_right">
-                <ion-card class="card">
-                    <ion-card-header class="header">
-                        <ion-label text-wrap class="label">
-                            POLWIL/ TABES
-                        </ion-label>
-                    </ion-card-header>
-                    <ion-card-content class="continer">
-                        <ion-input class="input" type="text" placeholder="Pilih"></ion-input>
-                    </ion-card-content>
-                </ion-card>
-            </ion-col>
-          </ion-row>
-      </ion-col>
-      <ion-col col-3 class="satu">
-          <ion-row justify-content-left>
-            <!-- reff: https://id.wikipedia.org/wiki/Kepolisian_daerah -->
-            <ion-col col-3 class="nomor">
-                <ion-label text-wrap class="label">3</ion-label>
-            </ion-col>
-            <ion-col col-9 class="col_right">
-                <ion-card class="card">
-                    <ion-card-header class="header">
-                        <ion-label text-wrap class="label">
-                          POLRES/
-                          POLRES
-                        </ion-label>
-                    </ion-card-header>
-                    <ion-card-content class="continer">
-                        <ion-input class="input" type="text" placeholder="Pilih"></ion-input>
-                    </ion-card-content>
-                </ion-card>
-            </ion-col>
-          </ion-row>
-      </ion-col>
-      <ion-col col-3 class="satu">
-          <ion-row justify-content-left>
-            <!-- reff: https://id.wikipedia.org/wiki/Kepolisian_daerah -->
-            <ion-col col-3 class="nomor">
-                <ion-label text-wrap class="label">4</ion-label>
-            </ion-col>
-            <ion-col col-9 class="col_right">
-                <ion-card class="card">
-                    <ion-card-header class="header">
-                        <ion-label text-wrap class="label">
-                          NOMOR LAPORAN
-                        </ion-label>
-                    </ion-card-header>
-                    <ion-card-content class="continer">
-                        <ion-input class="input" type="text" placeholder="NOMOR"></ion-input>
-                    </ion-card-content>
-                </ion-card>
-            </ion-col>
-          </ion-row>
-      </ion-col>
-    </ion-row>
-    <ion-row justify-content-left class="row-satu full-width">
+    <ion-row justify-content-left class="row-header" style="margin-left:-5px">
+        <ion-col col-12 class="col-header2">
+            <table class="tg" style="width:100%">
+                <tr>
+                  <th class="tg-ae1z" rowspan="2">1</th>
+                  <th class="tg-25da">POLDA</th>
+                  <th class="tg-ae1z" rowspan="2">2</th>
+                  <th class="tg-25da" colspan="3">POLWIL/ TABES</th>
+                  <th class="tg-ae1z" rowspan="2">3</th>
+                  <th class="tg-7p3h" colspan="2"><span style="font-weight:700">POLRES</span></th>
+                  <th class="tg-ae1z" rowspan="2">4</th>
+                  <th class="tg-25da">NO.LAPORAN</th>
+                </tr>
+                <tr>
+                  <td class="tg-25da">
+                      <ion-item style=" font-size: 2vw;font-weight: bold;">
+                          <ion-select [(ngModel)]="polda" placeholder="Pilih" name="POLDA" cancelText="Cancel" okText="OK">
+                            <ion-option value="1">Aceh</ion-option>
+                            <ion-option value="2">Sumut</ion-option>
+                            <ion-option value="3">Sumbar</ion-option>
+                            <ion-option value="4">Jambi</ion-option>
+                            <ion-option value="5">Riau</ion-option>
+                            <ion-option value="6">Kepri</ion-option>
+                            <ion-option value="7">babel</ion-option>
+                            <ion-option value="8">Sumsel</ion-option>
+                            <ion-option value="9">Bengkulu</ion-option>
+                            <ion-option value="10">Lampung</ion-option>
+                            <ion-option value="11">MetroJaya</ion-option>
+                            <ion-option value="12">Jabar</ion-option>
+                            <ion-option value="13">Banten</ion-option>
+                            <ion-option value="14">Jateg</ion-option>
+                            <ion-option value="15">Jatim</ion-option>
+                            <ion-option value="16">Bali</ion-option>
+                            <ion-option value="17">NTB</ion-option>
+                            <ion-option value="18">NTT</ion-option>
+                            <ion-option value="19">Kalbar</ion-option>
+                            <ion-option value="20">Kalteng</ion-option>
+                            <ion-option value="21">Kaltim</ion-option>
+                            <ion-option value="22">Kaltara</ion-option>
+                            <ion-option value="23">Kalsel</ion-option>
+                            <ion-option value="24">Sulut</ion-option>
+                            <ion-option value="25">Gorontalo</ion-option>
+                            <ion-option value="26">Sulteng</ion-option>
+                            <ion-option value="27">Sultra</ion-option>
+                            <ion-option value="28">Sulsel</ion-option>
+                            <ion-option value="29">Sulbar</ion-option>
+                            <ion-option value="30">Maluku</ion-option>
+                            <ion-option value="31">Malut</ion-option>
+                            <ion-option value="32">Papua Barat</ion-option>
+                            <ion-option value="33">papua</ion-option>
+                          </ion-select>
+                        </ion-item>
+                  </td>
+                  <td class="tg-25da" colspan="3"><span style="font-weight:700">INPUT</span></td>
+                  <td class="tg-7p3h" colspan="2"><span style="font-weight:700">INPUT</span></td>
+                  <td class="tg-25da"><span style="font-weight:700">
+                      <ion-input type="text" placeholder="Number"></ion-input>
+                  </span></td>
+                </tr>
+                <tr>
+                  <td class="tg-hrfc" rowspan="2">5</td>
+                  <td class="tg-25da">TANGGAL</td>
+                  <td class="tg-ae1z" rowspan="2">6</td>
+                  <td class="tg-25da" colspan="3">JAM</td>
+                  <td class="tg-ae1z">7</td>
+                  <td class="tg-7p3h" colspan="2"><span style="font-weight:700">KAREGORILAKA</span></td>
+                  <td class="tg-ae1z" rowspan="2">8</td>
+                  <td class="tg-25da">TABRAK LARI ?</td>
+                </tr>
+                <tr>
+                  <td class="tg-25da"><span style="font-weight:700">INPUT</span></td>
+                  <td class="tg-25da" colspan="3"><span style="font-weight:700">INPUT</span></td>
+                  <td class="tg-25da"></td>
+                  <td class="tg-7p3h" colspan="2"><span style="font-weight:700">
+                      <!-- KAREGORILAKA -->
+                      <ion-item style=" font-size: 2vw;font-weight: bold;">
+                        <ion-select id="asd" [(ngModel)]="kategorilaka" placeholder="Pilih" name="kategorilaka" cancelText="Cancel" okText="OK">
+                            <ion-option value="1" selected="true">F</ion-option>
+                            <ion-option value="2">L</ion-option>
+                            <ion-option value="3">TL</ion-option>
+                        </ion-select>
+                      </ion-item>
+                  </span></td>
+                  <td class="tg-25da"><span style="font-weight:700">
+                      <!-- TABRAK LARI ? -->
+                      <ion-item style=" font-size: 2vw;font-weight: bold;">
+                        <ion-select [(ngModel)]="tabraklari" placeholder="Pilih" cancelText="Cancel" okText="OK">
+                            <ion-option value="1">Bukan</ion-option>
+                            <ion-option value="2">Iya</ion-option>
+                        </ion-select>
+                      </ion-item>
+                  </span></td>
+                </tr>
+                <tr>
+                  <td class="tg-25da" colspan="3">SAKSI</td>
+                  <td class="tg-25da" colspan="8">input</td>
+                </tr>
+                <tr>
+                  <td class="tg-5ece" colspan="11"><span style="font-weight:bold">DATA LINGKUNGAN TKP</span></td>
+                </tr>
+                <tr>
+                  <td class="tg-7b3a" rowspan="2">9</td>
+                  <td class="tg-napo">AKTIFITAS TEPI<br> JALAN</td>
+                  <td class="tg-ae1z" rowspan="2">10</td>
+                  <td class="tg-25da" colspan="3">BATAS KECEPATAN</td>
+                  <td class="tg-ae1z" rowspan="2">11</td>
+                  <td class="tg-1p6p" colspan="2"><span style="font-weight:700">POLA ARUS </span><br><span style="font-weight:700">LINTAS</span></td>
+                  <td class="tg-ae1z" rowspan="2">12</td>
+                  <td class="tg-25da">KONDISI <br>PENERANGAN</td>
+                </tr>
+                <tr>
+                  <td class="tg-25da"><span style="font-weight:700">
+                      <!-- AKTIFITAS TEPI Jalan -->
+                      <ion-item style=" font-size: 2vw;font-weight: bold;">
+                        <ion-select [(ngModel)]="aktifitastepijalan" placeholder="Pilih" cancelText="Cancel" okText="OK">
+                            <ion-option value="1">Tinggi</ion-option>
+                            <ion-option value="2">Sedang</ion-option>
+                            <ion-option value="3">Rendah</ion-option>
+                        </ion-select>
+                      </ion-item>
+                  </span></td>
+                  <td class="tg-25da" colspan="3"><span style="font-weight:700">
+                        <!-- BATAS KECEPATAN -->
+                        <ion-item style=" font-size: 2vw;font-weight: bold;">
+                          <ion-select [(ngModel)]="bataskecepatan" placeholder="Pilih" cancelText="Cancel" okText="OK">
+                              <ion-option value="1">40</ion-option>
+                              <ion-option value="2">60</ion-option>
+                              <ion-option value="3">80</ion-option>
+                              <ion-option value="4">100</ion-option>
+                          </ion-select>
+                        </ion-item>
+                  </span></td>
+                  <td class="tg-7p3h" colspan="2">
+                      <!-- POLA ARUS -->
+                      <ion-item style=" font-size: 2vw;font-weight: bold;">
+                        <ion-select [(ngModel)]="polaarus" placeholder="Pilih" cancelText="Cancel" okText="OK">
+                            <ion-option value="1">Satu Arah</ion-option>
+                            <ion-option value="2">Dua Arah</ion-option>
+                        </ion-select>
+                      </ion-item>
+                  </td>
+                  <td class="tg-25da"><span style="font-weight:700">
+                      <!-- KONDISI PENERANGAN -->
+                      <ion-item style=" font-size: 2vw;font-weight: bold;">
+                        <ion-select [(ngModel)]="kondisipenerangan" placeholder="Pilih" cancelText="Cancel" okText="OK">
+                            <ion-option value="1">Siang</ion-option>
+                            <ion-option value="2">Subuh/Senja</ion-option>
+                            <ion-option value="3">Malam Lampu</ion-option>
+                            <ion-option value="4">Malam ada Lampu</ion-option>
+                            <ion-option value="5">Malam Gelap</ion-option>
+                        </ion-select>
+                      </ion-item>
+                  </span></td>
+                </tr>
+                <tr>
+                  <td class="tg-gma3" rowspan="2">13</td>
+                  <td class="tg-napo">CUACA</td>
+                  <td class="tg-gma3" rowspan="2">14</td>
+                  <td class="tg-napo" colspan="3"><span style="font-weight:700">TIPE PERKERASAN </span><br><span style="font-weight:700">BAHU JALAN</span><br></td>
+                  <td class="tg-gma3" rowspan="2">15</td>
+                  <td class="tg-7p3h" colspan="4"><span style="font-weight:700">POSISI BAHU TERHADAP MUKA </span><br><span style="font-weight:700">JALAN</span></td>
+                </tr>
+                <tr>
+                  <td class="tg-napo"><span style="font-weight:700">
+                      <!--CUACA -->
+                      <ion-item style=" font-size: 2vw;font-weight: bold;">
+                        <ion-select [(ngModel)]="cuaca" placeholder="Pilih" cancelText="Cancel" okText="OK">
+                            <ion-option value="1">Cerah</ion-option>
+                            <ion-option value="2">Berawan</ion-option>
+                            <ion-option value="3">Berkabut</ion-option>
+                            <ion-option value="4">Hujan</ion-option>
+                            <ion-option value="5">Banjir</ion-option>
+                        </ion-select>
+                      </ion-item>
+                  </span></td>
+                  <td class="tg-napo" colspan="3"><span style="font-weight:700">
+                        <!--TIPE PERKERASAN BAHU JALAN -->
+                        <ion-item style=" font-size: 2vw;font-weight: bold;">
+                          <ion-select [(ngModel)]="tipeperkerasanbahujalan" placeholder="Pilih" cancelText="Cancel" okText="OK">
+                              <ion-option value="1">Aspal</ion-option>
+                              <ion-option value="2">Bukan Aspal</ion-option>
+                              <ion-option value="3">Tampa Batu</ion-option>
+                          </ion-select>
+                        </ion-item>
+                  </span></td>
+                  <td class="tg-7p3h" colspan="4"><span style="font-weight:700">
+                      <!--POSISI BAHU TERHADAP MUKA JALAN -->
+                      <ion-item style=" font-size: 2vw;font-weight: bold;">
+                          <ion-select [(ngModel)]="posisibahuterhadapmukajalan" placeholder="Pilih" cancelText="Cancel" okText="OK">
+                              <ion-option value="1">Aspal</ion-option>
+                              <ion-option value="2">Bukan Aspal</ion-option>
+                              <ion-option value="3">Tampa Batu</ion-option>
+                          </ion-select>
+                        </ion-item>
+                  </span></td>
+                </tr>
+                <tr>
+                  <td class="tg-gma3" rowspan="2">16</td>
+                  <td class="tg-napo" colspan="5">KONSTRUKSI PERKERASAN<br> JALAN</td>
+                  <td class="tg-gma3" rowspan="2">17</td>
+                  <td class="tg-7p3h" colspan="4"><span style="font-weight:700">KUALITAS PERKERASAN </span><br><span style="font-weight:700">JALAN</span></td>
+                </tr>
+                <tr>
+                  <td class="tg-7p3h" colspan="5"><span style="font-weight:700">
+                       <!--KONSTRUKSI PERKERASAN JALAN -->
+                       <ion-item style=" font-size: 2vw;font-weight: bold;">
+                          <ion-select [(ngModel)]="konstruksiperkerasanjalan" placeholder="Pilih" cancelText="Cancel" okText="OK">
+                              <ion-option value="1">Aspal</ion-option>
+                              <ion-option value="2">Beton</ion-option>
+                              <ion-option value="3">Tampa Batu</ion-option>
+                          </ion-select>
+                        </ion-item>
+                  </span></td>
+                  <td class="tg-7p3h" colspan="4"><span style="font-weight:700">
+                        <!--KUALITAS PERKERASAN JALAN -->
+                        <ion-item style=" font-size: 2vw;font-weight: bold;">
+                          <ion-select [(ngModel)]="kualitasperkerasanjalan" placeholder="Pilih" cancelText="Cancel" okText="OK">
+                              <ion-option value="1">Aspal</ion-option>
+                              <ion-option value="2">Beton</ion-option>
+                              <ion-option value="3">Tampa Batu</ion-option>
+                          </ion-select>
+                        </ion-item>
+                  </span></td>
+                </tr>
+                <tr>
+                  <td class="tg-gma3" rowspan="2">18</td>
+                  <td class="tg-napo" colspan="5">KEADAAN PERMUKAAN<br> JALAN</td>
+                  <td class="tg-gma3" rowspan="2">19</td>
+                  <td class="tg-7p3h" colspan="4"><span style="font-weight:700">LAKA DI PERSIMPANGAN</span></td>
+                </tr>
+                <tr>
+                  <td class="tg-napo" colspan="5"><span style="font-weight:700">
+                       <!--KEADAAN PERMUKAAN JALAN -->
+                       <ion-item style=" font-size: 2vw;font-weight: bold;">
+                          <ion-select [(ngModel)]="keadaanpermukaanjalan" placeholder="Pilih" cancelText="Cancel" okText="OK">
+                              <ion-option value="1">Aspal</ion-option>
+                              <ion-option value="2">Beton</ion-option>
+                              <ion-option value="3">Tampa Batu</ion-option>
+                          </ion-select>
+                        </ion-item>
+                  </span></td>
+                  <td class="tg-7p3h" colspan="4"><span style="font-weight:700">
+                        <!--LAKA DIPERSIMPANGAN JALAN -->
+                        <ion-item style=" font-size: 2vw;font-weight: bold;">
+                          <ion-select [(ngModel)]="lakadipersimpangan" placeholder="Pilih" cancelText="Cancel" okText="OK">
+                              <ion-option value="1">Bukan</ion-option>
+                              <ion-option value="2">Iya</ion-option>
+                          </ion-select>
+                        </ion-item>
+                  </span></td>
+                </tr>
+                <tr>
+                  <td class="tg-gma3" rowspan="2">20</td>
+                  <td class="tg-napo">TIPE SIMPANG</td>
+                  <td class="tg-gma3" rowspan="2">21</td>
+                  <td class="tg-napo" colspan="8">PENGATURAN PERSIMPANGAN</td>
+                </tr>
+                <tr>
+                  <td class="tg-7p3h"><span style="font-weight:700">
+                      <!--TIPE SIMPANG -->
+                      <ion-item style=" font-size: 2vw;font-weight: bold;">
+                        <ion-select [(ngModel)]="tipesimpang" placeholder="Pilih" cancelText="Cancel" okText="OK">
+                            <ion-option value="1">Simpang 4</ion-option>
+                            <ion-option value="2">Simpang T</ion-option>
+                        </ion-select>
+                      </ion-item>
+                  </span></td>
+                  <td class="tg-7p3h" colspan="8"><span style="font-weight:700">
+                       <!--PENGATURAN PERSIMPANGA -->
+                      <ion-item style=" font-size: 2vw;font-weight: bold;">
+                        <ion-select [(ngModel)]="pengaturanpersimpangan" placeholder="Pilih" cancelText="Cancel" okText="OK">
+                            <ion-option value="1">Simpang 4</ion-option>
+                            <ion-option value="2">Simpang T</ion-option>
+                        </ion-select>
+                      </ion-item>
+                  </span></td>
+                </tr>
+                <tr>
+                  <td class="tg-5ece" colspan="11"><span style="font-weight:bold">DATA KENDARAAN</span></td>
+                </tr>
+                <tr>
+                  <td class="tg-1p6p" colspan="3"><span style="font-weight:700">DATA KENDARAAN</span></td>
+                  <td class="tg-25da">KEND. KE 1</td>
+                  <td class="tg-25da" colspan="4">KEND. KE 2</td>
+                  <td class="tg-25da" colspan="2">KEND. KE 3</td>
+                  <td class="tg-25da">KEND. KE 4</td>
+                </tr>
+                <tr>
+                  <td class="tg-napo">22</td>
+                  <td class="tg-napo" colspan="2">FUNGSI KENDARAAN</td>
+                  <td class="tg-napo">
+                     <!--FUNGSI KENDARAAN -->
+                     <ion-item style=" font-size: 2vw;font-weight: bold;">
+                        <ion-select [(ngModel)]="fungsikendaraan1" placeholder="Pilih" cancelText="Cancel" okText="OK">
+                            <ion-option value="1">Pribadi</ion-option>
+                            <ion-option value="2">Taxi</ion-option>
+                            <ion-option value="3">Angkut Penumpang</ion-option>
+                            <ion-option value="4">taxi</ion-option>
+                        </ion-select>
+                      </ion-item>
+                  </td>
+                  <td class="tg-7p3h" colspan="4">
+                      <!--FUNGSI KENDARAAN -->
+                      <ion-item style=" font-size: 2vw;font-weight: bold;">
+                          <ion-select [(ngModel)]="fungsikendaraan2" placeholder="Pilih" cancelText="Cancel" okText="OK">
+                              <ion-option value="1">Pribadi</ion-option>
+                              <ion-option value="2">Taxi</ion-option>
+                              <ion-option value="3">Angkut Penumpang</ion-option>
+                              <ion-option value="4">taxi</ion-option>
+                          </ion-select>
+                        </ion-item>
+                  </td>
+                  <td class="tg-napo" colspan="2">
+                        <!--FUNGSI KENDARAAN -->
+                        <ion-item style=" font-size: 2vw;font-weight: bold;">
+                          <ion-select [(ngModel)]="fungsikendaraan3" placeholder="Pilih" cancelText="Cancel" okText="OK">
+                              <ion-option value="1">Pribadi</ion-option>
+                              <ion-option value="2">Taxi</ion-option>
+                              <ion-option value="3">Angkut Penumpang</ion-option>
+                              <ion-option value="4">taxi</ion-option>
+                          </ion-select>
+                        </ion-item>
+                  </td>
+                  <td class="tg-napo">
+                        <!--FUNGSI KENDARAAN -->
+                        <ion-item style=" font-size: 2vw;font-weight: bold;">
+                          <ion-select [(ngModel)]="fungsikendaraan4" placeholder="Pilih" cancelText="Cancel" okText="OK">
+                              <ion-option value="1">Pribadi</ion-option>
+                              <ion-option value="2">Taxi</ion-option>
+                              <ion-option value="3">Angkut Penumpang</ion-option>
+                              <ion-option value="4">taxi</ion-option>
+                          </ion-select>
+                        </ion-item>
+                  </td>
+                </tr>
+                <tr>
+                  <td class="tg-napo">23</td>
+                  <td class="tg-napo" colspan="2">TYPE KENDARAAN</td>
+                  <td class="tg-napo">
+                      <!--TYPE KENDARAAN -->
+                      <ion-item style=" font-size: 2vw;font-weight: bold;">
+                          <ion-select [(ngModel)]="typekendaraan1" placeholder="Pilih" cancelText="Cancel" okText="OK">
+                              <ion-option value="1">Sedan</ion-option>
+                              <ion-option value="2">Motor</ion-option>
+                              <ion-option value="3">Sepeda</ion-option>
+                              <ion-option value="4">Truk</ion-option>
+                          </ion-select>
+                        </ion-item>
+                  </td>
+                  <td class="tg-7p3h" colspan="4">
+                      <!--TYPE KENDARAAN -->
+                      <ion-item style=" font-size: 2vw;font-weight: bold;">
+                          <ion-select [(ngModel)]="typekendaraan2" placeholder="Pilih" cancelText="Cancel" okText="OK">
+                              <ion-option value="1">Sedan</ion-option>
+                              <ion-option value="2">Motor</ion-option>
+                              <ion-option value="3">Sepeda</ion-option>
+                              <ion-option value="4">Truk</ion-option>
+                          </ion-select>
+                        </ion-item>
+                  </td>
+                  <td class="tg-napo" colspan="2">
+                      <!--TYPE KENDARAAN -->
+                      <ion-item style=" font-size: 2vw;font-weight: bold;">
+                          <ion-select [(ngModel)]="typekendaraan3" placeholder="Pilih" cancelText="Cancel" okText="OK">
+                              <ion-option value="1">Sedan</ion-option>
+                              <ion-option value="2">Motor</ion-option>
+                              <ion-option value="3">Sepeda</ion-option>
+                              <ion-option value="4">Truk</ion-option>
+                          </ion-select>
+                        </ion-item>
+                  </td>
+                  <td class="tg-napo">
+                      <!--TYPE KENDARAAN -->
+                      <ion-item style=" font-size: 2vw;font-weight: bold;">
+                          <ion-select [(ngModel)]="typekendaraan4" placeholder="Pilih" cancelText="Cancel" okText="OK">
+                              <ion-option value="1">Sedan</ion-option>
+                              <ion-option value="2">Motor</ion-option>
+                              <ion-option value="3">Sepeda</ion-option>
+                              <ion-option value="4">Truk</ion-option>
+                          </ion-select>
+                        </ion-item>
+                  </td>
+                </tr>
+                <tr>
+                  <td class="tg-7p3h">24</td>
+                  <td class="tg-napo" colspan="2">PERUSAHAAN BUS</td>
+                  <td class="tg-7p3h">
+                      <ion-input class="input" type="text" placeholder="isi"></ion-input>
+                  </td>
+                  <td class="tg-7p3h" colspan="4">
+                      <ion-input class="input" type="text" placeholder="isi"></ion-input>
+                  </td>
+                  <td class="tg-7p3h" colspan="2">
+                      <ion-input class="input" type="text" placeholder="isi"></ion-input>
+                  </td>
+                  <td class="tg-7p3h">
+                      <ion-input class="input" type="text" placeholder="isi"></ion-input>
+                  </td>
+                </tr>
+                <tr>
+                  <td class="tg-napo">25</td>
+                  <td class="tg-napo" colspan="2">MEREK KENDARAAN</td>
+                  <td class="tg-7p3h"></td>
+                  <td class="tg-7p3h" colspan="4"></td>
+                  <td class="tg-7p3h" colspan="2"></td>
+                  <td class="tg-7p3h"></td>
+                </tr>
+                <tr>
+                  <td class="tg-napo">26</td>
+                  <td class="tg-napo" colspan="2">MEREK KAROSERI</td>
+                  <td class="tg-7p3h"></td>
+                  <td class="tg-7p3h" colspan="4"></td>
+                  <td class="tg-7p3h" colspan="2"></td>
+                  <td class="tg-7p3h"></td>
+                </tr>
+                <tr>
+                  <td class="tg-gma3" rowspan="2">27</td>
+                  <td class="tg-gma3" colspan="2" rowspan="2">TAHUN PEMBUATAN</td>
+                  <td class="tg-1p6p">PICTURE</td>
+                  <td class="tg-1p6p" colspan="4">PICTURE</td>
+                  <td class="tg-1p6p" colspan="2">PICTURE</td>
+                  <td class="tg-1p6p">PICTURE</td>
+                </tr>
+                <tr>
+                  <td class="tg-7p3h">INPUT</td>
+                  <td class="tg-7p3h" colspan="4">INPUT</td>
+                  <td class="tg-7p3h" colspan="2">INPUT</td>
+                  <td class="tg-7p3h">INPUT</td>
+                </tr>
+                <tr>
+                  <td class="tg-gma3" rowspan="2">28</td>
+                  <td class="tg-gma3" colspan="2" rowspan="2">TNKB</td>
+                  <td class="tg-7p3h">PICTURE</td>
+                  <td class="tg-7p3h" colspan="4">PICTURE</td>
+                  <td class="tg-7p3h" colspan="2">PICTURE</td>
+                  <td class="tg-7p3h">PICTURE</td>
+                </tr>
+                <tr>
+                  <td class="tg-7p3h">INPUT</td>
+                  <td class="tg-7p3h" colspan="4">INPUT</td>
+                  <td class="tg-7p3h" colspan="2">INPUT</td>
+                  <td class="tg-7p3h">INPUT</td>
+                </tr>
+                <tr>
+                  <td class="tg-gma3" rowspan="2">29</td>
+                  <td class="tg-gma3" colspan="2" rowspan="2">STNK</td>
+                  <td class="tg-7p3h">PICTURE</td>
+                  <td class="tg-7p3h" colspan="4">PICTURE</td>
+                  <td class="tg-7p3h" colspan="2">PICTURE</td>
+                  <td class="tg-7p3h">PICTURE</td>
+                </tr>
+                <tr>
+                  <td class="tg-7p3h">INPUT</td>
+                  <td class="tg-7p3h" colspan="4">INPUT</td>
+                  <td class="tg-7p3h" colspan="2">INPUT</td>
+                  <td class="tg-7p3h">INPUT</td>
+                </tr>
+                <tr>
+                  <td class="tg-gma3" rowspan="2">30</td>
+                  <td class="tg-gma3" colspan="2" rowspan="2">WARNA TNKB</td>
+                  <td class="tg-7p3h">PICTURE</td>
+                  <td class="tg-7p3h" colspan="4">PICTURE</td>
+                  <td class="tg-7p3h" colspan="2">PICTURE</td>
+                  <td class="tg-7p3h">PICTURE</td>
+                </tr>
+                <tr>
+                  <td class="tg-7p3h">INPUT</td>
+                  <td class="tg-7p3h" colspan="4">INPUT</td>
+                  <td class="tg-7p3h" colspan="2">INPUT</td>
+                  <td class="tg-7p3h">INPUT</td>
+                </tr>
+                <tr>
+                  <td class="tg-napo">31</td>
+                  <td class="tg-gma3" colspan="2">CC SILINDER</td>
+                  <td class="tg-7p3h">INPUT</td>
+                  <td class="tg-7p3h" colspan="4">INPUT</td>
+                  <td class="tg-7p3h" colspan="2">INPUT</td>
+                  <td class="tg-7p3h">INPUT</td>
+                </tr>
+                <tr>
+                  <td class="tg-gma3" rowspan="2">32</td>
+                  <td class="tg-gma3" colspan="2" rowspan="2">NO RANGKA/NIK</td>
+                  <td class="tg-7p3h">PICTURE</td>
+                  <td class="tg-7p3h" colspan="4">PICTURE</td>
+                  <td class="tg-7p3h" colspan="2">PICTURE</td>
+                  <td class="tg-7p3h">PICTURE</td>
+                </tr>
+                <tr>
+                  <td class="tg-7p3h">INPUT</td>
+                  <td class="tg-7p3h" colspan="4">INPUT</td>
+                  <td class="tg-7p3h" colspan="2">INPUT</td>
+                  <td class="tg-7p3h">INPUT</td>
+                </tr>
+                <tr>
+                  <td class="tg-gma3" rowspan="2">33</td>
+                  <td class="tg-gma3" colspan="2" rowspan="2">NOMOR MESIN</td>
+                  <td class="tg-7p3h">PICTURE</td>
+                  <td class="tg-7p3h" colspan="4">PICTURE</td>
+                  <td class="tg-7p3h" colspan="2">PICTURE</td>
+                  <td class="tg-7p3h">PICTURE</td>
+                </tr>
+                <tr>
+                  <td class="tg-7p3h">INPUT</td>
+                  <td class="tg-7p3h" colspan="4">INPUT</td>
+                  <td class="tg-7p3h" colspan="2">INPUT</td>
+                  <td class="tg-7p3h">INPUT</td>
+                </tr>
+                <tr>
+                  <td class="tg-napo">34</td>
+                  <td class="tg-napo" colspan="2">KERUSAKAN<br> KENDARAAN</td>
+                  <td class="tg-7p3h">INPUT</td>
+                  <td class="tg-7p3h" colspan="4">INPUT</td>
+                  <td class="tg-7p3h" colspan="2">INPUT</td>
+                  <td class="tg-7p3h">INPUT</td>
+                </tr>
+                <tr>
+                  <td class="tg-napo">35</td>
+                  <td class="tg-napo" colspan="2">KONSISI BAN</td>
+                  <td class="tg-7p3h">INPUT</td>
+                  <td class="tg-7p3h" colspan="4">INPUT</td>
+                  <td class="tg-7p3h" colspan="2">INPUT</td>
+                  <td class="tg-7p3h">INPUT</td>
+                </tr>
+                <tr>
+                  <td class="tg-napo">36</td>
+                  <td class="tg-napo" colspan="2">LAMPU YANG <br>TIDAK <br>PERFUNGSI</td>
+                  <td class="tg-7p3h">INPUT</td>
+                  <td class="tg-7p3h" colspan="4">INPUT</td>
+                  <td class="tg-7p3h" colspan="2">INPUT</td>
+                  <td class="tg-7p3h">INPUT</td>
+                </tr>
+              </table>
+        </ion-col>
+      </ion-row>
 
-    </ion-row>
+
+      <div style="height:50px">
+
+        </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
       <!--<ion-col col-3 class="satu">
           <ion-row justify-content-left>
             <ion-col col-3 class="nomor">34</ion-col>
