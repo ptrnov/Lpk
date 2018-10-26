@@ -174,13 +174,13 @@ export let getPolda = [
     id:6,
     kode:"",
     type:"B",
-    polda:"Babel",
+    polda:"BABEL",
   },
   {
     id:7,
     kode:"",
     type:"A",
-    polda:"Sumsel",
+    polda:"SUMSEL",
   },
   {
     id:8,
@@ -922,6 +922,168 @@ export let getPolwil = [
     id_polda:"5",
     polda:"KEPRI",
     polres: "POLRES KARIMUN"
+  },
+  {
+    id:98,
+    id_polda:"5",
+    polda:"KEPRI",
+    polres: "POLRES NATUNA"
+  },
+  {
+    id:99,
+    id_polda:"5",
+    polda:"KEPRI",
+    polres: "POLRES BINTAN"
+  },
+  {
+    id:100,
+    id_polda:"5",
+    polda:"KEPRI",
+    polres: "POLRES ANAMBAS"
+  },
+  {
+    id:101,
+    id_polda:"5",
+    polda:"KEPRI",
+    polres: "POLRESTA BATAM"
+  },
+  {
+    id:102,
+    id_polda:"5",
+    polda:"KEPRI",
+    polres: "POLRES LINGGA"
+  },
+  {
+    id:103,
+    id_polda:"6",
+    polda:"BABEL",
+    polres: "POLRES PANGKAL PINANG"
+  },
+  {
+    id:104,
+    id_polda:"6",
+    polda:"BABEL",
+    polres: "POLRES BANGKA"
+  },
+  {
+    id:105,
+    id_polda:"6",
+    polda:"BABEL",
+    polres: "POLRES BELITUNG"
+  },
+  {
+    id:106,
+    id_polda:"6",
+    polda:"BABEL",
+    polres: "POLRES BANGKA TENGAH"
+  },
+  {
+    id:107,
+    id_polda:"6",
+    polda:"BABEL",
+    polres: "POLRES BANGKA SELATAN"
+  },
+  {
+    id:108,
+    id_polda:"6",
+    polda:"BABEL",
+    polres: "POLRES BANGKA BARAT"
+  },
+  {
+    id:109,
+    id_polda:"6",
+    polda:"BABEL",
+    polres: "POLRES BELITUNG TIMUR"
+  },
+  {
+    id:110,
+    id_polda:"6",
+    polda:"SUMSEL",
+    polres: "POLRESTABES PALEMBANG"
+  },
+  {
+    id:111,
+    id_polda:"6",
+    polda:"SUMSEL",
+    polres: "POLRES MUSI BANYUASIN"
+  },
+  {
+    id:112,
+    id_polda:"6",
+    polda:"SUMSEL",
+    polres: "POLRES OGAN KOMERING ILIR"
+  },
+  {
+    id:113,
+    id_polda:"6",
+    polda:"SUMSEL",
+    polres: "POLRES MUARA ENIM"
+  },
+  {
+    id:114,
+    id_polda:"6",
+    polda:"SUMSEL",
+    polres: "POLRES LAHAT"
+  },
+  {
+    id:115,
+    id_polda:"6",
+    polda:"SUMSEL",
+    polres: "POLRES OGAN KOMERING ULU"
+  },
+  {
+    id:116,
+    id_polda:"6",
+    polda:"SUMSEL",
+    polres: "POLRES LUBUK LINGGAU"
+  },
+  {
+    id:117,
+    id_polda:"6",
+    polda:"SUMSEL",
+    polres: "POLRES PAGARALAM"
+  },
+  {
+    id:118,
+    id_polda:"6",
+    polda:"SUMSEL",
+    polres: "POLRES BANYUASIN"
+  },
+  {
+    id:119,
+    id_polda:"6",
+    polda:"SUMSEL",
+    polres: "POLRES PRABUMULIH"
+  },
+  {
+    id:120,
+    id_polda:"6",
+    polda:"SUMSEL",
+    polres: "POLRES MUSI RAWAS"
+  },
+  {
+    id:121,
+    id_polda:"6",
+    polda:"SUMSEL",
+    polres: "POLRES OKU TIMUR"
+  },
+  {
+    id:122,
+    id_polda:"6",
+    polda:"SUMSEL",
+    polres: "POLRES OKU SELATAN"
+  },
+  {
+    id:123,
+    id_polda:"6",
+    polda:"SUMSEL",
+    polres: "POLRES OGAN ILIR"
+  },
+  {
+    id:124,
+    id_polda:"6",
+    polda:"SUMSEL",
+    polres: "POLRES EMPAT LAWANG"
   },
 
 ];
