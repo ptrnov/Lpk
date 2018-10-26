@@ -1,0 +1,28 @@
+page-signup {
+  .title-home{
+    font-size: 11px;
+    font-family:"Arial Black";
+    color:#e8bb16;
+  }
+  .header-page{
+    background-image: url('../assets/imgs/background.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+  .content-body{
+    background-color: white;
+  }
+  .signup-form{
+    .form-style1{
+      padding-bottom: 40px;
+      padding-top: 20px;
+      border-radius: 7px 7px 7px 7px;
+    }
+    .form-style2{
+      padding-bottom: 40px;
+      padding-top: 20px;
+      border-radius: 7px 7px 7px 7px;
+    }
+
+  }
+}

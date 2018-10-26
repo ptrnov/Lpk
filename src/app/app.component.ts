@@ -1,5 +1,5 @@
 import { Component, ViewChild } from '@angular/core';
-import { Nav, Platform } from 'ionic-angular';
+import { Nav, Platform,Events } from 'ionic-angular';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { Keyboard } from '@ionic-native/keyboard';
@@ -8,6 +8,8 @@ import { ListPage } from '../pages/list/list';
 import { LoginPage } from '../pages/login/login';
 import { NokendaraanPage } from '../pages/nokendaraan/nokendaraan';
 import { SimPage } from '../pages/sim/sim';
+import { SignupPage } from '../pages/signup/signup';
+import { DatabaseProvider } from '../providers/database/database';
 
 export interface MenuItem {
   id:string;
@@ -28,24 +30,62 @@ export class MyApp {
 
   pages: Array<{title: string, component: any}>;
   appMenuItems: Array<MenuItem>;
+  profileData:any;
+
   constructor(
     public platform: Platform,
     public statusBar: StatusBar,
     public splashScreen: SplashScreen,
-    public keyboard: Keyboard
+    public keyboard: Keyboard,
+    public database:DatabaseProvider,
+    public events: Events
   ) {
     this.initializeApp();
+
+    this.platform.ready().then(() => {
+      this.database.initProvider();
+    });
+    setTimeout(() => {
+      this.database.setAdministrator();
+    },100);
+    this.appMenuItems=[];
+    this.appMenuItems = [
+      {id:'side-button[0]', title: 'Laporan Kecelakaan - Laporan Awal', component: HomePage, icon: 'ios-checkmark-circle-outline', color:'light'},
+      {id:'side-button[1]', title: 'Pengecekan Nomor Kendaraan', component: NokendaraanPage, icon: 'ios-checkmark-circle-outline', color:'light'},
+      {id:'side-button[2]', title: 'Pengecekan SIM', component: SimPage, icon: 'ios-checkmark-circle-outline', color:'light'},
+    ];
+
+    this.events.subscribe('profileLogin', (data:any) =>{
+        console.log("profile login=",data);
+        this.profileData=data;
+        if(data[0]['username']=='administrator'){
+          this.appMenuItems=[];
+          this.appMenuItems = [
+            {id:'side-button[0]', title: 'Laporan Kecelakaan - Laporan Awal', component: HomePage, icon: 'ios-checkmark-circle-outline', color:'light'},
+            {id:'side-button[1]', title: 'Pengecekan Nomor Kendaraan', component: NokendaraanPage, icon: 'ios-checkmark-circle-outline', color:'light'},
+            {id:'side-button[2]', title: 'Pengecekan SIM', component: SimPage, icon: 'ios-checkmark-circle-outline', color:'light'},
+            {id:'side-button[3]', title: 'Tambah Pengguna', component: SignupPage, icon: 'ios-checkmark-circle-outline', color:'light'}
+          ];
+          // this.appMenuItems.push({id:'side-button[3]', title: 'Tambah Pengguna', component: SimPage, icon: 'ios-checkmark-circle-outline', color:'light'});
+        }else{
+          this.appMenuItems=[];
+          this.appMenuItems = [
+            {id:'side-button[0]', title: 'Laporan Kecelakaan - Laporan Awal', component: HomePage, icon: 'ios-checkmark-circle-outline', color:'light'},
+            {id:'side-button[1]', title: 'Pengecekan Nomor Kendaraan', component: NokendaraanPage, icon: 'ios-checkmark-circle-outline', color:'light'},
+            {id:'side-button[2]', title: 'Pengecekan SIM', component: SimPage, icon: 'ios-checkmark-circle-outline', color:'light'},
+          ];
+        }
+    });
 
     // used for an example of ngFor and navigation
     // this.pages = [
     //   { title: 'Form', component: HomePage },
     //   { title: 'List', component: ListPage }
     // ];
-    this.appMenuItems = [
-      {id:'side-button[0]', title: 'Laporan Kecelakaan - Laporan Awal', component: HomePage, icon: 'ios-checkmark-circle-outline', color:'light'},
-      {id:'side-button[1]', title: 'Pengecekan Nomor Kendaraan', component: NokendaraanPage, icon: 'ios-checkmark-circle-outline', color:'light'},
-      {id:'side-button[2]', title: 'Pengecekan SIM', component: SimPage, icon: 'ios-checkmark-circle-outline', color:'light'},
-    ];
+
+
+
+
 
   }
 

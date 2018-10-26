@@ -20,6 +20,7 @@
     "@angular/http": "5.2.11",
     "@angular/platform-browser": "5.2.11",
     "@angular/platform-browser-dynamic": "5.2.11",
+    "@ionic-native/camera": "^4.16.0",
     "@ionic-native/core": "~4.15.0",
     "@ionic-native/keyboard": "4.16.0",
     "@ionic-native/splash-screen": "~4.15.0",
@@ -28,6 +29,7 @@
     "@ionic/storage": "2.2.0",
     "cordova-android": "6.4.0",
     "cordova-browser": "5.0.4",
+    "cordova-plugin-camera": "^4.0.3",
     "cordova-plugin-console": "^1.1.0",
     "cordova-plugin-device": "^1.1.6",
     "cordova-plugin-network-information": "^2.0.1",
@@ -60,12 +62,17 @@
       "cordova-plugin-statusbar": {},
       "cordova-plugin-device": {},
       "cordova-plugin-network-information": {},
-      "cordova-plugin-x-toast": {}
+      "cordova-plugin-x-toast": {},
+      "Camera": {},
+      "cordova-plugin-camera": {}
     },
     "platforms": [
-      "android",
       "browser",
-      "windows"
+      "windows",
+      "android"
     ]
+  },
+  "config": {
+    "ionic_sass": "./sass.js"
   }
 }

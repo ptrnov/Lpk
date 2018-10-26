@@ -3,10 +3,9 @@ import { Injectable } from '@angular/core';
 import { Http } from '@angular/http';
 import { SQLite,SQLiteObject } from '@ionic-native/sqlite';
 import { Platform } from 'ionic-angular';
-import { StatusBar } from '@ionic-native/status-bar';
 import {GET_STRING_TABLE} from "./tabel";
 
-const DB_NAME: string = 'data.db';
+const DB_NAME: string = 'korlantas.db';
 const win: any = window;
 
 @Injectable()
@@ -18,9 +17,9 @@ export class DatabaseProvider {
   constructor(
     public http: Http,
     public storage: SQLite,
-    private platform: Platform,
-    statusBar: StatusBar,
+    private platform: Platform
   ) {
+    console.log("init provider db");
     this.getStrTable = GET_STRING_TABLE;
      /* Split platform SQLite or WebSql
     * SQLite   : Live Mobile Storage.
@@ -29,15 +28,33 @@ export class DatabaseProvider {
     * Metode   : 1. Create DB; 2. GetApi->(insert/update data).
     */
    this.platform.ready().then(() => {
-      console.warn('platform Indentification');
-      if (this.platform._platforms[0] == 'cordova') {
-          console.warn('Storage: Sqlite cordova/Mobile Flatform - Create DB ');
-          this.storage = new SQLite;
-          this.storage.create({ name: DB_NAME ,location:"default" }).then( ( db: SQLiteObject ) => {
-            this.database = db;
+        console.warn('platform Indentification');
+        if (this.platform._platforms[0] == 'cordova') {
+            console.warn('Storage: Sqlite cordova/Mobile Flatform - Create DB ');
+            this.storage = new SQLite;
+            this.storage.create({ name: DB_NAME ,location:"default" }).then( ( db: SQLiteObject ) => {
+              this.database = db;
+              /**
+                * CREATE TABLE WITH ARRAY SQLSTR
+              */
+              this.getStrTable.forEach(element => {
+                if (this.getStrTable.length > 0){
+                  // console.log(element);
+                  this.createTable(element.TABEL,[]);
+                  this.createTable(element.UNIQUE,[]);
+                }else{
+                  console.log("SQL Definition Not Exist")
+                }
+              });
+            }).catch((error) => {
+              console.log(error);
+            });
+        } else {
+            console.warn('Storage: WebSql Browser Flatform');
+            this._db = win.openDatabase(DB_NAME, '1.0', '', 5 * 1024 * 1024);
             /**
-              * CREATE TABLE WITH ARRAY SQLSTR
-            */
+             * CREATE TABLE WITH ARRAY SQLSTR
+             */
             this.getStrTable.forEach(element => {
               if (this.getStrTable.length > 0){
                 // console.log(element);
@@ -47,28 +64,14 @@ export class DatabaseProvider {
                 console.log("SQL Definition Not Exist")
               }
             });
-          }).catch((error) => {
-            console.log(error);
-          });
-      } else {
-          console.warn('Storage: WebSql Browser Flatform');
-          this._db = win.openDatabase(DB_NAME, '1.0', '', 5 * 1024 * 1024);
-          /**
-           * CREATE TABLE WITH ARRAY SQLSTR
-           */
-          this.getStrTable.forEach(element => {
-            if (this.getStrTable.length > 0){
-              // console.log(element);
-              this.createTable(element.TABEL,[]);
-              this.createTable(element.UNIQUE,[]);
-            }else{
-              console.log("SQL Definition Not Exist")
-            }
-          });
-      }
-    });
+        }
+      });
+
   }
 
+  public initProvider():void{
+    console.log("log database");
+  }
   /* Pungsi Create Table untuk WebSql Browser & Sqlite Cordova
   * tabel    : adalah tabel yang sudah di create sebelumnya.
   * querySql : Sql Query Syntak
@@ -115,7 +118,6 @@ export class DatabaseProvider {
   }
 
   public insertData(querySql:string,bindings:any=[]) {
-      // let statusSave:boolean;
       bindings = typeof bindings !== 'undefined' ? bindings : [];
       // return new Promise((resolve, reject)=>{
       //   this.platform.ready().then(() => {
@@ -160,6 +162,19 @@ export class DatabaseProvider {
       // });
     }
 
+    /* Pungsi Select All Data untuk WebSql Browser & Sqlite Corddova
+    * tabel    : adalah tabel yang sudah di create sebelumnya.
+    * querySql : Sql Query Syntak
+    * Author   : ptr.nov@gmail.com
+    * Promise  : Resolve data
+    * var querySql ="SELECT id, usr FROM piter ORDER BY id DESC";
+      this.database.selectData(querySql,[]).then((data)=>{
+        console.log(data);
+        this.ListUser= data;
+      });
+    * ListUser deklarasi  private ListUser: any;
+    * ListUser send to html
+    */
     public selectData(querySql){
       var aryRsltInternal=[];
       return new Promise((resolve, reject)=>{
@@ -223,6 +238,20 @@ export class DatabaseProvider {
           }
         });
       });
-    }
+  }
+
+  public setAdministrator(){
+    var qry="INSERT INTO user (id,username,password,nama,jabatan,polda,polwil) VALUES (?,?,?,?,?,?,?)";
+    this.insertData(qry,[
+      '0001',
+      'administrator1',
+      'password',
+      'Adminstrator',
+      'Jenderal Pol',
+      'MetroJaya',
+      'Mabes'
+    ]);
+  }
+
 
 }

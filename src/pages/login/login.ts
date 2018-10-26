@@ -1,20 +1,21 @@
 import {Component} from "@angular/core";
 import {NavController, AlertController, ToastController, MenuController,Config,Events} from "ionic-angular";
 import {HomePage} from "../home/home";
+import { DatabaseProvider } from '../../providers/database/database';
+
 @Component({
   selector: 'page-login',
   templateUrl: 'login.html'
 })
 export class LoginPage {
   public responseData : any;
-  userData = {"username": "","password": "", "name": "","email": ""};
+  userData = {"username": "","password": ""};
   constructor(
       public nav: NavController,
       public forgotCtrl: AlertController,
       public menu: MenuController,
       public toastCtrl: ToastController,
-      // private database: DatabaseProvider,
-      // private dashboarAll: DashboardAllProvider,
+      private database: DatabaseProvider,
       public config:Config,
       public events: Events
   ){
@@ -45,12 +46,31 @@ export class LoginPage {
 
   // login and go to home page
   login() {
-    this.nav.setRoot(HomePage);
-    // let toastSukses = this.toastCtrl.create({
-    //   message: 'wait a moment',
-    //   duration: 3000,
-    //   position: 'middle'
-    // });
+    let toastSukses = this.toastCtrl.create({
+      message: 'Persiapan login, tunggu beberapa saaat...',
+      duration: 3000,
+      position: 'middle'
+    });
+    var querySql ="SELECT id,username,password,nama,jabatan,polda,polwil FROM user where username='"+ this.userData.username +"'";
+    this.database.selectData(querySql).then((data:any)=>{
+      if (data.length>0){
+        console.log("data user=",data);
+        console.log("data user=",data[0]['password']);
+        if(data[0]['password']==this.userData.password){
+          console.log("data true");
+          toastSukses.present();
+          toastSukses.onDidDismiss(() => {
+            this.events.publish('profileLogin',data);
+            this.nav.setRoot(HomePage);
+          });
+        }else{
+          this.salahUserPasswordToast();
+        }
+      }else{
+        console.log("User tidak ti temukan");
+        this.toastSalahUsername();
+      }
+    });
 
     // this.dashboarAll.postData(this.userData.username +"/"+ this.userData.password).then((result) => {
     //   this.responseData = result;
@@ -75,10 +95,21 @@ export class LoginPage {
     // });
     // this.nav.setRoot(HomePage);
   }
+  toastSalahUsername(){
+    let toast = this.toastCtrl.create({
+      message: 'Username salah, username tidak ditemukan.',
+      duration: 3000,
+      position: 'middle'
+    });
+    toast.onDidDismiss(() => {
+      console.log('Dismissed toast');
+    });
+    toast.present();
+  }
 
   salahUserPasswordToast() {
     let toast = this.toastCtrl.create({
-      message: 'User or Password incorrect.',
+      message: 'Password salah.',
       duration: 3000,
       position: 'middle'
     });

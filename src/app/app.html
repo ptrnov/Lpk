@@ -10,12 +10,12 @@
                   </div>
               </ion-col>
               <!-- <ion-col padding-top col-8 *ngFor="let item of profileData"> -->
-              <ion-col padding-top col-8>
+              <ion-col padding-top col-8 *ngFor="let item of profileData">
                 <h3 ion-text class="no-margin bold text-white" >
-                Nama
+                  {{item.nama}}
                 </h3>
                 <span ion-text color="text-white">
-                Jabatan
+                  {{item.jabatan}}
                 </span><br>
                 <!-- <span ion-text color="putih">Area</span> -->
               </ion-col>
