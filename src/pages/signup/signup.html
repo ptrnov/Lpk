@@ -64,25 +64,51 @@
               <ion-label floating>
                 <ion-icon name="person" item-start class="text-primary"></ion-icon>Jabatan
               </ion-label>
-              <ion-input formControlName="jabatan" type="text"></ion-input>
+              <!-- <ion-input formControlName="jabatan" type="text"></ion-input> -->
+              <ion-select formControlName="jabatan" interface="popover" cancelText="Cancel" okText="OK">
+                <ion-option
+                  *ngFor="let item of selectjabatan"
+                  value="{{item.id}}"
+                >
+                  {{item.name}}
+                </ion-option>
+              </ion-select>
             </ion-item>
             <ion-item *ngIf="todo.get('jabatan').errors && todo.get('jabatan').dirty">
                 <p color="danger" ion-text *ngIf="todo.get('jabatan').hasError('required')">Required</p>
             </ion-item>
+
             <ion-item>
                 <ion-label floating>
                   <ion-icon name="person" item-start class="text-primary"></ion-icon>Polda
                 </ion-label>
-                <ion-input formControlName="polda" type="text"></ion-input>
+                <!-- <ion-input formControlName="polda" type="text"></ion-input> -->
+                <ion-select formControlName="polda" cancelText="Cancel" okText="OK" (ionChange)="poldaChange($event)">
+                    <ion-option
+                      *ngFor="let item of selectPolda"
+                      value="{{item.id}}"
+                    >
+                      {{item.polda}}
+                    </ion-option>
+                </ion-select>
             </ion-item>
             <ion-item *ngIf="todo.get('polda').errors && todo.get('polda').dirty">
                 <p color="danger" ion-text *ngIf="todo.get('polda').hasError('required')">Required</p>
             </ion-item>
+
             <ion-item>
               <ion-label floating>
                 <ion-icon name="person" item-start class="text-primary"></ion-icon> Polwil/Tabes
               </ion-label>
-              <ion-input formControlName="polwil" type="text"></ion-input>
+              <!-- <ion-input formControlName="polwil" type="text"></ion-input> -->
+              <ion-select formControlName="polwil" cancelText="Cancel" okText="OK">
+                  <ion-option
+                    *ngFor="let sp of selectPolwil"
+                    value="{{sp.id}}"
+                  >
+                    {{sp.polres}}
+                  </ion-option>
+              </ion-select>
             </ion-item>
             <ion-item *ngIf="todo.get('polwil').errors && todo.get('polwil').dirty">
                 <p color="danger" ion-text *ngIf="todo.get('polwil').hasError('required')">Required</p>

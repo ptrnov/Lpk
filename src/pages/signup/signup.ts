@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage, NavController, NavParams,Events } from 'ionic-angular';
 import { FormBuilder, FormGroup, Validators,ValidatorFn,AbstractControl } from '@angular/forms';
 import { DatabaseProvider } from '../../providers/database/database';
 
@@ -11,13 +11,27 @@ import { DatabaseProvider } from '../../providers/database/database';
 export class SignupPage {
 
   todo   : FormGroup;
+  selectjabatan;
+  selectPolda;
+  selectPolwil;
+
 
   constructor(
       public navCtrl: NavController,
       public navParams: NavParams,
       private formBuilder : FormBuilder,
       private database: DatabaseProvider,
+      public events: Events
   ){
+  this.selectjabatan=this.database.aryJabatan();
+  this.selectPolda=this.database.aryPolda();
+  this.events.subscribe('publisPolwil', (data:any) =>{
+    this.selectPolwil=data;
+    console.log("Polwil",data);
+  });
+
+
+    console.log("polwil=",this.database.aryPolwil(1));
     this.todo  = this.formBuilder.group({
       id: ['',[Validators.required,]],
       username: ['',[Validators.required,]],
@@ -38,6 +52,12 @@ export class SignupPage {
       //           ])
       //      ]
     });
+  }
+
+  public poldaChange(event: Event) {
+    console.log("id polda",event);
+    // this.selectPolwil=
+    this.database.aryPolwil(event);
   }
 
   tambahUser(data){

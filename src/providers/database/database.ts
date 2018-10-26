@@ -2,8 +2,9 @@
 import { Injectable } from '@angular/core';
 import { Http } from '@angular/http';
 import { SQLite,SQLiteObject } from '@ionic-native/sqlite';
-import { Platform } from 'ionic-angular';
+import { Platform,Events } from 'ionic-angular';
 import {GET_STRING_TABLE} from "./tabel";
+import {getJabatan,getPolda,getPolwil} from "./data";
 
 const DB_NAME: string = 'korlantas.db';
 const win: any = window;
@@ -14,10 +15,12 @@ export class DatabaseProvider {
   private getStrTable:any;
   private _db: any;
 
+
   constructor(
     public http: Http,
     public storage: SQLite,
-    private platform: Platform
+    private platform: Platform,
+    public events: Events
   ) {
     console.log("init provider db");
     this.getStrTable = GET_STRING_TABLE;
@@ -253,5 +256,21 @@ export class DatabaseProvider {
     ]);
   }
 
+  public aryJabatan(){
+    return getJabatan;
+  }
+
+  public aryPolda(){
+    return getPolda;
+  }
+  public aryPolwil(idPolda){
+    var ary=[];
+    ary.push(getPolwil.filter(function(obj){
+        return obj.id_polda==idPolda;
+      })
+    );
+    this.events.publish('publisPolwil',ary[0]);
+    return ary[0];
+  }
 
 }
