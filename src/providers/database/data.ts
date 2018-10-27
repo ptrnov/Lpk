@@ -186,19 +186,19 @@ export let getPolda = [
     id:8,
     kode:"",
     type:"B",
-    polda:"Bengkulu",
+    polda:"BENGKULU",
   },
   {
     id:9,
     kode:"",
     type:"A",
-    polda:"Lampung",
+    polda:"LAMPUNG",
   },
   {
     id:10,
     kode:"",
     type:"A",
-    polda:"MetroJaya",
+    polda:"METROJAYA",
   },
   {
     id:11,
@@ -997,93 +997,346 @@ export let getPolwil = [
   },
   {
     id:110,
-    id_polda:"6",
+    id_polda:"7",
     polda:"SUMSEL",
     polres: "POLRESTABES PALEMBANG"
   },
   {
     id:111,
-    id_polda:"6",
+    id_polda:"7",
     polda:"SUMSEL",
     polres: "POLRES MUSI BANYUASIN"
   },
   {
     id:112,
-    id_polda:"6",
+    id_polda:"7",
     polda:"SUMSEL",
     polres: "POLRES OGAN KOMERING ILIR"
   },
   {
     id:113,
-    id_polda:"6",
+    id_polda:"7",
     polda:"SUMSEL",
     polres: "POLRES MUARA ENIM"
   },
   {
     id:114,
-    id_polda:"6",
+    id_polda:"7",
     polda:"SUMSEL",
     polres: "POLRES LAHAT"
   },
   {
     id:115,
-    id_polda:"6",
+    id_polda:"7",
     polda:"SUMSEL",
     polres: "POLRES OGAN KOMERING ULU"
   },
   {
     id:116,
-    id_polda:"6",
+    id_polda:"7",
     polda:"SUMSEL",
     polres: "POLRES LUBUK LINGGAU"
   },
   {
     id:117,
-    id_polda:"6",
+    id_polda:"7",
     polda:"SUMSEL",
     polres: "POLRES PAGARALAM"
   },
   {
     id:118,
-    id_polda:"6",
+    id_polda:"7",
     polda:"SUMSEL",
     polres: "POLRES BANYUASIN"
   },
   {
     id:119,
-    id_polda:"6",
+    id_polda:"7",
     polda:"SUMSEL",
     polres: "POLRES PRABUMULIH"
   },
   {
     id:120,
-    id_polda:"6",
+    id_polda:"7",
     polda:"SUMSEL",
     polres: "POLRES MUSI RAWAS"
   },
   {
     id:121,
-    id_polda:"6",
+    id_polda:"7",
     polda:"SUMSEL",
     polres: "POLRES OKU TIMUR"
   },
   {
     id:122,
-    id_polda:"6",
+    id_polda:"7",
     polda:"SUMSEL",
     polres: "POLRES OKU SELATAN"
   },
   {
     id:123,
-    id_polda:"6",
+    id_polda:"7",
     polda:"SUMSEL",
     polres: "POLRES OGAN ILIR"
   },
   {
     id:124,
-    id_polda:"6",
+    id_polda:"7",
     polda:"SUMSEL",
     polres: "POLRES EMPAT LAWANG"
   },
+  {
+    id:125,
+    id_polda:"8",
+    polda:"BENGKULU",
+    polres: "POLRES BENGKULU"
+  },
+  {
+    id:126,
+    id_polda:"8",
+    polda:"BENGKULU",
+    polres: "POLRES BENGKULU UTARA"
+  },
+  {
+    id:127,
+    id_polda:"8",
+    polda:"BENGKULU",
+    polres: "POLRES REJANG LEBONG"
+  },
+  {
+    id:128,
+    id_polda:"8",
+    polda:"BENGKULU",
+    polres: "POLRES BENGKULU SELATAN"
+  },
+  {
+    id:129,
+    id_polda:"8",
+    polda:"BENGKULU",
+    polres: "POLRES MUKO-MUKO"
+  },
+  {
+    id:130,
+    id_polda:"8",
+    polda:"BENGKULU",
+    polres: "POLRES SELUMA"
+  },
+  {
+    id:131,
+    id_polda:"8",
+    polda:"BENGKULU",
+    polres: "POLRES KAUR"
+  },
+  {
+    id:132,
+    id_polda:"8",
+    polda:"BENGKULU",
+    polres: "POLRES KEPAHIANG"
+  },
+  {
+    id:133,
+    id_polda:"8",
+    polda:"BENGKULU",
+    polres: "POLRES BENGKULU TENGAH"
+  },
+  {
+    id:134,
+    id_polda:"9",
+    polda:"LAMPUNG",
+    polres: "POLTABES BANDAR LAMPUNG"
+  },
+  {
+    id:135,
+    id_polda:"9",
+    polda:"LAMPUNG",
+    polres: "POLRES LAMPUNG SELATAN"
+  },
+  {
+    id:136,
+    id_polda:"9",
+    polda:"LAMPUNG",
+    polres: "POLRES METRO"
+  },
+  {
+    id:137,
+    id_polda:"9",
+    polda:"LAMPUNG",
+    polres: "POLRES LAMPUNG UTARA"
+  },
+  {
+    id:138,
+    id_polda:"9",
+    polda:"LAMPUNG",
+    polres: "POLRES LAMPUNG BARAT"
+  },
+  {
+    id:139,
+    id_polda:"9",
+    polda:"LAMPUNG",
+    polres: "POLRES TULANG BAWANG"
+  },
+  {
+    id:140,
+    id_polda:"9",
+    polda:"LAMPUNG",
+    polres: "POLRES TANGGAMUS"
+  },
+  {
+    id:141,
+    id_polda:"9",
+    polda:"LAMPUNG",
+    polres: "POLRES LAMPUNG TIMUR"
+  },
+  {
+    id:142,
+    id_polda:"9",
+    polda:"LAMPUNG",
+    polres: "POLRES WAY KANAN"
+  },
+  {
+    id:143,
+    id_polda:"9",
+    polda:"LAMPUNG",
+    polres: "POLRES LAMPUNG TENGAH"
+  },
+  {
+    id:144,
+    id_polda:"9",
+    polda:"LAMPUNG",
+    polres: "POLRES PASAWARAN"
+  },
+  {
+    id:145,
+    id_polda:"9",
+    polda:"LAMPUNG",
+    polres: "POLRES PRINGSEWU"
+  },
+  {
+    id:146,
+    id_polda:"9",
+    polda:"LAMPUNG",
+    polres: "POLRES MESUJI"
+  },
+  {
+    id:147,
+    id_polda:"9",
+    polda:"LAMPUNG",
+    polres: "POLRES TULANG BAWANG BARAT"
+  },
+  {
+    id:148,
+    id_polda:"10",
+    polda:"METROJAYA",
+    polres: "POLRES METRO JAKARTA PUSAT"
+  },
+  {
+    id:149,
+    id_polda:"10",
+    polda:"METROJAYA",
+    polres: "POLRES JAKARTA UTARA"
+  },
+  {
+    id:150,
+    id_polda:"10",
+    polda:"METROJAYA",
+    polres: "POLRES JAKARTA BARAT"
+  },
+  {
+    id:151,
+    id_polda:"10",
+    polda:"METROJAYA",
+    polres: "POLRES JAKARTA SELATAN"
+  },
+  {
+    id:152,
+    id_polda:"10",
+    polda:"METROJAYA",
+    polres: "POLRES JAKARTA TIMUR"
+  },
+  {
+    id:153,
+    id_polda:"10",
+    polda:"METROJAYA",
+    polres: "POLRES METRO TANGERANG"
+  },
+  {
+    id:154,
+    id_polda:"10",
+    polda:"METROJAYA",
+    polres: "POLRES KPPT TANJUNG PRIUK"
+  },
+  {
+    id:155,
+    id_polda:"10",
+    polda:"METROJAYA",
+    polres: "POLRES SOEKARNO HATTA"
+  },
+  {
+    id:156,
+    id_polda:"10",
+    polda:"METROJAYA",
+    polres: "POLRES METRO BEKASI"
+  },
+  {
+    id:157,
+    id_polda:"10",
+    polda:"METROJAYA",
+    polres: "POLRES METRO KEPULAUAN SERIBU"
+  },
+  {
+    id:158,
+    id_polda:"10",
+    polda:"METROJAYA",
+    polres: "POLRES BEKASI"
+  },
+  {
+    id:159,
+    id_polda:"10",
+    polda:"METROJAYA",
+    polres: "POLRESTA DEPOK"
+  },
+  {
+    id:1,
+    id_polda:"11",
+    polda:"JABAR",
+    polres: ""
+  },
+  {
+    id:1,
+    id_polda:"12",
+    polda:"BANTEN",
+    polres: ""
+  },
+  {
+    id:1,
+    id_polda:"13",
+    polda:"JATENG",
+    polres: ""
+  },
+  {
+    id:1,
+    id_polda:"14",
+    polda:"JATIM",
+    polres: ""
+  },
+  {
+    id:1,
+    id_polda:"15",
+    polda:"BALI",
+    polres: ""
+  },
+  {
+    id:1,
+    id_polda:"16",
+    polda:"NTB",
+    polres: ""
+  },
+  {
+    id:1,
+    id_polda:"17",
+    polda:"KALBAR",
+    polres: ""
+  },
+
 
 ];

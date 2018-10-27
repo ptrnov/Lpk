@@ -15,16 +15,17 @@ page-home {
   .row-header{
     margin-top:1  0px;
     margin-left:10px;
-  }
-  .col-header1{
-    padding: 0 0 0 0;
-    margin-left: 0px;
-    .logo {
-      max-width: 100%;
-      margin-left: -5px;
-      height: auto;
-      margin-top: 10px;
-      display: block;
+    margin-bottom: -22px;
+    .col-header1{
+      padding: 0 0 0 0;
+      margin-left: 0px;
+      .logo {
+        max-width: 100%;
+        margin-left: -5px;
+        height: auto;
+        margin-top: 10px;
+        display: block;
+      }
     }
   }
   .col-header2{
@@ -99,6 +100,206 @@ page-home {
       }
     }
   }
+
+  .row3-tbl{
+    margin-top:0px;
+    margin-left:10px;
+    margin-bottom: -22px;
+    .col3-tbl{
+      // background-color:violet;
+      padding: 0 0 0 0;
+      margin-left: 0px;
+      width:100%!important;
+    }
+    .card{
+        margin-left: 0px;
+        padding: 0 0 0 0;
+        width:100%!important;
+        // width: 95%!important;
+        border: 2px solid #000000;
+        .header{
+          border-bottom: 2px solid #000000;
+          padding: 0 0 0 0;
+          .label{
+            padding: 0 0 0 0;
+            margin-left: 0px;
+            font-size:2vw;
+            font-weight: bold;
+            text-align:center;
+            text-align: center;
+            margin-top: 0px;
+            margin-bottom: 0px;
+          }
+        }
+        .continer{
+          padding: 0 0 0 0;
+          margin-bottom: -12px;
+          .col_label1{
+            margin-left: 0px;
+            border-right: 2px solid #000000;
+            height: auto;
+            //background-color:blue;
+            .label1{
+              margin-top: -2px;
+              margin-right: -20px;
+              font-size: 2vw;
+              font-weight: bold;
+              text-align: left;
+            }
+            .input1{
+              padding: 0 0 0 0;
+              margin-top: -30px;
+              // margin-bottom: -25px;
+              font-size: 2vw;
+              // font-weight: bold;
+              text-align: center;
+              //background-color: red;
+            }
+          }
+          .col_label2-header{
+            margin-left: 0px;
+            background-color:#f5e9a4;
+            .label2{
+              margin-top: -2px;
+              margin-right: -25px;
+              font-size: 2vw;
+              font-weight: bold;
+              text-align: left;
+            }
+            .input2{
+              width:100%!important;
+              margin-top: -30px;
+              // margin-bottom: -25px;
+              font-size: 2vw;
+              // font-weight: bold;
+              text-align: center;
+              //background-color: red;
+            }
+          }
+          .col_label2{
+            margin-left: 0px;
+            .label2{
+              margin-top: -2px;
+              margin-right: -25px;
+              font-size: 2vw;
+              font-weight: bold;
+              text-align: left;
+            }
+            .input2{
+              width:100%!important;
+              margin-top: -30px;
+              // margin-bottom: -25px;
+              font-size: 2vw;
+              // font-weight: bold;
+              text-align: center;
+              //background-color: red;
+            }
+
+          }
+        }
+      }
+  }
+
+  .row3-tbl-kendaraan{
+    margin-top:0px;
+    margin-left:10px;
+    margin-bottom: -22px;
+    .col3-tbl{
+      // background-color:violet;
+      padding: 0 0 0 0;
+      margin-left: 0px;
+      width:100%!important;
+    }
+    .card{
+        margin-left: 0px;
+        padding: 0 0 0 0;
+        width:100%!important;
+        // width: 95%!important;
+        border: 2px solid #000000;
+        .header{
+          border-bottom: 2px solid #000000;
+          padding: 0 0 0 0;
+          .label{
+            padding: 0 0 0 0;
+            margin-left: 0px;
+            font-size:2vw;
+            font-weight: bold;
+            text-align:center;
+            text-align: center;
+            margin-top: 0px;
+            margin-bottom: 0px;
+          }
+        }
+        .continer{
+          padding: 0 0 0 0;
+          margin-bottom: -12px;
+          .col_label1{
+            background-color: #f4f66649;
+            margin-left: 0px;
+            border-right: 2px solid #000000;
+            height: auto;
+            //background-color:blue;
+            .label1{
+              margin-top: -2px;
+              // margin-right: -20px;
+              font-size: 2vw;
+              font-weight: bold;
+              text-align: center;
+            }
+            .input1{
+              padding: 0 0 0 0;
+              margin-top: -30px;
+              // margin-bottom: -25px;
+              font-size: 2vw;
+              // font-weight: bold;
+              text-align: center;
+              //background-color: red;
+            }
+          }
+          .col_label2-header{
+            margin-left: 0px;
+            .label2{
+              margin-top: -2px;
+              // margin-right: -25px;
+              font-size: 2.2vw;
+              font-weight: bold;
+              text-align: center;
+            }
+            .input2{
+              width:100%!important;
+              margin-top: -30px;
+              // margin-bottom: -25px;
+              font-size: 2vw;
+              // font-weight: bold;
+              text-align: center;
+              //background-color: red;
+            }
+          }
+          .col_label2{
+            margin-left: 0px;
+            background-color: #f4f66649;
+            .label2{
+              margin-top: -2px;
+              // margin-right: -25px;
+              font-size: 2vw;
+              font-weight: bold;
+              text-align: center;
+            }
+            .input2{
+              width:100%!important;
+              margin-top: -30px;
+              // margin-bottom: -25px;
+              font-size: 2vw;
+              // font-weight: bold;
+              text-align: center;
+              //background-color: red;
+            }
+
+          }
+        }
+      }
+  }
+
   ion-select{
     max-width: 100% !important;
   }
