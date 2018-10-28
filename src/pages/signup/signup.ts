@@ -14,6 +14,13 @@ export class SignupPage {
   selectjabatan;
   selectPolda;
   selectPolwil;
+  id;
+  username;
+  password;
+  nama;
+  jabatan;
+  polda;
+  polwil;
 
 
   constructor(
@@ -23,13 +30,12 @@ export class SignupPage {
       private database: DatabaseProvider,
       public events: Events
   ){
-  this.selectjabatan=this.database.aryJabatan();
-  this.selectPolda=this.database.aryPolda();
-  this.events.subscribe('publisPolwil', (data:any) =>{
-    this.selectPolwil=data;
-    console.log("Polwil",data);
-  });
-
+    this.selectjabatan=this.database.aryJabatan();
+    this.selectPolda=this.database.aryPolda();
+    this.events.subscribe('publisPolwil', (data:any) =>{
+      this.selectPolwil=data;
+      console.log("Polwil",data);
+    });
 
     console.log("polwil=",this.database.aryPolwil(1));
     this.todo  = this.formBuilder.group({

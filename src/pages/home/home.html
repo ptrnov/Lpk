@@ -9,7 +9,7 @@
 
 <ion-content class="content-body">
   <!-- <button ion-button secondary menuToggle>Toggle Menu</button> -->
-  <ion-grid>
+  <ion-grid style="padding: 0 0 0 0;">
     <ion-row justify-content-left class="row-header">
       <ion-col col-2 class="col-header1" >
         <img class="logo " src="assets/imgs/tri-brata2.png">
@@ -41,28 +41,28 @@
       </ion-col>
     </ion-row>
     <!-- Row1 -->
-    <ion-row justify-content-left class="row3-tbl">
-        <ion-col col-12 class="col3-tbl">
+    <ion-row justify-content-left class="row1-tbl">
+        <ion-col col-12 class="col1-tbl">
             <ion-card class="card">
                 <ion-card-content class="continer">
-                    <ion-row justify-content-left class="full-width">
+                    <ion-row justify-content-left class="full-width" *ngFor="let item1 of formKecelakaan1">
                       <ion-col col-4 class="col_label1" >
                         <ion-label class="label1">
                             NO.LAPORAN
                         </ion-label>
-                        <ion-input class="input1" type="text" placeholder="Nama"></ion-input>
+                        <ion-input  class="input1" type="text" placeholder="Nama" value="{{item1.nomor}}"></ion-input>
                       </ion-col>
                       <ion-col col-4 class="col_label1" >
                           <ion-label class="label1">
                               POLDA
                           </ion-label>
-                          <ion-input class="input1" type="text" placeholder="Nama"></ion-input>
+                          <ion-input class="input1" type="text" placeholder="Nama" value="{{item1.polda}}"></ion-input>
                       </ion-col>
                       <ion-col col-4 class="col_label2" >
                           <ion-label class="label2">
                               POLRES
                           </ion-label>
-                          <ion-input class="input2" type="text" placeholder="Nama"></ion-input>
+                          <ion-input class="input2" type="text" placeholder="Nama" value="{{item1.polwil}}"></ion-input>
                         </ion-col>
                     </ion-row>
                 </ion-card-content>
@@ -70,8 +70,8 @@
         </ion-col>
       </ion-row>
       <!-- Row2 -->
-      <ion-row justify-content-left class="row3-tbl">
-        <ion-col col-12 class="col3-tbl">
+      <ion-row justify-content-left class="row1-tbl">
+        <ion-col col-12 class="col1-tbl">
             <ion-card class="card">
                 <ion-card-content class="continer">
                     <ion-row justify-content-left class="full-width">
@@ -91,7 +91,13 @@
                           <ion-label class="label2">
                               KATEGORILAKA
                           </ion-label>
-                          <ion-input class="input2" type="text" placeholder="Nama"></ion-input>
+                          <ion-item >
+                            <ion-select class="label21"  [(ngModel)]="kategorilaka" placeholder="Pilih" name="kategorilaka" cancelText="Cancel" okText="OK">
+                                <ion-option value="1" selected="true">F</ion-option>
+                                <ion-option value="2">L</ion-option>
+                                <ion-option value="3">TL</ion-option>
+                            </ion-select>
+                          </ion-item>
                         </ion-col>
                     </ion-row>
                 </ion-card-content>
@@ -99,22 +105,28 @@
         </ion-col>
       </ion-row>
       <!-- Row3 -->
-      <ion-row justify-content-left class="row3-tbl">
-          <ion-col col-12 class="col3-tbl">
+      <ion-row justify-content-left class="row1-tbl">
+          <ion-col col-12 class="col1-tbl">
               <ion-card class="card">
                   <ion-card-content class="continer">
                       <ion-row justify-content-left class="full-width">
-                        <ion-col col-5 class="col_label1" >
+                        <ion-col col-4 class="col_label1" >
                           <ion-label class="label1">
                               APAKAH TABRAK LAGI ?
                           </ion-label>
-                          <ion-input class="input1" type="text" placeholder="Nama"></ion-input>
+                            <ion-item>
+                              <!-- <ion-label class="lbl">TABRAK LARI</ion-label> -->
+                              <ion-select class="input1" [(ngModel)]="tabraklari" placeholder="Pilih" cancelText="Cancel" okText="OK">
+                                <ion-option value="1">Bukan</ion-option>
+                                <ion-option value="2">Iya</ion-option>
+                              </ion-select>
+                            </ion-item>
                         </ion-col>
-                        <ion-col col-7 class="col_label2" >
+                        <ion-col col-8 class="col_label2" >
                             <ion-label class="label2">
                                 SAKSI
                             </ion-label>
-                            <ion-input class="input2" type="text" placeholder="Nama"></ion-input>
+                            <ion-input class="input2" type="text" placeholder="Nama Saksi"></ion-input>
                         </ion-col>
                       </ion-row>
                   </ion-card-content>
@@ -122,7 +134,7 @@
           </ion-col>
         </ion-row>
         <!-- Row4 -->
-        <ion-row justify-content-left class="row3-tbl">
+        <ion-row justify-content-left class="row3-tbl-split">
           <ion-col col-12 class="col3-tbl">
               <ion-card class="card">
                   <ion-card-content class="continer">
@@ -138,8 +150,8 @@
           </ion-col>
         </ion-row>
         <!-- Row5 -->
-        <ion-row justify-content-left class="row3-tbl">
-          <ion-col col-12 class="col3-tbl">
+        <ion-row justify-content-left class="row1-tbl">
+          <ion-col col-12 class="col1-tbl">
               <ion-card class="card">
                   <ion-card-content class="continer">
                       <ion-row justify-content-left class="full-width">
@@ -147,19 +159,37 @@
                           <ion-label class="label1">
                               AKTIVITAS TEPI JALAN
                           </ion-label>
-                          <ion-input class="input1" type="text" placeholder="Nama"></ion-input>
+                          <ion-item>
+                            <!-- <ion-label class="lbl">TABRAK LARI</ion-label> -->
+                            <ion-select class="input1" [(ngModel)]="tabraklari" placeholder="Pilih" cancelText="Cancel" okText="OK">
+                              <ion-option value="1">Bukan</ion-option>
+                              <ion-option value="2">Iya</ion-option>
+                            </ion-select>
+                          </ion-item>
                         </ion-col>
                         <ion-col col-4 class="col_label1" >
                             <ion-label class="label1">
                               BATAS KECEPATAN
                             </ion-label>
-                            <ion-input class="input1" type="text" placeholder="Nama"></ion-input>
+                            <ion-item>
+                              <!-- <ion-label class="lbl">TABRAK LARI</ion-label> -->
+                              <ion-select class="input1" [(ngModel)]="tabraklari" placeholder="Pilih" cancelText="Cancel" okText="OK">
+                                <ion-option value="1">Bukan</ion-option>
+                                <ion-option value="2">Iya</ion-option>
+                              </ion-select>
+                            </ion-item>
                         </ion-col>
                         <ion-col col-4 class="col_label2" >
                             <ion-label class="label2">
                                 POLA ARUS LINTAS
                             </ion-label>
-                            <ion-input class="input2" type="text" placeholder="Nama"></ion-input>
+                            <ion-item>
+                              <!-- <ion-label class="lbl">TABRAK LARI</ion-label> -->
+                              <ion-select class="input2" [(ngModel)]="tabraklari" placeholder="Pilih" cancelText="Cancel" okText="OK">
+                                <ion-option value="1">Bukan</ion-option>
+                                <ion-option value="2">Iya</ion-option>
+                              </ion-select>
+                            </ion-item>
                           </ion-col>
                       </ion-row>
                   </ion-card-content>
@@ -167,8 +197,8 @@
           </ion-col>
         </ion-row>
         <!-- Row6 -->
-        <ion-row justify-content-left class="row3-tbl">
-          <ion-col col-12 class="col3-tbl">
+        <ion-row justify-content-left class="row1-tbl">
+          <ion-col col-12 class="col1-tbl">
             <ion-card class="card">
               <ion-card-content class="continer">
                   <ion-row justify-content-left class="full-width">
@@ -176,19 +206,37 @@
                       <ion-label class="label1">
                           KONDISI PENERANGAN
                       </ion-label>
-                      <ion-input class="input1" type="text" placeholder="Nama"></ion-input>
+                      <ion-item>
+                        <!-- <ion-label class="lbl">TABRAK LARI</ion-label> -->
+                        <ion-select class="input1" [(ngModel)]="tabraklari" placeholder="Pilih" cancelText="Cancel" okText="OK">
+                          <ion-option value="1">Bukan</ion-option>
+                          <ion-option value="2">Iya</ion-option>
+                        </ion-select>
+                      </ion-item>
                     </ion-col>
                     <ion-col col-3 class="col_label1" >
                         <ion-label class="label1">
                           CUACA
                         </ion-label>
-                        <ion-input class="input1" type="text" placeholder="Nama"></ion-input>
+                        <ion-item>
+                          <!-- <ion-label class="lbl">TABRAK LARI</ion-label> -->
+                          <ion-select class="input1" [(ngModel)]="tabraklari" placeholder="Pilih" cancelText="Cancel" okText="OK">
+                            <ion-option value="1">Bukan</ion-option>
+                            <ion-option value="2">Iya</ion-option>
+                          </ion-select>
+                        </ion-item>
                     </ion-col>
                     <ion-col col-5 class="col_label2" >
                         <ion-label class="label2">
                             TYPE PERKERASAN BAHU JALAN
                         </ion-label>
-                        <ion-input class="input2" type="text" placeholder="Nama"></ion-input>
+                        <ion-item>
+                          <!-- <ion-label class="lbl">TABRAK LARI</ion-label> -->
+                          <ion-select class="input2" [(ngModel)]="tabraklari" placeholder="Pilih" cancelText="Cancel" okText="OK">
+                            <ion-option value="1">Bukan</ion-option>
+                            <ion-option value="2">Iya</ion-option>
+                          </ion-select>
+                        </ion-item>
                       </ion-col>
                   </ion-row>
               </ion-card-content>
@@ -196,8 +244,8 @@
           </ion-col>
         </ion-row>
         <!-- Row7 -->
-        <ion-row justify-content-left class="row3-tbl">
-          <ion-col col-12 class="col3-tbl">
+        <ion-row justify-content-left class="row1-tbl">
+          <ion-col col-12 class="col1-tbl">
               <ion-card class="card">
                 <ion-card-content class="continer">
                     <ion-row justify-content-left class="full-width">
@@ -205,13 +253,25 @@
                         <ion-label class="label1">
                             POSISI BAHU TERHADAP MUKA JALAN
                         </ion-label>
-                        <ion-input class="input1" type="text" placeholder="Nama"></ion-input>
+                        <ion-item>
+                          <!-- <ion-label class="lbl">TABRAK LARI</ion-label> -->
+                          <ion-select class="input1" [(ngModel)]="tabraklari" placeholder="Pilih" cancelText="Cancel" okText="OK">
+                            <ion-option value="1">Bukan</ion-option>
+                            <ion-option value="2">Iya</ion-option>
+                          </ion-select>
+                        </ion-item>
                       </ion-col>
                       <ion-col col-6 class="col_label2" >
                           <ion-label class="label2">
                             KONSRUKSI PERKERASAN JALAN
                           </ion-label>
-                          <ion-input class="input2" type="text" placeholder="Nama"></ion-input>
+                          <ion-item>
+                            <!-- <ion-label class="lbl">TABRAK LARI</ion-label> -->
+                            <ion-select class="input2" [(ngModel)]="tabraklari" placeholder="Pilih" cancelText="Cancel" okText="OK">
+                              <ion-option value="1">Bukan</ion-option>
+                              <ion-option value="2">Iya</ion-option>
+                            </ion-select>
+                          </ion-item>
                         </ion-col>
                     </ion-row>
                 </ion-card-content>
@@ -219,8 +279,8 @@
           </ion-col>
         </ion-row>
         <!-- Row8 -->
-        <ion-row justify-content-left class="row3-tbl">
-          <ion-col col-12 class="col3-tbl">
+        <ion-row justify-content-left class="row1-tbl">
+          <ion-col col-12 class="col1-tbl">
               <ion-card class="card">
                   <ion-card-content class="continer">
                       <ion-row justify-content-left class="full-width">
@@ -228,13 +288,25 @@
                           <ion-label class="label1">
                               KUALITAS PERKERASAN JALAN
                           </ion-label>
-                          <ion-input class="input1" type="text" placeholder="Nama"></ion-input>
+                          <ion-item>
+                            <!-- <ion-label class="lbl">TABRAK LARI</ion-label> -->
+                            <ion-select class="input1" [(ngModel)]="tabraklari" placeholder="Pilih" cancelText="Cancel" okText="OK">
+                              <ion-option value="1">Bukan</ion-option>
+                              <ion-option value="2">Iya</ion-option>
+                            </ion-select>
+                          </ion-item>
                         </ion-col>
                         <ion-col col-6 class="col_label2" >
                             <ion-label class="label2">
                               KEADAAN PERMUKAAN JALAN
                             </ion-label>
-                            <ion-input class="input2" type="text" placeholder="Nama"></ion-input>
+                            <ion-item>
+                              <!-- <ion-label class="lbl">TABRAK LARI</ion-label> -->
+                              <ion-select class="input2" [(ngModel)]="tabraklari" placeholder="Pilih" cancelText="Cancel" okText="OK">
+                                <ion-option value="1">Bukan</ion-option>
+                                <ion-option value="2">Iya</ion-option>
+                              </ion-select>
+                            </ion-item>
                           </ion-col>
                       </ion-row>
                   </ion-card-content>
@@ -242,8 +314,8 @@
           </ion-col>
         </ion-row>
         <!-- Row9 -->
-        <ion-row justify-content-left class="row3-tbl">
-            <ion-col col-12 class="col3-tbl">
+        <ion-row justify-content-left class="row1-tbl">
+            <ion-col col-12 class="col1-tbl">
                 <ion-card class="card">
                     <ion-card-content class="continer">
                         <ion-row justify-content-left class="full-width">
@@ -251,19 +323,37 @@
                             <ion-label class="label1">
                                 LAKA DI PERSIMPANGAN
                             </ion-label>
-                            <ion-input class="input1" type="text" placeholder="Nama"></ion-input>
+                            <ion-item>
+                              <!-- <ion-label class="lbl">TABRAK LARI</ion-label> -->
+                              <ion-select class="input1" [(ngModel)]="tabraklari" placeholder="Pilih" cancelText="Cancel" okText="OK">
+                                <ion-option value="1">Bukan</ion-option>
+                                <ion-option value="2">Iya</ion-option>
+                              </ion-select>
+                            </ion-item>
                           </ion-col>
                           <ion-col col-3 class="col_label1" >
                               <ion-label class="label1">
                                 TYPE SIMPANG
                               </ion-label>
-                              <ion-input class="input1" type="text" placeholder="Nama"></ion-input>
+                              <ion-item>
+                                <!-- <ion-label class="lbl">TABRAK LARI</ion-label> -->
+                                <ion-select class="input1" [(ngModel)]="tabraklari" placeholder="Pilih" cancelText="Cancel" okText="OK">
+                                  <ion-option value="1">Bukan</ion-option>
+                                  <ion-option value="2">Iya</ion-option>
+                                </ion-select>
+                              </ion-item>
                           </ion-col>
                           <ion-col col-5 class="col_label2" >
                               <ion-label class="label2">
                                   PENGATURAN PERSIMPANGAN
                               </ion-label>
-                              <ion-input class="input2" type="text" placeholder="Nama"></ion-input>
+                              <ion-item>
+                                <!-- <ion-label class="lbl">TABRAK LARI</ion-label> -->
+                                <ion-select class="input2" [(ngModel)]="tabraklari" placeholder="Pilih" cancelText="Cancel" okText="OK">
+                                  <ion-option value="1">Bukan</ion-option>
+                                  <ion-option value="2">Iya</ion-option>
+                                </ion-select>
+                              </ion-item>
                             </ion-col>
                         </ion-row>
                     </ion-card-content>
@@ -271,7 +361,7 @@
             </ion-col>
           </ion-row>
           <!-- Row10 -->
-          <ion-row justify-content-left class="row3-tbl">
+          <ion-row justify-content-left class="row3-tbl-split">
               <ion-col col-12 class="col3-tbl">
                   <ion-card class="card">
                       <ion-card-content class="continer">
@@ -292,27 +382,27 @@
                 <ion-card class="card">
                     <ion-card-content class="continer">
                         <ion-row justify-content-left class="full-width">
-                          <ion-col col-4 class="col_label1" >
+                          <!-- <ion-col col-4 class="col_label1" >
                             <ion-label class="label1">
                                 DATA KENDARAAN
                             </ion-label>
-                          </ion-col>
-                          <ion-col col-2 class="col_label1" >
+                          </ion-col> -->
+                          <ion-col col-3 class="col_label1" >
                               <ion-label class="label1">
                                   KEND.KE-1
                               </ion-label>
                           </ion-col>
-                          <ion-col col-2 class="col_label1" >
+                          <ion-col col-3 class="col_label1" >
                               <ion-label class="label1">
                                   KEND.KE-2
                               </ion-label>
                          </ion-col>
-                          <ion-col col-2 class="col_label1" >
+                          <ion-col col-3 class="col_label1" >
                               <ion-label class="label1">
                                   KEND.KE-3
                               </ion-label>
                           </ion-col>
-                          <ion-col col-2 class="col_label2" >
+                          <ion-col col-3 class="col_label2" >
                               <ion-label class="label2">
                                   KEND.KE-4
                               </ion-label>
@@ -322,671 +412,720 @@
                   </ion-card>
             </ion-col>
           </ion-row>
-          <!-- Row9 -->
-        <ion-row justify-content-left class="row3-tbl">
-          <ion-col col-12 class="col3-tbl">
-            <ion-card class="card">
-                <ion-card-content class="continer">
+          <!-- Row-9 -->
+          <ion-row justify-content-left class="row3-tbl-kendaraan-content">
+            <ion-col col-12 class="col3-tbl">
+              <ion-card class="card">
+                  <ion-card-header class="header">
+                      <ion-label text-wrap class="label">
+                          FUNGSI KENDARAAN
+                      </ion-label>
+                  </ion-card-header>
+                  <ion-card-content text-wrap class="continer">
                     <ion-row justify-content-left class="full-width">
-                      <ion-col col-4 class="col_label1" >
-                        <ion-label class="label1">
+                      <!-- <ion-col col-4 class="col_label1" >
+                        <ion-label>
                             Fungsi Kendaraan
-                            <ion-input class="input1" type="text" placeholder="Nama"></ion-input>
                         </ion-label>
-
+                      </ion-col> -->
+                      <ion-col col-3 class="col_label1" >
+                          <ion-item class="col-item">
+                              <ion-label class="lbl">FUNGSI KENDARAAN</ion-label>
+                              <ion-select class="label1" [(ngModel)]="fungsikendaraan1" placeholder="Pilih" cancelText="Cancel" okText="OK">
+                                  <ion-option value="1">Pribadi</ion-option>
+                                  <ion-option value="2">Taxi</ion-option>
+                                  <ion-option value="3">Angkut Penumpang</ion-option>
+                                  <ion-option value="4">taxi</ion-option>
+                              </ion-select>
+                            </ion-item>
                       </ion-col>
-                      <ion-col col-2 class="col_label1" >
-                          <ion-input class="label1" type="text" placeholder="Nama"></ion-input>
+                      <ion-col col-3 class="col_label1">
+                        <ion-item class="col-item">
+                          <ion-label class="lbl">FUNGSI KENDARAAN</ion-label>
+                          <ion-select class="label1" [(ngModel)]="fungsikendaraan2" placeholder="Pilih" cancelText="Cancel" okText="OK">
+                              <ion-option value="1">Pribadi</ion-option>
+                              <ion-option value="2">Taxi</ion-option>
+                              <ion-option value="3">Angkut Penumpang</ion-option>
+                              <ion-option value="4">taxi</ion-option>
+                          </ion-select>
+                        </ion-item>
                       </ion-col>
-                      <ion-col col-2 class="col_label1" >
-                          <ion-input class="label1" type="text" placeholder="Nama"></ion-input>
+                      <ion-col col-3 class="col_label1" >
+                          <ion-item class="col-item">
+                              <ion-label class="lbl">FUNGSI KENDARAAN</ion-label>
+                              <ion-select class="label1" [(ngModel)]="fungsikendaraan3" placeholder="Pilih" cancelText="Cancel" okText="OK">
+                                  <ion-option value="1">Pribadi</ion-option>
+                                  <ion-option value="2">Taxi</ion-option>
+                                  <ion-option value="3">Angkut Penumpang ajap</ion-option>
+                                  <ion-option value="4">taxi</ion-option>
+                              </ion-select>
+                            </ion-item>
                       </ion-col>
-                      <ion-col col-2 class="col_label1" >
-                          <ion-input class="label1" type="text" placeholder="Nama"></ion-input>
-                      </ion-col>
-                      <ion-col col-2 class="col_label1" >
-                          <ion-input class="label1" type="text" placeholder="Nama"></ion-input>
+                      <ion-col col-3 class="col_label2" >
+                          <ion-item class="col-item">
+                            <ion-label class="lbl">FUNGSI KENDARAAN</ion-label>
+                            <ion-select class="label2" [(ngModel)]="fungsikendaraan4" placeholder="Pilih" cancelText="Cancel" okText="OK">
+                                <ion-option value="1">Pribadi</ion-option>
+                                <ion-option value="2">Taxi</ion-option>
+                                <ion-option value="3">Angkut Penumpang</ion-option>
+                                <ion-option value="4">taxi</ion-option>
+                            </ion-select>
+                          </ion-item>
                       </ion-col>
                     </ion-row>
                 </ion-card-content>
               </ion-card>
           </ion-col>
         </ion-row>
-
-
-    <ion-row justify-content-left  style="margin-top:50px;margin-left:-5px">
-        <ion-col col-12 class="col-header2">
-            <table class="tg" style="width:100%">
-                <tr>
-                  <th class="tg-ae1z" rowspan="2">1</th>
-                  <th class="tg-25da">POLDA</th>
-                  <th class="tg-ae1z" rowspan="2">2</th>
-                  <th class="tg-25da" colspan="3">POLWIL/ TABES</th>
-                  <th class="tg-ae1z" rowspan="2">3</th>
-                  <th class="tg-7p3h" colspan="2"><span style="font-weight:700">POLRES</span></th>
-                  <th class="tg-ae1z" rowspan="2">4</th>
-                  <th class="tg-25da">NO.LAPORAN</th>
-                </tr>
-                <tr>
-                  <td class="tg-25da">
-                      <ion-item style=" font-size: 2vw;font-weight: bold;">
-                          <ion-select [(ngModel)]="polda" placeholder="Pilih" name="POLDA" cancelText="Cancel" okText="OK">
-                            <ion-option value="1">Aceh</ion-option>
-                            <ion-option value="2">Sumut</ion-option>
-                            <ion-option value="3">Sumbar</ion-option>
-                            <ion-option value="4">Jambi</ion-option>
-                            <ion-option value="5">Riau</ion-option>
-                            <ion-option value="6">Kepri</ion-option>
-                            <ion-option value="7">babel</ion-option>
-                            <ion-option value="8">Sumsel</ion-option>
-                            <ion-option value="9">Bengkulu</ion-option>
-                            <ion-option value="10">Lampung</ion-option>
-                            <ion-option value="11">MetroJaya</ion-option>
-                            <ion-option value="12">Jabar</ion-option>
-                            <ion-option value="13">Banten</ion-option>
-                            <ion-option value="14">Jateg</ion-option>
-                            <ion-option value="15">Jatim</ion-option>
-                            <ion-option value="16">Bali</ion-option>
-                            <ion-option value="17">NTB</ion-option>
-                            <ion-option value="18">NTT</ion-option>
-                            <ion-option value="19">Kalbar</ion-option>
-                            <ion-option value="20">Kalteng</ion-option>
-                            <ion-option value="21">Kaltim</ion-option>
-                            <ion-option value="22">Kaltara</ion-option>
-                            <ion-option value="23">Kalsel</ion-option>
-                            <ion-option value="24">Sulut</ion-option>
-                            <ion-option value="25">Gorontalo</ion-option>
-                            <ion-option value="26">Sulteng</ion-option>
-                            <ion-option value="27">Sultra</ion-option>
-                            <ion-option value="28">Sulsel</ion-option>
-                            <ion-option value="29">Sulbar</ion-option>
-                            <ion-option value="30">Maluku</ion-option>
-                            <ion-option value="31">Malut</ion-option>
-                            <ion-option value="32">Papua Barat</ion-option>
-                            <ion-option value="33">papua</ion-option>
-                          </ion-select>
-                        </ion-item>
-                  </td>
-                  <td class="tg-25da" colspan="3"><span style="font-weight:700">INPUT</span></td>
-                  <td class="tg-7p3h" colspan="2"><span style="font-weight:700">INPUT</span></td>
-                  <td class="tg-25da"><span style="font-weight:700">
-                      <ion-input type="text" placeholder="Number"></ion-input>
-                  </span></td>
-                </tr>
-                <tr>
-                  <td class="tg-hrfc" rowspan="2">5</td>
-                  <td class="tg-25da">TANGGAL</td>
-                  <td class="tg-ae1z" rowspan="2">6</td>
-                  <td class="tg-25da" colspan="3">JAM</td>
-                  <td class="tg-ae1z">7</td>
-                  <td class="tg-7p3h" colspan="2"><span style="font-weight:700">KAREGORILAKA</span></td>
-                  <td class="tg-ae1z" rowspan="2">8</td>
-                  <td class="tg-25da">TABRAK LARI ?</td>
-                </tr>
-                <tr>
-                  <td class="tg-25da"><span style="font-weight:700">INPUT</span></td>
-                  <td class="tg-25da" colspan="3"><span style="font-weight:700">INPUT</span></td>
-                  <td class="tg-25da"></td>
-                  <td class="tg-7p3h" colspan="2"><span style="font-weight:700">
-                      <!-- KAREGORILAKA -->
-                      <ion-item style=" font-size: 2vw;font-weight: bold;">
-                        <ion-select id="asd" [(ngModel)]="kategorilaka" placeholder="Pilih" name="kategorilaka" cancelText="Cancel" okText="OK">
-                            <ion-option value="1" selected="true">F</ion-option>
-                            <ion-option value="2">L</ion-option>
-                            <ion-option value="3">TL</ion-option>
-                        </ion-select>
-                      </ion-item>
-                  </span></td>
-                  <td class="tg-25da"><span style="font-weight:700">
-                      <!-- TABRAK LARI ? -->
-                      <ion-item style=" font-size: 2vw;font-weight: bold;">
-                        <ion-select [(ngModel)]="tabraklari" placeholder="Pilih" cancelText="Cancel" okText="OK">
-                            <ion-option value="1">Bukan</ion-option>
-                            <ion-option value="2">Iya</ion-option>
-                        </ion-select>
-                      </ion-item>
-                  </span></td>
-                </tr>
-                <tr>
-                  <td class="tg-25da" colspan="3">SAKSI</td>
-                  <td class="tg-25da" colspan="8">input</td>
-                </tr>
-                <tr>
-                  <td class="tg-5ece" colspan="11"><span style="font-weight:bold">DATA LINGKUNGAN TKP</span></td>
-                </tr>
-                <tr>
-                  <td class="tg-7b3a" rowspan="2">9</td>
-                  <td class="tg-napo">AKTIFITAS TEPI<br> JALAN</td>
-                  <td class="tg-ae1z" rowspan="2">10</td>
-                  <td class="tg-25da" colspan="3">BATAS KECEPATAN</td>
-                  <td class="tg-ae1z" rowspan="2">11</td>
-                  <td class="tg-1p6p" colspan="2"><span style="font-weight:700">POLA ARUS </span><br><span style="font-weight:700">LINTAS</span></td>
-                  <td class="tg-ae1z" rowspan="2">12</td>
-                  <td class="tg-25da">KONDISI <br>PENERANGAN</td>
-                </tr>
-                <tr>
-                  <td class="tg-25da"><span style="font-weight:700">
-                      <!-- AKTIFITAS TEPI Jalan -->
-                      <ion-item style=" font-size: 2vw;font-weight: bold;">
-                        <ion-select [(ngModel)]="aktifitastepijalan" placeholder="Pilih" cancelText="Cancel" okText="OK">
-                            <ion-option value="1">Tinggi</ion-option>
-                            <ion-option value="2">Sedang</ion-option>
-                            <ion-option value="3">Rendah</ion-option>
-                        </ion-select>
-                      </ion-item>
-                  </span></td>
-                  <td class="tg-25da" colspan="3"><span style="font-weight:700">
-                        <!-- BATAS KECEPATAN -->
-                        <ion-item style=" font-size: 2vw;font-weight: bold;">
-                          <ion-select [(ngModel)]="bataskecepatan" placeholder="Pilih" cancelText="Cancel" okText="OK">
-                              <ion-option value="1">40</ion-option>
-                              <ion-option value="2">60</ion-option>
-                              <ion-option value="3">80</ion-option>
-                              <ion-option value="4">100</ion-option>
-                          </ion-select>
-                        </ion-item>
-                  </span></td>
-                  <td class="tg-7p3h" colspan="2">
-                      <!-- POLA ARUS -->
-                      <ion-item style=" font-size: 2vw;font-weight: bold;">
-                        <ion-select [(ngModel)]="polaarus" placeholder="Pilih" cancelText="Cancel" okText="OK">
-                            <ion-option value="1">Satu Arah</ion-option>
-                            <ion-option value="2">Dua Arah</ion-option>
-                        </ion-select>
-                      </ion-item>
-                  </td>
-                  <td class="tg-25da"><span style="font-weight:700">
-                      <!-- KONDISI PENERANGAN -->
-                      <ion-item style=" font-size: 2vw;font-weight: bold;">
-                        <ion-select [(ngModel)]="kondisipenerangan" placeholder="Pilih" cancelText="Cancel" okText="OK">
-                            <ion-option value="1">Siang</ion-option>
-                            <ion-option value="2">Subuh/Senja</ion-option>
-                            <ion-option value="3">Malam Lampu</ion-option>
-                            <ion-option value="4">Malam ada Lampu</ion-option>
-                            <ion-option value="5">Malam Gelap</ion-option>
-                        </ion-select>
-                      </ion-item>
-                  </span></td>
-                </tr>
-                <tr>
-                  <td class="tg-gma3" rowspan="2">13</td>
-                  <td class="tg-napo">CUACA</td>
-                  <td class="tg-gma3" rowspan="2">14</td>
-                  <td class="tg-napo" colspan="3"><span style="font-weight:700">TIPE PERKERASAN </span><br><span style="font-weight:700">BAHU JALAN</span><br></td>
-                  <td class="tg-gma3" rowspan="2">15</td>
-                  <td class="tg-7p3h" colspan="4"><span style="font-weight:700">POSISI BAHU TERHADAP MUKA </span><br><span style="font-weight:700">JALAN</span></td>
-                </tr>
-                <tr>
-                  <td class="tg-napo"><span style="font-weight:700">
-                      <!--CUACA -->
-                      <ion-item style=" font-size: 2vw;font-weight: bold;">
-                        <ion-select [(ngModel)]="cuaca" placeholder="Pilih" cancelText="Cancel" okText="OK">
-                            <ion-option value="1">Cerah</ion-option>
-                            <ion-option value="2">Berawan</ion-option>
-                            <ion-option value="3">Berkabut</ion-option>
-                            <ion-option value="4">Hujan</ion-option>
-                            <ion-option value="5">Banjir</ion-option>
-                        </ion-select>
-                      </ion-item>
-                  </span></td>
-                  <td class="tg-napo" colspan="3"><span style="font-weight:700">
-                        <!--TIPE PERKERASAN BAHU JALAN -->
-                        <ion-item style=" font-size: 2vw;font-weight: bold;">
-                          <ion-select [(ngModel)]="tipeperkerasanbahujalan" placeholder="Pilih" cancelText="Cancel" okText="OK">
-                              <ion-option value="1">Aspal</ion-option>
-                              <ion-option value="2">Bukan Aspal</ion-option>
-                              <ion-option value="3">Tampa Batu</ion-option>
-                          </ion-select>
-                        </ion-item>
-                  </span></td>
-                  <td class="tg-7p3h" colspan="4"><span style="font-weight:700">
-                      <!--POSISI BAHU TERHADAP MUKA JALAN -->
-                      <ion-item style=" font-size: 2vw;font-weight: bold;">
-                          <ion-select [(ngModel)]="posisibahuterhadapmukajalan" placeholder="Pilih" cancelText="Cancel" okText="OK">
-                              <ion-option value="1">Aspal</ion-option>
-                              <ion-option value="2">Bukan Aspal</ion-option>
-                              <ion-option value="3">Tampa Batu</ion-option>
-                          </ion-select>
-                        </ion-item>
-                  </span></td>
-                </tr>
-                <tr>
-                  <td class="tg-gma3" rowspan="2">16</td>
-                  <td class="tg-napo" colspan="5">KONSTRUKSI PERKERASAN<br> JALAN</td>
-                  <td class="tg-gma3" rowspan="2">17</td>
-                  <td class="tg-7p3h" colspan="4"><span style="font-weight:700">KUALITAS PERKERASAN </span><br><span style="font-weight:700">JALAN</span></td>
-                </tr>
-                <tr>
-                  <td class="tg-7p3h" colspan="5"><span style="font-weight:700">
-                       <!--KONSTRUKSI PERKERASAN JALAN -->
-                       <ion-item style=" font-size: 2vw;font-weight: bold;">
-                          <ion-select [(ngModel)]="konstruksiperkerasanjalan" placeholder="Pilih" cancelText="Cancel" okText="OK">
-                              <ion-option value="1">Aspal</ion-option>
-                              <ion-option value="2">Beton</ion-option>
-                              <ion-option value="3">Tampa Batu</ion-option>
-                          </ion-select>
-                        </ion-item>
-                  </span></td>
-                  <td class="tg-7p3h" colspan="4"><span style="font-weight:700">
-                        <!--KUALITAS PERKERASAN JALAN -->
-                        <ion-item style=" font-size: 2vw;font-weight: bold;">
-                          <ion-select [(ngModel)]="kualitasperkerasanjalan" placeholder="Pilih" cancelText="Cancel" okText="OK">
-                              <ion-option value="1">Aspal</ion-option>
-                              <ion-option value="2">Beton</ion-option>
-                              <ion-option value="3">Tampa Batu</ion-option>
-                          </ion-select>
-                        </ion-item>
-                  </span></td>
-                </tr>
-                <tr>
-                  <td class="tg-gma3" rowspan="2">18</td>
-                  <td class="tg-napo" colspan="5">KEADAAN PERMUKAAN<br> JALAN</td>
-                  <td class="tg-gma3" rowspan="2">19</td>
-                  <td class="tg-7p3h" colspan="4"><span style="font-weight:700">LAKA DI PERSIMPANGAN</span></td>
-                </tr>
-                <tr>
-                  <td class="tg-napo" colspan="5"><span style="font-weight:700">
-                       <!--KEADAAN PERMUKAAN JALAN -->
-                       <ion-item style=" font-size: 2vw;font-weight: bold;">
-                          <ion-select [(ngModel)]="keadaanpermukaanjalan" placeholder="Pilih" cancelText="Cancel" okText="OK">
-                              <ion-option value="1">Aspal</ion-option>
-                              <ion-option value="2">Beton</ion-option>
-                              <ion-option value="3">Tampa Batu</ion-option>
-                          </ion-select>
-                        </ion-item>
-                  </span></td>
-                  <td class="tg-7p3h" colspan="4"><span style="font-weight:700">
-                        <!--LAKA DIPERSIMPANGAN JALAN -->
-                        <ion-item style=" font-size: 2vw;font-weight: bold;">
-                          <ion-select [(ngModel)]="lakadipersimpangan" placeholder="Pilih" cancelText="Cancel" okText="OK">
-                              <ion-option value="1">Bukan</ion-option>
-                              <ion-option value="2">Iya</ion-option>
-                          </ion-select>
-                        </ion-item>
-                  </span></td>
-                </tr>
-                <tr>
-                  <td class="tg-gma3" rowspan="2">20</td>
-                  <td class="tg-napo">TIPE SIMPANG</td>
-                  <td class="tg-gma3" rowspan="2">21</td>
-                  <td class="tg-napo" colspan="8">PENGATURAN PERSIMPANGAN</td>
-                </tr>
-                <tr>
-                  <td class="tg-7p3h"><span style="font-weight:700">
-                      <!--TIPE SIMPANG -->
-                      <ion-item style=" font-size: 2vw;font-weight: bold;">
-                        <ion-select [(ngModel)]="tipesimpang" placeholder="Pilih" cancelText="Cancel" okText="OK">
-                            <ion-option value="1">Simpang 4</ion-option>
-                            <ion-option value="2">Simpang T</ion-option>
-                        </ion-select>
-                      </ion-item>
-                  </span></td>
-                  <td class="tg-7p3h" colspan="8"><span style="font-weight:700">
-                       <!--PENGATURAN PERSIMPANGA -->
-                      <ion-item style=" font-size: 2vw;font-weight: bold;">
-                        <ion-select [(ngModel)]="pengaturanpersimpangan" placeholder="Pilih" cancelText="Cancel" okText="OK">
-                            <ion-option value="1">Simpang 4</ion-option>
-                            <ion-option value="2">Simpang T</ion-option>
-                        </ion-select>
-                      </ion-item>
-                  </span></td>
-                </tr>
-                <tr>
-                  <td class="tg-5ece" colspan="11"><span style="font-weight:bold">DATA KENDARAAN</span></td>
-                </tr>
-                <tr>
-                  <td class="tg-1p6p" colspan="3"><span style="font-weight:700">DATA KENDARAAN</span></td>
-                  <td class="tg-25da">KEND. KE 1</td>
-                  <td class="tg-25da" colspan="4">KEND. KE 2</td>
-                  <td class="tg-25da" colspan="2">KEND. KE 3</td>
-                  <td class="tg-25da">KEND. KE 4</td>
-                </tr>
-                <tr>
-                  <td class="tg-napo">22</td>
-                  <td class="tg-napo" colspan="2">FUNGSI KENDARAAN</td>
-                  <td class="tg-napo">
-                     <!--FUNGSI KENDARAAN -->
-                     <ion-item style=" font-size: 2vw;font-weight: bold;">
-                        <ion-select [(ngModel)]="fungsikendaraan1" placeholder="Pilih" cancelText="Cancel" okText="OK">
-                            <ion-option value="1">Pribadi</ion-option>
-                            <ion-option value="2">Taxi</ion-option>
-                            <ion-option value="3">Angkut Penumpang</ion-option>
-                            <ion-option value="4">taxi</ion-option>
-                        </ion-select>
-                      </ion-item>
-                  </td>
-                  <td class="tg-7p3h" colspan="4">
-                      <!--FUNGSI KENDARAAN -->
-                      <ion-item style=" font-size: 2vw;font-weight: bold;">
-                          <ion-select [(ngModel)]="fungsikendaraan2" placeholder="Pilih" cancelText="Cancel" okText="OK">
+        <!-- Row-10 -->
+        <ion-row justify-content-left class="row3-tbl-kendaraan-content">
+            <ion-col col-12 class="col3-tbl">
+              <ion-card class="card">
+                  <ion-card-header class="header">
+                      <ion-label text-wrap class="label">
+                          TIPE KENDARAAN
+                      </ion-label>
+                  </ion-card-header>
+                  <ion-card-content text-wrap class="continer">
+                    <ion-row justify-content-left class="full-width">
+                      <!-- <ion-col col-4 class="col_label1" >
+                        <ion-label>
+                            Fungsi Kendaraan
+                        </ion-label>
+                      </ion-col> -->
+                      <ion-col col-3 class="col_label1" >
+                          <ion-item class="col-item">
+                              <ion-label class="lbl">TIPE KENDARAAN</ion-label>
+                              <ion-select class="label1" [(ngModel)]="fungsikendaraan1" placeholder="Pilih" cancelText="Cancel" okText="OK">
+                                  <ion-option value="1">Pribadi</ion-option>
+                                  <ion-option value="2">Taxi</ion-option>
+                                  <ion-option value="3">Angkut Penumpang</ion-option>
+                                  <ion-option value="4">taxi</ion-option>
+                              </ion-select>
+                            </ion-item>
+                      </ion-col>
+                      <ion-col col-3 class="col_label1">
+                        <ion-item class="col-item">
+                          <ion-label class="lbl">TIPE KENDARAAN</ion-label>
+                          <ion-select class="label1" [(ngModel)]="fungsikendaraan2" placeholder="Pilih" cancelText="Cancel" okText="OK">
                               <ion-option value="1">Pribadi</ion-option>
                               <ion-option value="2">Taxi</ion-option>
                               <ion-option value="3">Angkut Penumpang</ion-option>
                               <ion-option value="4">taxi</ion-option>
                           </ion-select>
                         </ion-item>
-                  </td>
-                  <td class="tg-napo" colspan="2">
-                        <!--FUNGSI KENDARAAN -->
-                        <ion-item style=" font-size: 2vw;font-weight: bold;">
-                          <ion-select [(ngModel)]="fungsikendaraan3" placeholder="Pilih" cancelText="Cancel" okText="OK">
-                              <ion-option value="1">Pribadi</ion-option>
-                              <ion-option value="2">Taxi</ion-option>
-                              <ion-option value="3">Angkut Penumpang</ion-option>
-                              <ion-option value="4">taxi</ion-option>
-                          </ion-select>
+                      </ion-col>
+                      <ion-col col-3 class="col_label1" >
+                          <ion-item class="col-item">
+                              <ion-label class="lbl">TIPE KENDARAAN</ion-label>
+                              <ion-select class="label1" [(ngModel)]="fungsikendaraan3" placeholder="Pilih" cancelText="Cancel" okText="OK">
+                                  <ion-option value="1">Pribadi</ion-option>
+                                  <ion-option value="2">Taxi</ion-option>
+                                  <ion-option value="3">Angkut Penumpang ajap</ion-option>
+                                  <ion-option value="4">taxi</ion-option>
+                              </ion-select>
+                            </ion-item>
+                      </ion-col>
+                      <ion-col col-3 class="col_label2" >
+                          <ion-item class="col-item">
+                            <ion-label class="lbl">TIPE KENDARAAN</ion-label>
+                            <ion-select class="label2" [(ngModel)]="fungsikendaraan4" placeholder="Pilih" cancelText="Cancel" okText="OK">
+                                <ion-option value="1">Pribadi</ion-option>
+                                <ion-option value="2">Taxi</ion-option>
+                                <ion-option value="3">Angkut Penumpang</ion-option>
+                                <ion-option value="4">taxi</ion-option>
+                            </ion-select>
+                          </ion-item>
+                      </ion-col>
+                    </ion-row>
+                </ion-card-content>
+              </ion-card>
+          </ion-col>
+        </ion-row>
+        <!-- Row-11 -->
+        <ion-row justify-content-left class="row3-tbl-kendaraan-content">
+            <ion-col col-12 class="col3-tbl">
+              <ion-card class="card">
+                  <ion-card-header class="header">
+                      <ion-label text-wrap class="label">
+                          PERUSAHAAN BUS
+                      </ion-label>
+                  </ion-card-header>
+                  <ion-card-content text-wrap class="continer">
+                    <ion-row justify-content-left class="full-width">
+                      <ion-col col-3 class="col_label1-input-wrap" >
+                        <ion-item class="col-item">
+                            <ion-textarea rows="4" class="text-input" placeholder="input data"></ion-textarea>
                         </ion-item>
-                  </td>
-                  <td class="tg-napo">
-                        <!--FUNGSI KENDARAAN -->
-                        <ion-item style=" font-size: 2vw;font-weight: bold;">
-                          <ion-select [(ngModel)]="fungsikendaraan4" placeholder="Pilih" cancelText="Cancel" okText="OK">
-                              <ion-option value="1">Pribadi</ion-option>
-                              <ion-option value="2">Taxi</ion-option>
-                              <ion-option value="3">Angkut Penumpang</ion-option>
-                              <ion-option value="4">taxi</ion-option>
-                          </ion-select>
+                      </ion-col>
+                      <ion-col col-3 class="col_label1-input-wrap">
+                          <ion-item class="col-item">
+                              <ion-textarea rows="4" class="text-input" placeholder="input data"></ion-textarea>
+                          </ion-item>
+                      </ion-col>
+                      <ion-col col-3 class="col_label1-input-wrap" >
+                          <ion-item class="col-item">
+                              <ion-textarea rows="4" class="text-input" placeholder="input data"></ion-textarea>
+                          </ion-item>
+                      </ion-col>
+                      <ion-col col-3 class="col_label2-input-wrap" >
+                          <ion-item class="col-item">
+                              <ion-textarea rows="4" class="text-input" placeholder="input data"></ion-textarea>
+                          </ion-item>
+                      </ion-col>
+                    </ion-row>
+                </ion-card-content>
+              </ion-card>
+          </ion-col>
+        </ion-row>
+        <!-- Row-12 -->
+        <ion-row justify-content-left class="row3-tbl-kendaraan-content">
+            <ion-col col-12 class="col3-tbl">
+              <ion-card class="card">
+                  <ion-card-header class="header">
+                      <ion-label text-wrap class="label">
+                          MEREK KENDARAAN
+                      </ion-label>
+                  </ion-card-header>
+                  <ion-card-content text-wrap class="continer">
+                    <ion-row justify-content-left class="full-width">
+                      <ion-col col-3 class="col_label1-input-wrap" >
+                        <ion-item class="col-item">
+                            <ion-textarea rows="4" class="text-input" placeholder="input data"></ion-textarea>
                         </ion-item>
-                  </td>
-                </tr>
-                <tr>
-                  <td class="tg-napo">23</td>
-                  <td class="tg-napo" colspan="2">TYPE KENDARAAN</td>
-                  <td class="tg-napo">
-                      <!--TYPE KENDARAAN -->
-                      <ion-item style=" font-size: 2vw;font-weight: bold;">
-                          <ion-select [(ngModel)]="typekendaraan1" placeholder="Pilih" cancelText="Cancel" okText="OK">
-                              <ion-option value="1">Sedan</ion-option>
-                              <ion-option value="2">Motor</ion-option>
-                              <ion-option value="3">Sepeda</ion-option>
-                              <ion-option value="4">Truk</ion-option>
-                          </ion-select>
+                      </ion-col>
+                      <ion-col col-3 class="col_label1-input-wrap">
+                          <ion-item class="col-item">
+                              <ion-textarea rows="4" class="text-input" placeholder="input data"></ion-textarea>
+                          </ion-item>
+                      </ion-col>
+                      <ion-col col-3 class="col_label1-input-wrap" >
+                          <ion-item class="col-item">
+                              <ion-textarea rows="4" class="text-input" placeholder="input data"></ion-textarea>
+                          </ion-item>
+                      </ion-col>
+                      <ion-col col-3 class="col_label2-input-wrap" >
+                          <ion-item class="col-item">
+                              <ion-textarea rows="4" class="text-input" placeholder="input data"></ion-textarea>
+                          </ion-item>
+                      </ion-col>
+                    </ion-row>
+                </ion-card-content>
+              </ion-card>
+          </ion-col>
+        </ion-row>
+        <!-- Row-13 -->
+        <ion-row justify-content-left class="row3-tbl-kendaraan-content">
+            <ion-col col-12 class="col3-tbl">
+              <ion-card class="card">
+                  <ion-card-header class="header">
+                      <ion-label text-wrap class="label">
+                          MEREK KAROSERI KENDARAAN
+                      </ion-label>
+                  </ion-card-header>
+                  <ion-card-content text-wrap class="continer">
+                    <ion-row justify-content-left class="full-width">
+                      <ion-col col-3 class="col_label1-input-wrap" >
+                        <ion-item class="col-item">
+                            <ion-textarea rows="4" class="text-input" placeholder="input data"></ion-textarea>
                         </ion-item>
-                  </td>
-                  <td class="tg-7p3h" colspan="4">
-                      <!--TYPE KENDARAAN -->
-                      <ion-item style=" font-size: 2vw;font-weight: bold;">
-                          <ion-select [(ngModel)]="typekendaraan2" placeholder="Pilih" cancelText="Cancel" okText="OK">
-                              <ion-option value="1">Sedan</ion-option>
-                              <ion-option value="2">Motor</ion-option>
-                              <ion-option value="3">Sepeda</ion-option>
-                              <ion-option value="4">Truk</ion-option>
-                          </ion-select>
+                      </ion-col>
+                      <ion-col col-3 class="col_label1-input-wrap">
+                          <ion-item class="col-item">
+                              <ion-textarea rows="4" class="text-input" placeholder="input data"></ion-textarea>
+                          </ion-item>
+                      </ion-col>
+                      <ion-col col-3 class="col_label1-input-wrap" >
+                          <ion-item class="col-item">
+                              <ion-textarea rows="4" class="text-input" placeholder="input data"></ion-textarea>
+                          </ion-item>
+                      </ion-col>
+                      <ion-col col-3 class="col_label2-input-wrap" >
+                          <ion-item class="col-item">
+                              <ion-textarea rows="4" class="text-input" placeholder="input data"></ion-textarea>
+                          </ion-item>
+                      </ion-col>
+                    </ion-row>
+                </ion-card-content>
+              </ion-card>
+          </ion-col>
+        </ion-row>
+        <!-- Row-14 -->
+        <ion-row justify-content-left class="row3-tbl-kendaraan-content">
+            <ion-col col-12 class="col3-tbl">
+              <ion-card class="card">
+                  <ion-card-header class="header">
+                      <ion-label text-wrap class="label">
+                          CC SILENDER KENDARAAN
+                      </ion-label>
+                  </ion-card-header>
+                  <ion-card-content text-wrap class="continer">
+                    <ion-row justify-content-left class="full-width">
+                      <ion-col col-3 class="col_label1-input-wrap" >
+                        <ion-item class="col-item">
+                            <ion-textarea rows="4" class="text-input" placeholder="input data"></ion-textarea>
                         </ion-item>
-                  </td>
-                  <td class="tg-napo" colspan="2">
-                      <!--TYPE KENDARAAN -->
-                      <ion-item style=" font-size: 2vw;font-weight: bold;">
-                          <ion-select [(ngModel)]="typekendaraan3" placeholder="Pilih" cancelText="Cancel" okText="OK">
-                              <ion-option value="1">Sedan</ion-option>
-                              <ion-option value="2">Motor</ion-option>
-                              <ion-option value="3">Sepeda</ion-option>
-                              <ion-option value="4">Truk</ion-option>
-                          </ion-select>
+                      </ion-col>
+                      <ion-col col-3 class="col_label1-input-wrap">
+                          <ion-item class="col-item">
+                              <ion-textarea rows="4" class="text-input" placeholder="input data"></ion-textarea>
+                          </ion-item>
+                      </ion-col>
+                      <ion-col col-3 class="col_label1-input-wrap" >
+                          <ion-item class="col-item">
+                              <ion-textarea rows="4" class="text-input" placeholder="input data"></ion-textarea>
+                          </ion-item>
+                      </ion-col>
+                      <ion-col col-3 class="col_label2-input-wrap" >
+                          <ion-item class="col-item">
+                              <ion-textarea rows="4" class="text-input" placeholder="input data"></ion-textarea>
+                          </ion-item>
+                      </ion-col>
+                    </ion-row>
+                </ion-card-content>
+              </ion-card>
+          </ion-col>
+        </ion-row>
+        <!-- Row-15 -->
+        <ion-row justify-content-left class="row3-tbl-kendaraan-content">
+            <ion-col col-12 class="col3-tbl">
+              <ion-card class="card">
+                  <ion-card-header class="header">
+                      <ion-label text-wrap class="label">
+                          TAHUN PEMBUATAN KENDARAAN
+                      </ion-label>
+                  </ion-card-header>
+                  <ion-card-content text-wrap class="continer">
+                    <ion-row justify-content-left class="full-width">
+                      <ion-col col-3 class="col_label1-input-wrap" >
+                        <ion-item class="col-item">
+                            <ion-textarea rows="4" class="text-input" placeholder="input data"></ion-textarea>
                         </ion-item>
-                  </td>
-                  <td class="tg-napo">
-                      <!--TYPE KENDARAAN -->
-                      <ion-item style=" font-size: 2vw;font-weight: bold;">
-                          <ion-select [(ngModel)]="typekendaraan4" placeholder="Pilih" cancelText="Cancel" okText="OK">
-                              <ion-option value="1">Sedan</ion-option>
-                              <ion-option value="2">Motor</ion-option>
-                              <ion-option value="3">Sepeda</ion-option>
-                              <ion-option value="4">Truk</ion-option>
-                          </ion-select>
+                      </ion-col>
+                      <ion-col col-3 class="col_label1-input-wrap">
+                          <ion-item class="col-item">
+                              <ion-textarea rows="4" class="text-input" placeholder="input data"></ion-textarea>
+                          </ion-item>
+                      </ion-col>
+                      <ion-col col-3 class="col_label1-input-wrap" >
+                          <ion-item class="col-item">
+                              <ion-textarea rows="4" class="text-input" placeholder="input data"></ion-textarea>
+                          </ion-item>
+                      </ion-col>
+                      <ion-col col-3 class="col_label2-input-wrap" >
+                          <ion-item class="col-item">
+                              <ion-textarea rows="4" class="text-input" placeholder="input data"></ion-textarea>
+                          </ion-item>
+                      </ion-col>
+                    </ion-row>
+                </ion-card-content>
+              </ion-card>
+          </ion-col>
+        </ion-row>
+        <!-- Row-16 -->
+        <ion-row justify-content-left class="row3-tbl-kendaraan-content">
+            <ion-col col-12 class="col3-tbl">
+              <ion-card class="card">
+                  <ion-card-header class="header">
+                      <ion-label text-wrap class="label">
+                          TNKB
+                      </ion-label>
+                  </ion-card-header>
+                  <ion-card-content text-wrap class="continer">
+                    <ion-row justify-content-left class="full-width">
+                      <ion-col col-3 class="col_label1-input-wrap" >
+                        <ion-item class="col-item">
+                            <ion-textarea rows="4" class="text-input" placeholder="input data"></ion-textarea>
                         </ion-item>
-                  </td>
-                </tr>
-                <tr>
-                  <td class="tg-7p3h">24</td>
-                  <td class="tg-napo" colspan="2">PERUSAHAAN BUS</td>
-                  <td class="tg-7p3h">
-                      <ion-input class="input" type="text" placeholder="isi"></ion-input>
-                  </td>
-                  <td class="tg-7p3h" colspan="4">
-                      <ion-input class="input" type="text" placeholder="isi"></ion-input>
-                  </td>
-                  <td class="tg-7p3h" colspan="2">
-                      <ion-input class="input" type="text" placeholder="isi"></ion-input>
-                  </td>
-                  <td class="tg-7p3h">
-                      <ion-input class="input" type="text" placeholder="isi"></ion-input>
-                  </td>
-                </tr>
-                <tr>
-                  <td class="tg-napo">25</td>
-                  <td class="tg-napo" colspan="2">MEREK KENDARAAN</td>
-                  <td class="tg-7p3h">
-                      <ion-input class="input" type="text" placeholder="isi"></ion-input>
-                  </td>
-                  <td class="tg-7p3h" colspan="4">
-                      <ion-input class="input" type="text" placeholder="isi"></ion-input>
-                  </td>
-                  <td class="tg-7p3h" colspan="2">
-                      <ion-input class="input" type="text" placeholder="isi"></ion-input>
-                  </td>
-                  <td class="tg-7p3h"></td>
-                </tr>
-                <tr>
-                  <td class="tg-napo">26</td>
-                  <td class="tg-napo" colspan="2">MEREK KAROSERI</td>
-                  <td class="tg-7p3h">
-                      <ion-input class="input" type="text" placeholder="isi"></ion-input>
-                  </td>
-                  <td class="tg-7p3h" colspan="4">
-                      <ion-input class="input" type="text" placeholder="isi"></ion-input>
-                  </td>
-                  <td class="tg-7p3h" colspan="2">
-                      <ion-input class="input" type="text" placeholder="isi"></ion-input>
-                  </td>
-                  <td class="tg-7p3h"></td>
-                </tr>
-                <tr>
-                  <td class="tg-gma3" rowspan="2">27</td>
-                  <td class="tg-gma3" colspan="2" rowspan="2">TAHUN PEMBUATAN</td>
-                  <td class="tg-1p6p">PICTURE</td>
-                  <td class="tg-1p6p" colspan="4">PICTURE</td>
-                  <td class="tg-1p6p" colspan="2">PICTURE</td>
-                  <td class="tg-1p6p">PICTURE</td>
-                </tr>
-                <tr>
-                  <td class="tg-7p3h">
-                      <ion-input class="input" type="text" placeholder="isi"></ion-input>
-                  </td>
-                  <td class="tg-7p3h" colspan="4">
-                      <ion-input class="input" type="text" placeholder="isi"></ion-input>
-                  </td>
-                  <td class="tg-7p3h" colspan="2">
-                      <ion-input class="input" type="text" placeholder="isi"></ion-input>
-                  </td>
-                  <td class="tg-7p3h">
-                      <ion-input class="input" type="text" placeholder="isi"></ion-input>
-                  </td>
-                </tr>
-                <tr>
-                  <td class="tg-gma3" rowspan="2">28</td>
-                  <td class="tg-gma3" colspan="2" rowspan="2">TNKB</td>
-                  <td class="tg-7p3h">PICTURE</td>
-                  <td class="tg-7p3h" colspan="4">PICTURE</td>
-                  <td class="tg-7p3h" colspan="2">PICTURE</td>
-                  <td class="tg-7p3h">PICTURE</td>
-                </tr>
-                <tr>
-                  <td class="tg-7p3h">
-                      <ion-input class="input" type="text" placeholder="isi"></ion-input>
-                  </td>
-                  <td class="tg-7p3h" colspan="4">
-                      <ion-input class="input" type="text" placeholder="isi"></ion-input>
-                  </td>
-                  <td class="tg-7p3h" colspan="2">
-                      <ion-input class="input" type="text" placeholder="isi"></ion-input>
-                  </td>
-                  <td class="tg-7p3h">
-                      <ion-input class="input" type="text" placeholder="isi"></ion-input>
-                  </td>
-                </tr>
-                <tr>
-                  <td class="tg-gma3" rowspan="2">29</td>
-                  <td class="tg-gma3" colspan="2" rowspan="2">STNK</td>
-                  <td class="tg-7p3h">PICTURE</td>
-                  <td class="tg-7p3h" colspan="4">PICTURE</td>
-                  <td class="tg-7p3h" colspan="2">PICTURE</td>
-                  <td class="tg-7p3h">PICTURE</td>
-                </tr>
-                <tr>
-                  <td class="tg-7p3h">
-                      <ion-input class="input" type="text" placeholder="isi"></ion-input>
-                  </td>
-                  <td class="tg-7p3h" colspan="4">
-                      <ion-input class="input" type="text" placeholder="isi"></ion-input>
-                  </td>
-                  <td class="tg-7p3h" colspan="2">
-                      <ion-input class="input" type="text" placeholder="isi"></ion-input>
-                  </td>
-                  <td class="tg-7p3h">
-                      <ion-input class="input" type="text" placeholder="isi"></ion-input>
-                  </td>
-                </tr>
-                <tr>
-                  <td class="tg-gma3" rowspan="2">30</td>
-                  <td class="tg-gma3" colspan="2" rowspan="2">WARNA TNKB</td>
-                  <td class="tg-7p3h">PICTURE</td>
-                  <td class="tg-7p3h" colspan="4">PICTURE</td>
-                  <td class="tg-7p3h" colspan="2">PICTURE</td>
-                  <td class="tg-7p3h">PICTURE</td>
-                </tr>
-                <tr>
-                  <td class="tg-7p3h">
-                      <ion-input class="input" type="text" placeholder="isi"></ion-input>
-                  </td>
-                  <td class="tg-7p3h" colspan="4">
-                      <ion-input class="input" type="text" placeholder="isi"></ion-input>
-                  </td>
-                  <td class="tg-7p3h" colspan="2">
-                      <ion-input class="input" type="text" placeholder="isi"></ion-input>
-                  </td>
-                  <td class="tg-7p3h">
-                      <ion-input class="input" type="text" placeholder="isi"></ion-input>
-                  </td>
-                </tr>
-                <tr>
-                  <td class="tg-napo">31</td>
-                  <td class="tg-gma3" colspan="2">CC SILINDER</td>
-                  <td class="tg-7p3h">
-                      <ion-input class="input" type="text" placeholder="isi"></ion-input>
-                  </td>
-                  <td class="tg-7p3h" colspan="4">
-                      <ion-input class="input" type="text" placeholder="isi"></ion-input>
-                  </td>
-                  <td class="tg-7p3h" colspan="2">
-                      <ion-input class="input" type="text" placeholder="isi"></ion-input>
-                  </td>
-                  <td class="tg-7p3h">
-                      <ion-input class="input" type="text" placeholder="isi"></ion-input>
-                  </td>
-                </tr>
-                <tr>
-                  <td class="tg-gma3" rowspan="2">32</td>
-                  <td class="tg-gma3" colspan="2" rowspan="2">NO RANGKA/NIK</td>
-                  <td class="tg-7p3h">PICTURE</td>
-                  <td class="tg-7p3h" colspan="4">PICTURE</td>
-                  <td class="tg-7p3h" colspan="2">PICTURE</td>
-                  <td class="tg-7p3h">PICTURE</td>
-                </tr>
-                <tr>
-                  <td class="tg-7p3h">
-                      <ion-input class="input" type="text" placeholder="isi"></ion-input>
-                  </td>
-                  <td class="tg-7p3h" colspan="4">
-                      <ion-input class="input" type="text" placeholder="isi"></ion-input>
-                  </td>
-                  <td class="tg-7p3h" colspan="2">
-                      <ion-input class="input" type="text" placeholder="isi"></ion-input>
-                  </td>
-                  <td class="tg-7p3h">
-                      <ion-input class="input" type="text" placeholder="isi"></ion-input>
-                  </td>
-                </tr>
-                <tr>
-                  <td class="tg-gma3" rowspan="2">33</td>
-                  <td class="tg-gma3" colspan="2" rowspan="2">NOMOR MESIN</td>
-                  <td class="tg-7p3h">
-                      <button (click)="ambilPhoto()">Picture</button>
-                  </td>
-                  <td class="tg-7p3h" colspan="4">PICTURE</td>
-                  <td class="tg-7p3h" colspan="2">PICTURE</td>
-                  <td class="tg-7p3h">PICTURE</td>
-                </tr>
-                <tr>
-                  <td class="tg-7p3h">
-                      <ion-input class="input" type="text" placeholder="isi"></ion-input>
-                  </td>
-                  <td class="tg-7p3h" colspan="4">
-                      <ion-input class="input" type="text" placeholder="isi"></ion-input>
-                  </td>
-                  <td class="tg-7p3h" colspan="2">
-                      <ion-input class="input" type="text" placeholder="isi"></ion-input>
-                  </td>
-                  <td class="tg-7p3h">
-                      <ion-input class="input" type="text" placeholder="isi"></ion-input>
-                  </td>
-                </tr>
-                <tr>
-                  <td class="tg-napo">34</td>
-                  <td class="tg-napo" colspan="2">KERUSAKAN<br> KENDARAAN</td>
-                  <td class="tg-7p3h">
-                      <ion-input class="input" type="text" placeholder="isi"></ion-input>
-                  </td>
-                  <td class="tg-7p3h" colspan="4">
-                      <ion-input class="input" type="text" placeholder="isi"></ion-input>
-                  </td>
-                  <td class="tg-7p3h" colspan="2">
-                      <ion-input class="input" type="text" placeholder="isi"></ion-input>
-                  </td>
-                  <td class="tg-7p3h">
-                      <ion-input class="input" type="text" placeholder="isi"></ion-input>
-                  </td>
-                </tr>
-                <tr>
-                  <td class="tg-napo">35</td>
-                  <td class="tg-napo" colspan="2">KONSISI BAN</td>
-                  <td class="tg-7p3h">
-                      <ion-input class="input" type="text" placeholder="isi"></ion-input>
-                  </td>
-                  <td class="tg-7p3h" colspan="4">
-                      <ion-input class="input" type="text" placeholder="isi"></ion-input>
-                  </td>
-                  <td class="tg-7p3h" colspan="2">
-                      <ion-input class="input" type="text" placeholder="isi"></ion-input>
-                  </td>
-                  <td class="tg-7p3h">
-                      <ion-input class="input" type="text" placeholder="isi"></ion-input>
-                  </td>
-                </tr>
-                <tr>
-                  <td class="tg-napo">36</td>
-                  <td class="tg-napo" colspan="2">LAMPU YANG <br>TIDAK <br>PERFUNGSI</td>
-                  <td class="tg-7p3h">
-                      <ion-input class="input" type="text" placeholder="isi"></ion-input>
-                  </td>
-                  <td class="tg-7p3h" colspan="4">
-                      <ion-input class="input" type="text" placeholder="isi"></ion-input>
-                  </td>
-                  <td class="tg-7p3h" colspan="2">
-                      <ion-input class="input" type="text" placeholder="isi"></ion-input>
-                  </td>
-                  <td class="tg-7p3h">
-                      <ion-input class="input" type="text" placeholder="isi"></ion-input>
-                  </td>
-                </tr>
-              </table>
-        </ion-col>
-      </ion-row>
-
-
-      <div style="height:50px">
-
-        </div>
+                      </ion-col>
+                      <ion-col col-3 class="col_label1-input-wrap">
+                          <ion-item class="col-item">
+                              <ion-textarea rows="4" class="text-input" placeholder="input data"></ion-textarea>
+                          </ion-item>
+                      </ion-col>
+                      <ion-col col-3 class="col_label1-input-wrap" >
+                          <ion-item class="col-item">
+                              <ion-textarea rows="4" class="text-input" placeholder="input data"></ion-textarea>
+                          </ion-item>
+                      </ion-col>
+                      <ion-col col-3 class="col_label2-input-wrap" >
+                          <ion-item class="col-item">
+                              <ion-textarea rows="4" class="text-input" placeholder="input data"></ion-textarea>
+                          </ion-item>
+                      </ion-col>
+                    </ion-row>
+                    <!-- PICTURE -->
+                    <ion-row justify-content-left class="full-width">
+                        <ion-col col-3 class="col_label1-input-wrap" >
+                          <ion-item class="col-item-picture">
+                              <img class="label" src="assets/imgs/pic.png" (click)="ambilPhoto()">
+                          </ion-item>
+                        </ion-col>
+                        <ion-col col-3 class="col_label1-input-wrap">
+                            <ion-item class="col-item-picture">
+                                <img class="label" src="assets/imgs/pic.png" (click)="ambilPhoto()">
+                            </ion-item>
+                        </ion-col>
+                        <ion-col col-3 class="col_label1-input-wrap" >
+                            <ion-item class="col-item-picture">
+                                <img class="label" src="assets/imgs/pic.png" (click)="ambilPhoto()">
+                            </ion-item>
+                        </ion-col>
+                        <ion-col col-3 class="col_label2-input-wrap" >
+                            <ion-item class="col-item-picture">
+                                <img class="label" src="assets/imgs/pic.png" (click)="ambilPhoto()">
+                            </ion-item>
+                        </ion-col>
+                      </ion-row>
+                </ion-card-content>
+              </ion-card>
+          </ion-col>
+        </ion-row>
+        <!-- Row-17 -->
+        <ion-row justify-content-left class="row3-tbl-kendaraan-content">
+            <ion-col col-12 class="col3-tbl">
+              <ion-card class="card">
+                  <ion-card-header class="header">
+                      <ion-label text-wrap class="label">
+                          WARNA TNKB
+                      </ion-label>
+                  </ion-card-header>
+                  <ion-card-content text-wrap class="continer">
+                    <ion-row justify-content-left class="full-width">
+                      <ion-col col-3 class="col_label1-input-wrap" >
+                        <ion-item class="col-item">
+                            <ion-textarea rows="4" class="text-input" placeholder="input data"></ion-textarea>
+                        </ion-item>
+                      </ion-col>
+                      <ion-col col-3 class="col_label1-input-wrap">
+                          <ion-item class="col-item">
+                              <ion-textarea rows="4" class="text-input" placeholder="input data"></ion-textarea>
+                          </ion-item>
+                      </ion-col>
+                      <ion-col col-3 class="col_label1-input-wrap" >
+                          <ion-item class="col-item">
+                              <ion-textarea rows="4" class="text-input" placeholder="input data"></ion-textarea>
+                          </ion-item>
+                      </ion-col>
+                      <ion-col col-3 class="col_label2-input-wrap" >
+                          <ion-item class="col-item">
+                              <ion-textarea rows="4" class="text-input" placeholder="input data"></ion-textarea>
+                          </ion-item>
+                      </ion-col>
+                    </ion-row>
+                    <!-- PICTURE -->
+                    <ion-row justify-content-left class="full-width">
+                        <ion-col col-3 class="col_label1-input-wrap" >
+                          <ion-item class="col-item-picture">
+                              <img class="label" src="assets/imgs/pic.png" (click)="ambilPhoto()">
+                          </ion-item>
+                        </ion-col>
+                        <ion-col col-3 class="col_label1-input-wrap">
+                            <ion-item class="col-item-picture">
+                                <img class="label" src="assets/imgs/pic.png" (click)="ambilPhoto()">
+                            </ion-item>
+                        </ion-col>
+                        <ion-col col-3 class="col_label1-input-wrap" >
+                            <ion-item class="col-item-picture">
+                                <img class="label" src="assets/imgs/pic.png" (click)="ambilPhoto()">
+                            </ion-item>
+                        </ion-col>
+                        <ion-col col-3 class="col_label2-input-wrap" >
+                            <ion-item class="col-item-picture">
+                                <img class="label" src="assets/imgs/pic.png" (click)="ambilPhoto()">
+                            </ion-item>
+                        </ion-col>
+                      </ion-row>
+                </ion-card-content>
+              </ion-card>
+          </ion-col>
+        </ion-row>
+        <!-- Row-18 -->
+        <ion-row justify-content-left class="row3-tbl-kendaraan-content">
+            <ion-col col-12 class="col3-tbl">
+              <ion-card class="card">
+                  <ion-card-header class="header">
+                      <ion-label text-wrap class="label">
+                          STNK (Surat Tanda Nomor Kendaraan)
+                      </ion-label>
+                  </ion-card-header>
+                  <ion-card-content text-wrap class="continer">
+                    <ion-row justify-content-left class="full-width">
+                      <ion-col col-3 class="col_label1-input-wrap" >
+                        <ion-item class="col-item">
+                            <ion-textarea rows="4" class="text-input" placeholder="input data"></ion-textarea>
+                        </ion-item>
+                      </ion-col>
+                      <ion-col col-3 class="col_label1-input-wrap">
+                          <ion-item class="col-item">
+                              <ion-textarea rows="4" class="text-input" placeholder="input data"></ion-textarea>
+                          </ion-item>
+                      </ion-col>
+                      <ion-col col-3 class="col_label1-input-wrap" >
+                          <ion-item class="col-item">
+                              <ion-textarea rows="4" class="text-input" placeholder="input data"></ion-textarea>
+                          </ion-item>
+                      </ion-col>
+                      <ion-col col-3 class="col_label2-input-wrap" >
+                          <ion-item class="col-item">
+                              <ion-textarea rows="4" class="text-input" placeholder="input data"></ion-textarea>
+                          </ion-item>
+                      </ion-col>
+                    </ion-row>
+                    <!-- PICTURE -->
+                    <ion-row justify-content-left class="full-width">
+                        <ion-col col-3 class="col_label1-input-wrap" >
+                          <ion-item class="col-item-picture">
+                              <img class="label" src="assets/imgs/pic.png" (click)="ambilPhoto()">
+                          </ion-item>
+                        </ion-col>
+                        <ion-col col-3 class="col_label1-input-wrap">
+                            <ion-item class="col-item-picture">
+                                <img class="label" src="assets/imgs/pic.png" (click)="ambilPhoto()">
+                            </ion-item>
+                        </ion-col>
+                        <ion-col col-3 class="col_label1-input-wrap" >
+                            <ion-item class="col-item-picture">
+                                <img class="label" src="assets/imgs/pic.png" (click)="ambilPhoto()">
+                            </ion-item>
+                        </ion-col>
+                        <ion-col col-3 class="col_label2-input-wrap" >
+                            <ion-item class="col-item-picture">
+                                <img class="label" src="assets/imgs/pic.png" (click)="ambilPhoto()">
+                            </ion-item>
+                        </ion-col>
+                      </ion-row>
+                </ion-card-content>
+              </ion-card>
+          </ion-col>
+        </ion-row>
+        <!-- Row-19 -->
+        <ion-row justify-content-left class="row3-tbl-kendaraan-content">
+            <ion-col col-12 class="col3-tbl">
+              <ion-card class="card">
+                  <ion-card-header class="header">
+                      <ion-label text-wrap class="label">
+                          NO RANGKA / NIK
+                      </ion-label>
+                  </ion-card-header>
+                  <ion-card-content text-wrap class="continer">
+                    <ion-row justify-content-left class="full-width">
+                      <ion-col col-3 class="col_label1-input-wrap" >
+                        <ion-item class="col-item">
+                            <ion-textarea rows="4" class="text-input" placeholder="input data"></ion-textarea>
+                        </ion-item>
+                      </ion-col>
+                      <ion-col col-3 class="col_label1-input-wrap">
+                          <ion-item class="col-item">
+                              <ion-textarea rows="4" class="text-input" placeholder="input data"></ion-textarea>
+                          </ion-item>
+                      </ion-col>
+                      <ion-col col-3 class="col_label1-input-wrap" >
+                          <ion-item class="col-item">
+                              <ion-textarea rows="4" class="text-input" placeholder="input data"></ion-textarea>
+                          </ion-item>
+                      </ion-col>
+                      <ion-col col-3 class="col_label2-input-wrap" >
+                          <ion-item class="col-item">
+                              <ion-textarea rows="4" class="text-input" placeholder="input data"></ion-textarea>
+                          </ion-item>
+                      </ion-col>
+                    </ion-row>
+                    <!-- PICTURE -->
+                    <ion-row justify-content-left class="full-width">
+                        <ion-col col-3 class="col_label1-input-wrap" >
+                          <ion-item class="col-item-picture">
+                              <img class="label" src="assets/imgs/pic.png" (click)="ambilPhoto()">
+                          </ion-item>
+                        </ion-col>
+                        <ion-col col-3 class="col_label1-input-wrap">
+                            <ion-item class="col-item-picture">
+                                <img class="label" src="assets/imgs/pic.png" (click)="ambilPhoto()">
+                            </ion-item>
+                        </ion-col>
+                        <ion-col col-3 class="col_label1-input-wrap" >
+                            <ion-item class="col-item-picture">
+                                <img class="label" src="assets/imgs/pic.png" (click)="ambilPhoto()">
+                            </ion-item>
+                        </ion-col>
+                        <ion-col col-3 class="col_label2-input-wrap" >
+                            <ion-item class="col-item-picture">
+                                <img class="label" src="assets/imgs/pic.png" (click)="ambilPhoto()">
+                            </ion-item>
+                        </ion-col>
+                      </ion-row>
+                </ion-card-content>
+              </ion-card>
+          </ion-col>
+        </ion-row>
+        <!-- Row-20 -->
+        <ion-row justify-content-left class="row3-tbl-kendaraan-content">
+            <ion-col col-12 class="col3-tbl">
+              <ion-card class="card">
+                  <ion-card-header class="header">
+                      <ion-label text-wrap class="label">
+                          NOMOR MESIN
+                      </ion-label>
+                  </ion-card-header>
+                  <ion-card-content text-wrap class="continer">
+                    <ion-row justify-content-left class="full-width">
+                      <ion-col col-3 class="col_label1-input-wrap" >
+                        <ion-item class="col-item">
+                            <ion-textarea rows="4" class="text-input" placeholder="input data"></ion-textarea>
+                        </ion-item>
+                      </ion-col>
+                      <ion-col col-3 class="col_label1-input-wrap">
+                          <ion-item class="col-item">
+                              <ion-textarea rows="4" class="text-input" placeholder="input data"></ion-textarea>
+                          </ion-item>
+                      </ion-col>
+                      <ion-col col-3 class="col_label1-input-wrap" >
+                          <ion-item class="col-item">
+                              <ion-textarea rows="4" class="text-input" placeholder="input data"></ion-textarea>
+                          </ion-item>
+                      </ion-col>
+                      <ion-col col-3 class="col_label2-input-wrap" >
+                          <ion-item class="col-item">
+                              <ion-textarea rows="4" class="text-input" placeholder="input data"></ion-textarea>
+                          </ion-item>
+                      </ion-col>
+                    </ion-row>
+                    <!-- PICTURE -->
+                    <ion-row justify-content-left class="full-width">
+                        <ion-col col-3 class="col_label1-input-wrap" >
+                          <ion-item class="col-item-picture">
+                              <img class="label" src="assets/imgs/pic.png" (click)="ambilPhoto()">
+                          </ion-item>
+                        </ion-col>
+                        <ion-col col-3 class="col_label1-input-wrap">
+                            <ion-item class="col-item-picture">
+                                <img class="label" src="assets/imgs/pic.png" (click)="ambilPhoto()">
+                            </ion-item>
+                        </ion-col>
+                        <ion-col col-3 class="col_label1-input-wrap" >
+                            <ion-item class="col-item-picture">
+                                <img class="label" src="assets/imgs/pic.png" (click)="ambilPhoto()">
+                            </ion-item>
+                        </ion-col>
+                        <ion-col col-3 class="col_label2-input-wrap" >
+                            <ion-item class="col-item-picture">
+                                <img class="label" src="assets/imgs/pic.png" (click)="ambilPhoto()">
+                            </ion-item>
+                        </ion-col>
+                      </ion-row>
+                </ion-card-content>
+              </ion-card>
+          </ion-col>
+        </ion-row>
+        <!-- Row-21 -->
+        <ion-row justify-content-left class="row3-tbl-kendaraan-content">
+            <ion-col col-12 class="col3-tbl">
+              <ion-card class="card">
+                  <ion-card-header class="header">
+                      <ion-label text-wrap class="label">
+                          KERUSAKAN KENDARAAN
+                      </ion-label>
+                  </ion-card-header>
+                  <ion-card-content text-wrap class="continer">
+                    <ion-row justify-content-left class="full-width">
+                      <ion-col col-3 class="col_label1-input-wrap" >
+                        <ion-item class="col-item">
+                            <ion-textarea rows="4" class="text-input" placeholder="input data"></ion-textarea>
+                        </ion-item>
+                      </ion-col>
+                      <ion-col col-3 class="col_label1-input-wrap">
+                          <ion-item class="col-item">
+                              <ion-textarea rows="4" class="text-input" placeholder="input data"></ion-textarea>
+                          </ion-item>
+                      </ion-col>
+                      <ion-col col-3 class="col_label1-input-wrap" >
+                          <ion-item class="col-item">
+                              <ion-textarea rows="4" class="text-input" placeholder="input data"></ion-textarea>
+                          </ion-item>
+                      </ion-col>
+                      <ion-col col-3 class="col_label2-input-wrap" >
+                          <ion-item class="col-item">
+                              <ion-textarea rows="4" class="text-input" placeholder="input data"></ion-textarea>
+                          </ion-item>
+                      </ion-col>
+                    </ion-row>
+                </ion-card-content>
+              </ion-card>
+          </ion-col>
+        </ion-row>
+        <!-- Row-22 -->
+        <ion-row justify-content-left class="row3-tbl-kendaraan-content">
+            <ion-col col-12 class="col3-tbl">
+              <ion-card class="card">
+                  <ion-card-header class="header">
+                      <ion-label text-wrap class="label">
+                          KONSISI BAN
+                      </ion-label>
+                  </ion-card-header>
+                  <ion-card-content text-wrap class="continer">
+                    <ion-row justify-content-left class="full-width">
+                      <ion-col col-3 class="col_label1-input-wrap" >
+                        <ion-item class="col-item">
+                            <ion-textarea rows="4" class="text-input" placeholder="input data"></ion-textarea>
+                        </ion-item>
+                      </ion-col>
+                      <ion-col col-3 class="col_label1-input-wrap">
+                          <ion-item class="col-item">
+                              <ion-textarea rows="4" class="text-input" placeholder="input data"></ion-textarea>
+                          </ion-item>
+                      </ion-col>
+                      <ion-col col-3 class="col_label1-input-wrap" >
+                          <ion-item class="col-item">
+                              <ion-textarea rows="4" class="text-input" placeholder="input data"></ion-textarea>
+                          </ion-item>
+                      </ion-col>
+                      <ion-col col-3 class="col_label2-input-wrap" >
+                          <ion-item class="col-item">
+                              <ion-textarea rows="4" class="text-input" placeholder="input data"></ion-textarea>
+                          </ion-item>
+                      </ion-col>
+                    </ion-row>
+                </ion-card-content>
+              </ion-card>
+          </ion-col>
+        </ion-row>
+        <!-- Row-23 -->
+        <ion-row justify-content-left class="row3-tbl-kendaraan-content">
+            <ion-col col-12 class="col3-tbl">
+              <ion-card class="card">
+                  <ion-card-header class="header">
+                      <ion-label text-wrap class="label">
+                          LAMPU YANG TIDAK BERFUNGSI
+                      </ion-label>
+                  </ion-card-header>
+                  <ion-card-content text-wrap class="continer">
+                    <ion-row justify-content-left class="full-width">
+                      <ion-col col-3 class="col_label1-input-wrap" >
+                        <ion-item class="col-item">
+                            <ion-textarea rows="4" class="text-input" placeholder="input data"></ion-textarea>
+                        </ion-item>
+                      </ion-col>
+                      <ion-col col-3 class="col_label1-input-wrap">
+                          <ion-item class="col-item">
+                              <ion-textarea rows="4" class="text-input" placeholder="input data"></ion-textarea>
+                          </ion-item>
+                      </ion-col>
+                      <ion-col col-3 class="col_label1-input-wrap" >
+                          <ion-item class="col-item">
+                              <ion-textarea rows="4" class="text-input" placeholder="input data"></ion-textarea>
+                          </ion-item>
+                      </ion-col>
+                      <ion-col col-3 class="col_label2-input-wrap" >
+                          <ion-item class="col-item">
+                              <ion-textarea rows="4" class="text-input" placeholder="input data"></ion-textarea>
+                          </ion-item>
+                      </ion-col>
+                    </ion-row>
+                </ion-card-content>
+              </ion-card>
+          </ion-col>
+        </ion-row>
+        <div style="height:50px"></div>
 
 
 

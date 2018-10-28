@@ -48,27 +48,23 @@
           <ion-item *ngIf="todo.get('password').errors && todo.get('password').dirty">
               <p color="danger" ion-text *ngIf="todo.get('password').hasError('required')">Required</p>
           </ion-item>
-
           <ion-item>
               <ion-label floating>
                 <ion-icon name="person" item-start class="text-primary"></ion-icon>Username
               </ion-label>
-              <!-- <ion-input type="text"></ion-input> -->
               <ion-input formControlName="nama"  type="text"></ion-input>
-              <!-- <ion-input formControlName="username" placeholder="username" type="text"></ion-input> -->
-            </ion-item>
-            <ion-item *ngIf="todo.get('nama').errors && todo.get('nama').dirty">
-                <p color="danger" ion-text *ngIf="todo.get('nama').hasError('required')">Required</p>
-            </ion-item>
-            <ion-item>
+          </ion-item>
+          <ion-item *ngIf="todo.get('nama').errors && todo.get('nama').dirty">
+              <p color="danger" ion-text *ngIf="todo.get('nama').hasError('required')">Required</p>
+          </ion-item>
+          <ion-item>
               <ion-label floating>
                 <ion-icon name="person" item-start class="text-primary"></ion-icon>Jabatan
               </ion-label>
-              <!-- <ion-input formControlName="jabatan" type="text"></ion-input> -->
               <ion-select formControlName="jabatan" interface="popover" cancelText="Cancel" okText="OK">
                 <ion-option
                   *ngFor="let item of selectjabatan"
-                  value="{{item.id}}"
+                  value="{{item.name}}"
                 >
                   {{item.name}}
                 </ion-option>
@@ -78,15 +74,14 @@
                 <p color="danger" ion-text *ngIf="todo.get('jabatan').hasError('required')">Required</p>
             </ion-item>
 
-            <ion-item>
+             <ion-item>
                 <ion-label floating>
                   <ion-icon name="person" item-start class="text-primary"></ion-icon>Polda
                 </ion-label>
-                <!-- <ion-input formControlName="polda" type="text"></ion-input> -->
                 <ion-select formControlName="polda" cancelText="Cancel" okText="OK" (ionChange)="poldaChange($event)">
                     <ion-option
                       *ngFor="let item of selectPolda"
-                      value="{{item.id}}"
+                      value="{{item.polda}}"
                     >
                       {{item.polda}}
                     </ion-option>
@@ -100,11 +95,10 @@
               <ion-label floating>
                 <ion-icon name="person" item-start class="text-primary"></ion-icon> Polwil/Tabes
               </ion-label>
-              <!-- <ion-input formControlName="polwil" type="text"></ion-input> -->
               <ion-select formControlName="polwil" cancelText="Cancel" okText="OK">
                   <ion-option
                     *ngFor="let sp of selectPolwil"
-                    value="{{sp.id}}"
+                    value="{{sp.polres}}"
                   >
                     {{sp.polres}}
                   </ion-option>

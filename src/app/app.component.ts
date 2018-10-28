@@ -56,7 +56,7 @@ export class MyApp {
     ];
 
     this.events.subscribe('profileLogin', (data:any) =>{
-        console.log("profile login=",data);
+        // console.log("profile login=",data);
         this.profileData=data;
         if(data[0]['username']=='administrator'){
           this.appMenuItems=[];

@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { Platform,NavController } from 'ionic-angular';
+import { Platform,NavController,ToastController,Events } from 'ionic-angular';
 import { SelectSearchableComponent  } from 'ionic-select-searchable';
 import { Camera,CameraOptions } from '@ionic-native/camera';
 
@@ -15,11 +15,28 @@ export class HomePage {
 ports: Port[];
 port: Port;
 
+formKecelakaan1=[];
+
   constructor(
     public navCtrl: NavController,
     private platform: Platform,
-    private camera: Camera
+    public events: Events,
+    private camera: Camera,
+    public toastCtrl: ToastController
   ) {
+    this.events.subscribe('profileLogin', (data:any) =>{
+      const tgl = new Date();
+      // var idNumber=tgl.getDate().toString()+tgl.getMonth().toString()+tgl.getFullYear().toString();
+      var idNumberTimestamp=Math.floor(Date.now() / 1000);
+      var rslt=[];
+      // console.log("home1=",data);
+      rslt['nomor']=idNumberTimestamp;
+      rslt['polda']=data[0]['polda'];
+      rslt['polwil']=data[0]['polwil'];
+      this.formKecelakaan1.push(rslt);
+      console.log("home=",rslt);
+    });
+
     this.ports = [
       { id: 1, name: 'Piter' },
       { id: 2, name: 'Novian' },
@@ -27,6 +44,11 @@ port: Port;
     ];
   }
 
+  // ionViewDidEnter(){
+  //    setTimeout(() => {
+
+  //   }, 1000);
+  // }
 
 
   public ambilPhoto(){
@@ -37,7 +59,6 @@ port: Port;
           destinationType: this.camera.DestinationType.FILE_URI,
           encodingType: this.camera.EncodingType.JPEG,
           mediaType: this.camera.MediaType.PICTURE
-
         }
 
         this.camera.getPicture(options).then((imageData) => {
@@ -48,9 +69,15 @@ port: Port;
          }, (err) => {
           console.log("erro image", err);
          });
+      }else{
+        let toasPic = this.toastCtrl.create({
+          message: 'Camera belum ada ...',
+          duration: 3000,
+          position: 'middle'
+        });
+        toasPic.present();
       }
     });
-
   }
 
 

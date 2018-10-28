@@ -60,8 +60,11 @@ export class LoginPage {
           console.log("data true");
           toastSukses.present();
           toastSukses.onDidDismiss(() => {
-            this.events.publish('profileLogin',data);
+            setTimeout(() => {
+              this.events.publish('profileLogin',data);
+            }, 500);
             this.nav.setRoot(HomePage);
+
           });
         }else{
           this.salahUserPasswordToast();

@@ -247,7 +247,7 @@ export class DatabaseProvider {
     var qry="INSERT INTO user (id,username,password,nama,jabatan,polda,polwil) VALUES (?,?,?,?,?,?,?)";
     this.insertData(qry,[
       '0001',
-      'administrator1',
+      'administrator',
       'password',
       'Adminstrator',
       'Jenderal Pol',
@@ -263,14 +263,25 @@ export class DatabaseProvider {
   public aryPolda(){
     return getPolda;
   }
-  public aryPolwil(idPolda){
+  public aryPolwil(namePolda){
+    var getIdPolda;
     var ary=[];
-    ary.push(getPolwil.filter(function(obj){
-        return obj.id_polda==idPolda;
-      })
-    );
+    getIdPolda = getPolda.findIndex((obj => obj.polda == namePolda));
+
+    if (getIdPolda>=0){
+      console.log("check id=",getIdPolda);
+      // console.log("your is=",getPolda[objIndex].id);
+      // getIdPolda= getPolda[objIndex].id;
+      ary.push(getPolwil.filter(function(obj){
+          return obj.id_polda==getIdPolda;
+      }));
+    }else{
+      ary.push(getPolwil.filter(function(obj){
+          return obj.id_polda=='0';
+      }));
+    }
+
     this.events.publish('publisPolwil',ary[0]);
     return ary[0];
   }
-
 }
