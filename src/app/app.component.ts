@@ -10,6 +10,7 @@ import { NokendaraanPage } from '../pages/nokendaraan/nokendaraan';
 import { SimPage } from '../pages/sim/sim';
 import { SignupPage } from '../pages/signup/signup';
 import { FormkecelakaanPage } from '../pages/formkecelakaan/formkecelakaan';
+import { TilangPage } from '../pages/tilang/tilang';
 import { DatabaseProvider } from '../providers/database/database';
 
 export interface MenuItem {
@@ -53,7 +54,7 @@ export class MyApp {
       {id:'side-button[1]', title: 'Pengecekan SIM', component: SimPage, icon: 'ios-checkmark-circle-outline', color:'light'},
       {id:'side-button[2]', title: 'Pengecekan Kendaraan', component: NokendaraanPage, icon: 'ios-checkmark-circle-outline', color:'light'},
       {id:'side-button[3]', title: 'Laporan Kecelakaan', component: FormkecelakaanPage, icon: 'ios-checkmark-circle-outline', color:'light'},
-      {id:'side-button[4]', title: 'Laporan Tilang', component: FormkecelakaanPage, icon: 'ios-checkmark-circle-outline', color:'light'},
+      {id:'side-button[4]', title: 'Laporan Tilang', component: TilangPage, icon: 'ios-checkmark-circle-outline', color:'light'},
     ];
 
     this.events.subscribe('profileLogin', (data:any) =>{
@@ -66,7 +67,7 @@ export class MyApp {
             {id:'side-button[1]', title: 'Pengecekan SIM', component: SimPage, icon: 'ios-checkmark-circle-outline', color:'light'},
             {id:'side-button[2]', title: 'Pengecekan Kendaraan', component: NokendaraanPage, icon: 'ios-checkmark-circle-outline', color:'light'},
             {id:'side-button[3]', title: 'Laporan Kecelakaan', component: FormkecelakaanPage, icon: 'ios-checkmark-circle-outline', color:'light'},
-            {id:'side-button[4]', title: 'Laporan Tilang', component: FormkecelakaanPage, icon: 'ios-checkmark-circle-outline', color:'light'},
+            {id:'side-button[4]', title: 'Laporan Tilang', component: TilangPage, icon: 'ios-checkmark-circle-outline', color:'light'},
             {id:'side-button[5]', title: 'Tambah Pengguna', component: SignupPage, icon: 'ios-checkmark-circle-outline', color:'light'}
           ];
           // this.appMenuItems.push({id:'side-button[3]', title: 'Tambah Pengguna', component: SimPage, icon: 'ios-checkmark-circle-outline', color:'light'});
@@ -77,7 +78,7 @@ export class MyApp {
             {id:'side-button[1]', title: 'Pengecekan SIM', component: SimPage, icon: 'ios-checkmark-circle-outline', color:'light'},
             {id:'side-button[2]', title: 'Pengecekan Kendaraan', component: NokendaraanPage, icon: 'ios-checkmark-circle-outline', color:'light'},
             {id:'side-button[3]', title: 'Laporan Kecelakaan', component: FormkecelakaanPage, icon: 'ios-checkmark-circle-outline', color:'light'},
-            {id:'side-button[4]', title: 'Laporan Tilang', component: FormkecelakaanPage, icon: 'ios-checkmark-circle-outline', color:'light'},
+            {id:'side-button[4]', title: 'Laporan Tilang', component: TilangPage, icon: 'ios-checkmark-circle-outline', color:'light'},
           ];
         }
 

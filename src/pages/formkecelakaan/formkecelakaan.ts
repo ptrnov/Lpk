@@ -91,7 +91,8 @@ export class FormkecelakaanPage {
         }
       });
   }
-  public ambilPhoto(){
+  public ambilPhoto(event){
+    console.log("src id=",event.srcElement.id);
     this.platform.ready().then(() => {
       if (this.platform._platforms[0] == 'cordova') {
         const options: CameraOptions = {
@@ -109,7 +110,7 @@ export class FormkecelakaanPage {
             console.log("base64=",base64File);
           });
           console.log("dataImage" + imageData);
-          var ImgDes1=<HTMLImageElement>document.getElementById("pic1");
+          var ImgDes1=<HTMLImageElement>document.getElementById(event.srcElement.id);
           ImgDes1.src=imageData;
          }, (err) => {
           console.log("erro image", err);
