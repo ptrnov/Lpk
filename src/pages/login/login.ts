@@ -1,6 +1,6 @@
 import {Component} from "@angular/core";
 import {NavController, AlertController, ToastController, MenuController,Config,Events} from "ionic-angular";
-import {HomePage} from "../home/home";
+import { HomePage } from "../home/home";
 import { DatabaseProvider } from '../../providers/database/database';
 
 @Component({
@@ -24,20 +24,7 @@ export class LoginPage {
     // .getAllPrj();
   }
   ngOnInit() {
-    // this.dashboarAll.getAllPrj();
-    // this.dashboarAll.getB2SPrj();
-    // this.dashboarAll.getCorePrj();
-    // this.dashboarAll.getMcpPrj()
-    // this.dashboarAll.getSpPrj();
-    // this.dashboarAll.getChartData();
-   //  this.dashboarAll.getSetting();
-    // this.dashboarAll.getMapData();
-   // this.dashboarAll.getMapB2s();
-    // this.dashboarAll.getMapCore();
-    // this.dashboarAll.getMapMcp();
-    // this.dashboarAll.getMapSp();
-    // this.dashboarAll.getUser();
-    // this.dashboarAll.getMitraList();
+
   }
   // go to register page
   register() {
@@ -62,6 +49,7 @@ export class LoginPage {
           toastSukses.onDidDismiss(() => {
             setTimeout(() => {
               this.events.publish('profileLogin',data);
+              localStorage.setItem('profileLogin', JSON.stringify(data));
             }, 500);
             this.nav.setRoot(HomePage);
 

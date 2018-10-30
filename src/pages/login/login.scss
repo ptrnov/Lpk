@@ -1,7 +1,7 @@
 page-login{
 
     .content {
-        // background-color: #684331; //Background
+        // background-color: #000000;
         background-image: url('../assets/imgs/background.jpg');
         background-repeat: no-repeat;
         background-size: cover;
@@ -29,29 +29,31 @@ page-login{
       font-family:"Arial Black";
       color:rgba(255, 255, 239, 0.911);
     }
-
+    .text-input{
+      background-color:transparent!important;
+       color: #d1c55a;
+    }
     .tombolLogin {
-      background:-webkit-gradient(linear, left top, left bottom, color-stop(0.05, #d1c55a), color-stop(1, #e4dc4a));
-      background:-moz-linear-gradient(top, #d1c55a 5%, #e4dc4a 100%);
-      background:-webkit-linear-gradient(top, #d1c55a 5%, #e4dc4a 100%);
-      background:-o-linear-gradient(top, #d1c55a 5%, #e4dc4a 100%);
-      background:-ms-linear-gradient(top, #d1c55a 5%, #e4dc4a 100%);
-      background:linear-gradient(to bottom, #d1c55a 5%, #e4dc4a 100%);
-      filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#d1c55a', endColorstr='#e4dc4a',GradientType=0);
-      background-color:#d1c55a;
-      -moz-border-radius:42px;
-      -webkit-border-radius:42px;
-      border-radius:42px;
-      border:1px solid #f5e285;
+      background:-webkit-gradient(linear, left top, left bottom, color-stop(0.05, #d40707), color-stop(1, #d40707));
+      background:-moz-linear-gradient(top, #d40707 5%, #d40707 100%);
+      background:-webkit-linear-gradient(top, #d40707 5%, #d40707 100%);
+      background:-o-linear-gradient(top, #d40707 5%, #d40707 100%);
+      background:-ms-linear-gradient(top, #d40707 5%, #d40707 100%);
+      background:linear-gradient(to bottom, #d40707 5%, #d40707 100%);
+      filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#d40707', endColorstr='#e4dc4a',GradientType=0);
+      background-color:#d40707;
+      // -moz-border-radius:42px;
+      // -webkit-border-radius:42px;
+      border:1px solid #d40707;
       display:inline-block;
       cursor:pointer;
-      color:#804F27;
+      color:rgb(250, 250, 250);
       font-family:Verdana;
       font-size:18px;
       font-weight:bold;
       padding:23px 76px;
       text-decoration:none;
-      text-shadow:0px 0px 33px #ffd83d;
+      text-shadow:0px 0px 33px #d40707;
     }
     .myButton:hover {
       background:-webkit-gradient(linear, left top, left bottom, color-stop(0.05, #e4dc4a), color-stop(1, #d1c55a));

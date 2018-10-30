@@ -9,6 +9,7 @@ import { LoginPage } from '../pages/login/login';
 import { NokendaraanPage } from '../pages/nokendaraan/nokendaraan';
 import { SimPage } from '../pages/sim/sim';
 import { SignupPage } from '../pages/signup/signup';
+import { FormkecelakaanPage } from '../pages/formkecelakaan/formkecelakaan';
 import { DatabaseProvider } from '../providers/database/database';
 
 export interface MenuItem {
@@ -45,14 +46,14 @@ export class MyApp {
     this.platform.ready().then(() => {
       this.database.initProvider();
     });
-    setTimeout(() => {
-      this.database.setAdministrator();
-    },100);
+
     this.appMenuItems=[];
     this.appMenuItems = [
-      {id:'side-button[0]', title: 'Laporan Kecelakaan - Laporan Awal', component: HomePage, icon: 'ios-checkmark-circle-outline', color:'light'},
-      {id:'side-button[1]', title: 'Pengecekan Nomor Kendaraan', component: NokendaraanPage, icon: 'ios-checkmark-circle-outline', color:'light'},
-      {id:'side-button[2]', title: 'Pengecekan SIM', component: SimPage, icon: 'ios-checkmark-circle-outline', color:'light'},
+      {id:'side-button[0]', title: 'Home', component: HomePage, icon: 'ios-checkmark-circle-outline', color:'light'},
+      {id:'side-button[1]', title: 'Pengecekan SIM', component: SimPage, icon: 'ios-checkmark-circle-outline', color:'light'},
+      {id:'side-button[2]', title: 'Pengecekan Kendaraan', component: NokendaraanPage, icon: 'ios-checkmark-circle-outline', color:'light'},
+      {id:'side-button[3]', title: 'Laporan Kecelakaan', component: FormkecelakaanPage, icon: 'ios-checkmark-circle-outline', color:'light'},
+      {id:'side-button[4]', title: 'Laporan Tilang', component: FormkecelakaanPage, icon: 'ios-checkmark-circle-outline', color:'light'},
     ];
 
     this.events.subscribe('profileLogin', (data:any) =>{
@@ -61,20 +62,28 @@ export class MyApp {
         if(data[0]['username']=='administrator'){
           this.appMenuItems=[];
           this.appMenuItems = [
-            {id:'side-button[0]', title: 'Laporan Kecelakaan - Laporan Awal', component: HomePage, icon: 'ios-checkmark-circle-outline', color:'light'},
-            {id:'side-button[1]', title: 'Pengecekan Nomor Kendaraan', component: NokendaraanPage, icon: 'ios-checkmark-circle-outline', color:'light'},
-            {id:'side-button[2]', title: 'Pengecekan SIM', component: SimPage, icon: 'ios-checkmark-circle-outline', color:'light'},
-            {id:'side-button[3]', title: 'Tambah Pengguna', component: SignupPage, icon: 'ios-checkmark-circle-outline', color:'light'}
+            {id:'side-button[0]', title: 'Home', component: HomePage, icon: 'ios-checkmark-circle-outline', color:'light'},
+            {id:'side-button[1]', title: 'Pengecekan SIM', component: SimPage, icon: 'ios-checkmark-circle-outline', color:'light'},
+            {id:'side-button[2]', title: 'Pengecekan Kendaraan', component: NokendaraanPage, icon: 'ios-checkmark-circle-outline', color:'light'},
+            {id:'side-button[3]', title: 'Laporan Kecelakaan', component: FormkecelakaanPage, icon: 'ios-checkmark-circle-outline', color:'light'},
+            {id:'side-button[4]', title: 'Laporan Tilang', component: FormkecelakaanPage, icon: 'ios-checkmark-circle-outline', color:'light'},
+            {id:'side-button[5]', title: 'Tambah Pengguna', component: SignupPage, icon: 'ios-checkmark-circle-outline', color:'light'}
           ];
           // this.appMenuItems.push({id:'side-button[3]', title: 'Tambah Pengguna', component: SimPage, icon: 'ios-checkmark-circle-outline', color:'light'});
         }else{
           this.appMenuItems=[];
           this.appMenuItems = [
-            {id:'side-button[0]', title: 'Laporan Kecelakaan - Laporan Awal', component: HomePage, icon: 'ios-checkmark-circle-outline', color:'light'},
-            {id:'side-button[1]', title: 'Pengecekan Nomor Kendaraan', component: NokendaraanPage, icon: 'ios-checkmark-circle-outline', color:'light'},
-            {id:'side-button[2]', title: 'Pengecekan SIM', component: SimPage, icon: 'ios-checkmark-circle-outline', color:'light'},
+            {id:'side-button[0]', title: 'Home', component: HomePage, icon: 'ios-checkmark-circle-outline', color:'light'},
+            {id:'side-button[1]', title: 'Pengecekan SIM', component: SimPage, icon: 'ios-checkmark-circle-outline', color:'light'},
+            {id:'side-button[2]', title: 'Pengecekan Kendaraan', component: NokendaraanPage, icon: 'ios-checkmark-circle-outline', color:'light'},
+            {id:'side-button[3]', title: 'Laporan Kecelakaan', component: FormkecelakaanPage, icon: 'ios-checkmark-circle-outline', color:'light'},
+            {id:'side-button[4]', title: 'Laporan Tilang', component: FormkecelakaanPage, icon: 'ios-checkmark-circle-outline', color:'light'},
           ];
         }
+
+        // setTimeout(() => {
+        //   this.database.setAdministrator();
+        // },1000);
     });
 
     // used for an example of ngFor and navigation
@@ -103,6 +112,7 @@ export class MyApp {
 
     });
   }
+
 
   openPage(page) {
     // Reset the content nav to have just this page

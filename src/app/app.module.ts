@@ -17,6 +17,10 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 import { SelectSearchableModule  } from 'ionic-select-searchable';
 import { DatabaseProvider } from '../providers/database/database';
 import { Camera } from '@ionic-native/camera';
+import { DatePicker } from '@ionic-native/date-picker';
+import { FormkecelakaanPage } from '../pages/formkecelakaan/formkecelakaan';
+import { Base64 } from '@ionic-native/base64';
+import { TilangPage } from '../pages/tilang/tilang';
 @NgModule({
   declarations: [
     MyApp,
@@ -25,7 +29,9 @@ import { Camera } from '@ionic-native/camera';
     LoginPage,
     SignupPage,
     NokendaraanPage,
-    SimPage
+    SimPage,
+    FormkecelakaanPage,
+    TilangPage
   ],
   imports: [
     BrowserModule,
@@ -50,7 +56,9 @@ import { Camera } from '@ionic-native/camera';
     LoginPage,
     SignupPage,
     NokendaraanPage,
-    SimPage
+    SimPage,
+    FormkecelakaanPage,
+    TilangPage
   ],
   providers: [
     StatusBar,
@@ -60,7 +68,9 @@ import { Camera } from '@ionic-native/camera';
     DatabaseProvider,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     DatabaseProvider,
-    Camera
+    Camera,
+    DatePicker,
+    Base64
   ]
 })
 export class AppModule {}

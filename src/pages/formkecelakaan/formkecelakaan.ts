@@ -1,53 +1,41 @@
 import { Component } from '@angular/core';
-import { Platform,NavController,ToastController,Events } from 'ionic-angular';
+import { IonicPage,Platform,NavController,NavParams,ToastController,Events } from 'ionic-angular';
 import { SelectSearchableComponent  } from 'ionic-select-searchable';
 import { Camera,CameraOptions } from '@ionic-native/camera';
 import { DatePicker } from '@ionic-native/date-picker';
-import { SimPage } from '../../pages/sim/sim';
-import { NokendaraanPage } from '../../pages/nokendaraan/nokendaraan';
-import { FormkecelakaanPage } from '../../pages/formkecelakaan/formkecelakaan';
-import { TilangPage } from '../../pages/tilang/tilang';
-class Port {
-  public id: number;
-  public name: string;
-}
+import { Base64 } from '@ionic-native/base64';
+
+@IonicPage()
 @Component({
-  selector: 'page-home',
-  templateUrl: 'home.html'
+  selector: 'page-formkecelakaan',
+  templateUrl: 'formkecelakaan.html',
 })
-export class HomePage {
-
-userProfile=[];
-
+export class FormkecelakaanPage {
+  getProfile=[];
+  getAutoNumber=[];
   constructor(
+    public navParams: NavParams,
     public navCtrl: NavController,
     private platform: Platform,
     public events: Events,
     private camera: Camera,
     public toastCtrl: ToastController,
-    private datePicker: DatePicker
-  ) {
-    // this.events.subscribe('profileLogin', (data:any) =>{
-    //   const tgl = new Date();
-    //   // var idNumber=tgl.getDate().toString()+tgl.getMonth().toString()+tgl.getFullYear().toString();
-    //   var idNumberTimestamp=Math.floor(Date.now() / 1000);
-    //   var rslt=[];
-    //   // console.log("home1=",data);
-    //   rslt['nomor']=idNumberTimestamp;
-    //   rslt['nama']=data[0]['nama'];
-    //   rslt['polda']=data[0]['polda'];
-    //   rslt['polwil']=data[0]['polwil'];
-    //   //this.userProfile.push(rslt);
-    //   console.log("home=",rslt);
-    // });
-  }
+    private datePicker: DatePicker,
+    private base64: Base64
+  ){}
 
   ionViewDidEnter(){
+    var rslt=[];
+    var idNumberTimestamp=Math.floor(Date.now() / 1000);
+    rslt['nomor']=idNumberTimestamp;
     setTimeout(() => {
+      this.getAutoNumber=rslt;
+      console.log("checkNumber=",this.getAutoNumber);
+
       const data = JSON.parse(localStorage.getItem('profileLogin'));
-      this.userProfile.push(data[0]);
-      console.log("home storage=",this.userProfile);
-    }, 1000);
+      this.getProfile=data;
+      console.log("storage=",this.getProfile);
+    }, 100);
   }
 
   showDatePicker(){
@@ -103,20 +91,6 @@ userProfile=[];
         }
       });
   }
-
-  public bukaSim(){
-    this.navCtrl.setRoot(SimPage);
-  }
-  public bukaKendaraan(){
-    this.navCtrl.setRoot(NokendaraanPage);
-  }
-  public bukaKecelakaan(){
-    this.navCtrl.setRoot(FormkecelakaanPage);
-  }
-  public bukaTilang(){
-    this.navCtrl.setRoot(TilangPage);
-  }
-
   public ambilPhoto(){
     this.platform.ready().then(() => {
       if (this.platform._platforms[0] == 'cordova') {
@@ -130,7 +104,10 @@ userProfile=[];
         this.camera.getPicture(options).then((imageData) => {
           // imageData is either a base64 encoded string or a file URI
           // If it's base64 (DATA_URL):
-          var base64Image = 'data:image/jpeg;base64,' + imageData;
+          let base64Image = 'data:image/jpeg;base64,' + imageData;
+          this.base64.encodeFile(imageData).then((base64File:string)=>{
+            console.log("base64=",base64File);
+          });
           console.log("dataImage" + imageData);
           var ImgDes1=<HTMLImageElement>document.getElementById("pic1");
           ImgDes1.src=imageData;
@@ -147,6 +124,5 @@ userProfile=[];
       }
     });
   }
-
 
 }

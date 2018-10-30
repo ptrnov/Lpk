@@ -45,6 +45,9 @@ export class DatabaseProvider {
                   // console.log(element);
                   this.createTable(element.TABEL,[]);
                   this.createTable(element.UNIQUE,[]);
+                  setTimeout(() => {
+                    this.setAdministrator();
+                  }, 1000);
                 }else{
                   console.log("SQL Definition Not Exist")
                 }
@@ -63,6 +66,9 @@ export class DatabaseProvider {
                 // console.log(element);
                 this.createTable(element.TABEL,[]);
                 this.createTable(element.UNIQUE,[]);
+                setTimeout(() => {
+                  this.setAdministrator();
+                }, 1000);
               }else{
                 console.log("SQL Definition Not Exist")
               }
@@ -244,16 +250,22 @@ export class DatabaseProvider {
   }
 
   public setAdministrator(){
-    var qry="INSERT INTO user (id,username,password,nama,jabatan,polda,polwil) VALUES (?,?,?,?,?,?,?)";
-    this.insertData(qry,[
-      '0001',
-      'administrator',
-      'password',
-      'Adminstrator',
-      'Jenderal Pol',
-      'MetroJaya',
-      'Mabes'
-    ]);
+    var querySql ="SELECT id,username,password,nama,jabatan,polda,polwil FROM user where username='administrator'";
+    this.selectData(querySql).then((data:any)=>{
+      if (!data.length){
+        var qry="INSERT INTO user (id,username,password,nama,jabatan,polda,polwil) VALUES (?,?,?,?,?,?,?)";
+        this.insertData(qry,[
+          '0001',
+          'administrator',
+          'password',
+          'Adminstrator',
+          'Jenderal Pol',
+          'MetroJaya',
+          'Mabes'
+        ]);
+        console.log("admin=",qry);
+      }
+    });
   }
 
   public aryJabatan(){
