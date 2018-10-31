@@ -18,17 +18,27 @@ export class SimPage {
       public navParams: NavParams
   ){
     this.columns_datasim=[
-      { prop: 'Title' },
-      { prop: 'Keterangan' },
+      { name: 'Title',prop: 'Title', width: 100 },
+      { name: 'Sma',prop: 'Sma', width: 5 },
+      { name: 'Keterangan',prop: 'Keterangan' },
     ]
     this.rows_datasim = [
-      {'Title':'No.kendaraan','Keterangan':'12312321'},
+      {'Title':'No.SIM','Sma':':','Keterangan':'1348180502933'},
+      {'Title':'Type.SIM','Sma':':','Keterangan':'A'},
+      {'Title':'Berlaku','Sma':':','Keterangan':'14-11-2023'},
+      {'Title':'No.SIM','Sma':':','Keterangan':'1348180502933'},
+      {'Title':'Nama','Sma':':','Keterangan':'PITER NOVIAN'},
+      {'Title':'Tempat','Sma':':','Keterangan':'PALEMBANG'},
+      {'Title':'Tgl.Lahir','Sma':':','Keterangan':'14-11-1981'},
+      {'Title':'Tinggi','Sma':':','Keterangan':'170 cm'},
+      {'Title':'Pekerjaan','Sma':':','Keterangan':'SWASTA'},
+      {'Title':'Alamat','Sma':':','Keterangan':'Duta Bintaro, Ubud 1 '},
     ];
 
     this.columns_riwayatsim = [
-      { prop: 'Tanggal' },
-      { prop: 'Waktu' },
-      { prop: 'Pelangaran' }
+      { name: 'Tanggal',prop: 'Tanggal', width: 40 },
+      { name: 'Waktu', prop: 'Waktu', width: 40 },
+      { name: 'Pelangaran',prop: 'Pelangaran'}
     ];
 
     this.rows_riwayatsim = [

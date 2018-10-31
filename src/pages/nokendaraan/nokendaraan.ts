@@ -27,17 +27,23 @@ export class NokendaraanPage {
     public navParams: NavParams
   ) {
     this.columns_datakendaraan=[
-      { prop: 'Title' },
-      { prop: 'Keterangan' },
+      { name: 'Title',prop: 'Title', width: 100 },
+      { name: 'Sma',prop: 'Sma', width: 5 },
+      { name: 'Keterangan',prop: 'Keterangan' },
     ]
     this.rows_datakendaraan = [
-      {'Title':'No.kendaraan','Keterangan':'12312321'},
+      {'Title':'No.Polisi','Sma':':','Keterangan':'B-1817-NFO'},
+      {'Title':'Nama Pemilik','Sma':':','Keterangan':'PITER NOVIAN'},
+      {'Title':'Merek/Type','Sma':':','Keterangan':'DAIHATSU'},
+      {'Title':'Jenis Mobil','Sma':':','Keterangan':'MINIBUS'},
+      {'Title':'Berlaku STNK','Sma':':','Keterangan':'14-11-2023'},
+      {'Title':'Berlaku Pajak','Sma':':','Keterangan':'12-12-2018'},
     ];
 
     this.columns = [
-      { prop: 'Tanggal' },
-      { prop: 'Waktu' },
-      { prop: 'Pelangaran' }
+      { name: 'Tanggal',prop: 'Tanggal', width: 40 },
+      { name: 'Waktu', prop: 'Waktu', width: 40 },
+      { name: 'Pelangaran',prop: 'Pelangaran'}
     ];
 
     this.rows = [

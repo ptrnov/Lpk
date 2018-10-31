@@ -32,8 +32,8 @@
                     <ion-card-content class="card1-content">
                         <ngx-datatable class="tabel1"
                         [sortType]="multi"
-                        [headerHeight]="40"
-                        [footerHeight]="30"
+                        [headerHeight]="0"
+                        [footerHeight]="0"
                         [rowHeight]="30"
                         [rows]="rows_datakendaraan"
                         [columns]="columns_datakendaraan"
@@ -60,6 +60,21 @@
               [columns]="columns"
               [columnMode]="'force'"
               [limit]="5">
+              <!-- <ngx-datatable-column name="Tanggal" [width]="100">
+                  <ng-template let-value="value" ngx-datatable-cell-template>
+                      {{value}}
+                  </ng-template>
+              </ngx-datatable-column>
+              <ngx-datatable-column name="Waktu" [width]="100">
+                  <ng-template let-value="value" ngx-datatable-cell-template>
+                      {{value}}
+                  </ng-template>
+              </ngx-datatable-column>
+              <ngx-datatable-column name="Pelangaran" [width]="100">
+                  <ng-template let-value="value" ngx-datatable-cell-template>
+                      {{value}}
+                  </ng-template>
+              </ngx-datatable-column> -->
             </ngx-datatable>
           </ion-col>
       </ion-row>
