@@ -1,11 +1,131 @@
 page-sim {
-  .title-sim{
-    font-size: 3.5vw;
-    font-family:"Arial Black";
-    // color:#e8bb16;
-    color:white;
-  }
+  // .title-sim{
+  //   font-size: 3.5vw;
+  //   font-family:"Arial Black";
+  //   // color:#e8bb16;
+  //   color:white;
+  // }
   .content-body{
     background-color: white;
+  }
+  .grid-column{
+    padding: 0 0 0 0;
+    margin-left: -5px;
+  }
+  .row-header{
+    margin-top:1  0px;
+    margin-left:10px;
+    margin-bottom: -22px;
+    .col-header1{
+      padding: 0 0 0 0;
+      margin-left: 0px;
+      .logo {
+        max-width: 100%;
+        margin-left: -1px;
+        height: auto;
+        margin-top: 10px;
+        display: block;
+      }
+    }
+  }
+
+  .grid_row{
+    width:100%!important;
+    padding: 0 0 0 0;
+    margin-left: 5px;
+    padding-right: 10px;
+  }
+  .grid_col{
+    width:100%!important;
+    padding: 0 0 0 0;
+    margin-left: 5px;
+  }
+  .card1{
+    width:98%!important;
+    padding: 0 0 0 0;
+    margin-left:3px;
+    border: 1px solid #cac9c7ad;
+    border-radius: 7px 7px 7px 7px!important;
+    .card1-header{
+      width:100%!important;
+      padding: 0 0 0 0;
+      // border: 2px solid #000000;
+      .label{
+        padding: 0 0 0 0;
+        text-align: center;
+        font-size: 4vw;
+        font-weight: bold;
+      }
+    }
+    .card-content{
+      width:100%!important;
+      // padding: 0 0 0 0;
+    }
+  }
+  .tabel{
+    margin-bottom: 50px;
+    .datatable-header {
+      background: rgba(164, 192, 214,1);
+      padding: 1em 0 0 1em;
+    }
+    .datatable-header-cell {
+        font-size: 12px;
+        font-weight: bold;
+        height: 100%!important;
+        margin-top: -5px;
+    }
+    .datatable-body-row {
+        padding: 0;
+        height: 100%!important;
+    }
+    .datatable-row-even {
+        background: rgba(240, 240, 240, 1);
+        font-size: 10px;
+    }
+    .datatable-row-odd {
+        background: rgba(255, 255, 255,1);
+        font-size: 10px;
+    }
+    .datatable-body-cell {
+        padding: 0 0 0 0;
+        height: 30px!important;
+        .datatable-body-cell-label{
+          font-size: 12px;
+          vertical-align: middle;
+          margin-top: 7px;
+        }
+    }
+
+    // Style footer appearance
+    .datatable-footer {
+      background: rgba(218, 226, 234,1);
+      padding: 0 1em 0 1em;
+      .pager {
+        li {
+            padding: 0 1em !important;
+            a {
+              color: rgba(68, 68, 68, 1);
+              text-decoration: none;
+            }
+        }
+      }
+    }
+    // Style rules for the footer pagination elements
+    .datatable-icon-done-all:before {
+        content: ">>";
+    }
+    .datatable-icon-left:before {
+        content: "<";
+    }
+    .datatable-icon-right:before {
+        content: ">";
+    }
+
+    .datatable-icon-skip:before {
+        content: ">>";
+    }
+    .datatable-icon-prev:before {
+        content: "<<";
+    }
   }
 }

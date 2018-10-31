@@ -10,4 +10,58 @@
 
 <ion-content class="content-body">
 
+  <ion-grid class="grid-column">
+      <ion-row class="grid_row">
+          <ion-col class="grid_col" col-12 style="margin-top:10px">
+              <ion-searchbar [(ngModel)]="myInput" [showCancelButton]="shouldShowCancel" (ionCancel)="onCancel($event)"  placeholder="Masukan No.Kendaraan"> </ion-searchbar>
+          </ion-col>
+      </ion-row>
+      <!-- <ion-row class="grid_row">
+          <ion-col  class="grid_col" col-2>
+            <ion-icon ion-item name="map"></ion-icon>
+          </ion-col>
+      </ion-row> -->
+      <ion-row class="grid_row">
+          <ion-col class="grid_col" col-12>
+              <ion-card class="card1">
+                  <ion-card-header class="card1-header">
+                    <ion-label class="label">
+                        DATA KENDARAAN
+                    </ion-label>
+                  </ion-card-header>
+                    <ion-card-content class="card1-content">
+                        <ngx-datatable class="tabel1"
+                        [sortType]="multi"
+                        [headerHeight]="40"
+                        [footerHeight]="30"
+                        [rowHeight]="30"
+                        [rows]="rows_datakendaraan"
+                        [columns]="columns_datakendaraan"
+                        [columnMode]="'force'"
+                        [limit]="5">
+                      </ngx-datatable>
+                  </ion-card-content>
+                </ion-card>
+          </ion-col>
+      </ion-row>
+      <ion-row class="grid_row" >
+          <ion-col class="grid_col" col-12>
+              RIWAYAT KENDARAAN
+          </ion-col>
+      </ion-row>
+      <ion-row class="grid_row">
+          <ion-col class="grid_col" col-12>
+            <ngx-datatable class="tabel"
+              [sortType]="multi"
+              [headerHeight]="40"
+              [footerHeight]="30"
+              [rowHeight]="30"
+              [rows]="rows"
+              [columns]="columns"
+              [columnMode]="'force'"
+              [limit]="5">
+            </ngx-datatable>
+          </ion-col>
+      </ion-row>
+  </ion-grid>
 </ion-content>

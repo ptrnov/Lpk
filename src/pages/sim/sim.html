@@ -7,5 +7,89 @@
     </ion-navbar>
   </ion-header>
 <ion-content class="content-body">
+  <!-- <ion-toolbar>
+      <ion-row >
+              <ion-list radio-group [(ngModel)]="relationship">
+                <ion-col col-12>
+                    <ion-row >
+                      <ion-col col-4>
+                        <ion-item>
+                          <ion-label>No.SIM</ion-label>
+                          <ion-radio value="0"  checked="true" ></ion-radio>
+                        </ion-item>
+                      </ion-col>
+                      <ion-col  col-8>
+                        <ion-item>
+                          <ion-label>Nama & Tanggal Lahir</ion-label>
+                          <ion-radio value="1"></ion-radio>
+                        </ion-item>
+                      </ion-col>
+                      </ion-row>
+                  </ion-col>
+                </ion-list>
 
+      </ion-row>
+      <ion-row >
+        <ion-col>
+          <ion-searchbar [(ngModel)]="myInput" [showCancelButton]="shouldShowCancel" (ionCancel)="onCancel($event)"> </ion-searchbar>
+        </ion-col>
+          <ion-col col-2>
+            <ion-icon ion-item name="find"></ion-icon>
+          </ion-col>
+      </ion-row>
+    </ion-toolbar> -->
+  <ion-grid class="grid-column">
+      <ion-row class="grid_row">
+          <ion-col class="grid_col" col-12 style="margin-top:10px">
+              <ion-searchbar [(ngModel)]="myInput" [showCancelButton]="shouldShowCancel" (ionCancel)="onCancel($event)"  placeholder="Masukan No.SIM"> </ion-searchbar>
+          </ion-col>
+      </ion-row>
+      <!-- <ion-row class="grid_row">
+          <ion-col  class="grid_col" col-2>
+            <ion-icon ion-item name="map"></ion-icon>
+          </ion-col>
+      </ion-row> -->
+      <ion-row class="grid_row">
+          <ion-col class="grid_col" col-12>
+              <ion-card class="card1">
+                  <ion-card-header class="card1-header">
+                    <ion-label class="label">
+                        DATA PEMILIK SIM
+                    </ion-label>
+                  </ion-card-header>
+                    <ion-card-content class="card1-content">
+                        <ngx-datatable class="tabel1"
+                        [sortType]="multi"
+                        [headerHeight]="40"
+                        [footerHeight]="30"
+                        [rowHeight]="30"
+                        [rows]="rows_datasim"
+                        [columns]="columns_datasim"
+                        [columnMode]="'force'"
+                        [limit]="5">
+                      </ngx-datatable>
+                  </ion-card-content>
+                </ion-card>
+          </ion-col>
+      </ion-row>
+      <ion-row class="grid_row" >
+          <ion-col class="grid_col" col-12>
+              RIWAYAT PEMIKIK SIM
+          </ion-col>
+      </ion-row>
+      <ion-row class="grid_row">
+          <ion-col class="grid_col" col-12>
+            <ngx-datatable class="tabel"
+              [sortType]="multi"
+              [headerHeight]="40"
+              [footerHeight]="30"
+              [rowHeight]="30"
+              [rows]="rows_riwayatsim"
+              [columns]="columns_riwayatsim"
+              [columnMode]="'force'"
+              [limit]="5">
+            </ngx-datatable>
+          </ion-col>
+      </ion-row>
+  </ion-grid>
 </ion-content>

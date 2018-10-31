@@ -21,6 +21,7 @@ import { DatePicker } from '@ionic-native/date-picker';
 import { FormkecelakaanPage } from '../pages/formkecelakaan/formkecelakaan';
 import { Base64 } from '@ionic-native/base64';
 import { TilangPage } from '../pages/tilang/tilang';
+import { NgxDatatableModule } from '@swimlane/ngx-datatable';
 @NgModule({
   declarations: [
     MyApp,
@@ -46,7 +47,8 @@ import { TilangPage } from '../pages/tilang/tilang';
       real_name:'none',
       user_group:'none'
     }),
-    SelectSearchableModule
+    SelectSearchableModule,
+    NgxDatatableModule
   ],
   bootstrap: [IonicApp],
   entryComponents: [

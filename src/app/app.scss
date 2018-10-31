@@ -13,6 +13,18 @@ body{
   //font-weight: 400 !important;
   //overflow-y: scroll !important;
 }
+.title-home{
+  font-size: 3.5vw;
+  font-family:"Arial Black";
+  color:rgb(7, 1, 1);
+}
+//ptr.nov - panel atas menu
+.toolbar-background-md{
+  background-color:rgb(255, 255, 255);
+  // background-image: url('../assets/imgs/background.jpg');
+  // background-repeat: no-repeat;
+  // background-size: cover;
+}
 
 /*
 * LEFE MENU CONTENT
@@ -264,12 +276,12 @@ ion-navbar.no-border {
   }
 }
 //ptr.nov - panel atas menu
-.toolbar-background-md{
-  background-color:#D40707;
-  // background-image: url('../assets/imgs/background.jpg');
-  // background-repeat: no-repeat;
-  // background-size: cover;
-}
+// .toolbar-background-md{
+//   background-color:rgb(172, 163, 163);
+//   // background-image: url('../assets/imgs/background.jpg');
+//   // background-repeat: no-repeat;
+//   // background-size: cover;
+// }
 // list style
 .list-no-border {
 

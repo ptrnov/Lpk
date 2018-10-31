@@ -29,6 +29,7 @@
     "@ionic-native/sqlite": "4.16.0",
     "@ionic-native/status-bar": "~4.15.0",
     "@ionic/storage": "2.2.0",
+    "@swimlane/ngx-datatable": "^14.0.0",
     "com-badrit-base64": "0.2.0",
     "cordova-android": "6.4.0",
     "cordova-browser": "5.0.4",
