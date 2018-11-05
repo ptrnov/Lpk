@@ -5,7 +5,7 @@ page-home {
   //   color:white;
   // }
   .header-page{
-    height:50vw;
+    height:40vw;
     position:relative;  //ptr.nov relateve untuk user avatar
     background-image: url('../assets/imgs/background.jpg');
     background-repeat: no-repeat;
@@ -15,11 +15,12 @@ page-home {
       width:100%!important;
       // left: 40%;
       text-align: center;
-      top: 83%;
+      top: 75%;
       .label{
         color: #e2e2e2;
         font-size: 13px;
         text-align: center;
+        top: -30px;
       }
 
     }
@@ -27,7 +28,8 @@ page-home {
   .content-body{
     padding: 0 0 0 0;
     width: 100%!important;
-    background-color: white;
+    // background-color: white;
+    background-color: #1C1F26;
   }
   .user-avatar {
     width: 100px;
@@ -39,7 +41,7 @@ page-home {
     position: absolute; //terhadap header-page
     left: 50%;
     top: 50%;
-    margin-top: -50px;
+    margin-top: -70px;
     margin-left: -50px;
     // box-shadow: inset 0 0 10rem rgba(0,0,0,.25), 0 0 4rem rgba(255,255,255,.45);
     img {
@@ -61,9 +63,9 @@ page-home {
   }
   .card-menu1{
     padding: 0 0 0 0;
-    background-color:#FFFF;
+    background-color:#d40707;
     border-radius: 7px 7px 7px 7px;
-    border : 1px solid #e2e2e2;
+    border : 1px solid #d40707;
     width: 95%;
     height:25vw;
     margin-left: 7px;
@@ -86,13 +88,14 @@ page-home {
       text-align: center;
       min-height: 10vw;
       white-space: normal;
+      color: white;
     }
   }
   .card-menu2{
     padding: 0 0 0 0;
-    background-color:#FFFF;
+    background-color:#d40707;
     border-radius: 7px 7px 7px 7px;
-    border : 1px solid #e2e2e2;
+    border : 1px solid #d40707;
     width: 95%;
     height:25vw;
     margin-left: 3px;
@@ -115,6 +118,7 @@ page-home {
       text-align: center;
       min-height: 10vw;
       white-space: normal;
+      color: white;
     }
   }
   .row-header{

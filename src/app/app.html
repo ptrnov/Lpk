@@ -12,10 +12,12 @@
               <!-- <ion-col padding-top col-8 *ngFor="let item of profileData"> -->
               <ion-col padding-top col-8 *ngFor="let item of profileData">
                 <h3 ion-text class="no-margin bold text-white" >
-                  {{item.nama}}
+                  <!-- {{item.nama}} -->
+                  Teguh Bactiar
                 </h3>
                 <span ion-text class="text-white">
-                  {{item.jabatan}}
+                  <!-- {{item.jabatan}} -->
+                  Briptu
                 </span><br>
                 <!-- <span ion-text color="putih">Area</span> -->
               </ion-col>
@@ -51,7 +53,10 @@
     <ion-list class="user-list">
         <button [id]="menuItem.id" ion-item menuClose color="{{menuItem.color}}" *ngFor="let menuItem of appMenuItems" (click)="openPage(menuItem)" >
         <!-- <button [id]="menuItem.id" ion-item menuClose class="text-1x" *ngFor="let menuItem of appMenuItems" (click)="openPage(menuItem)" [class.active]="checkActivePage(p)"> -->
-            <ion-icon item-left  [name]="menuItem.icon"></ion-icon>
+            <!-- <ion-icon item-left  [name]="menuItem.icon"></ion-icon>
+            <img src="assets/imgs/"+{{menuItem.icon}} style="max-width: 10%;"> -->
+            <img item-left [src]="menuItem.icon" style="margin-top:15px; max-width: 8%;">
+            <!-- <img item-left src="assets/imgs/sim.png" style="margin-top:15px; max-width: 8%;"> -->
             <span text-wrap ion-text>{{menuItem.title}}</span>
         </button>
     </ion-list>

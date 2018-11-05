@@ -3,7 +3,7 @@
       <button ion-button menuToggle>
         <ion-icon name="menu"></ion-icon>
       </button>
-      <ion-label text-wrap class="title-home">LAPORAN KECELAKAAN</ion-label>
+      <ion-label text-wrap class="title-toolbar">LAPORAN KECELAKAAN</ion-label>
     </ion-navbar>
   </ion-header>
 
@@ -92,10 +92,11 @@
                                 KATEGORILAKA
                             </ion-label>
                             <ion-item >
+                                <!-- <ion-label class="lbl">KATEGORILAKA</ion-label> -->
                               <ion-select class="select-text"  [(ngModel)]="kategorilaka" placeholder="Pilih" name="kategorilaka" cancelText="Cancel" okText="OK">
-                                  <ion-option value="1" selected="true">F</ion-option>
-                                  <ion-option value="2">L</ion-option>
-                                  <ion-option value="3">TL</ion-option>
+                                  <ion-option value="1" selected="true">F (Fatal)</ion-option>
+                                  <ion-option value="2">L (Luka)</ion-option>
+                                  <ion-option value="3">TL (Tabrak Lari)</ion-option>
                               </ion-select>
                             </ion-item>
                           </ion-col>
@@ -175,10 +176,10 @@
                               <ion-item>
                                 <!-- <ion-label class="lbl">TABRAK LARI</ion-label> -->
                                 <ion-select class="select-text" [(ngModel)]="bataskecepatan" placeholder="Pilih" cancelText="Cancel" okText="OK">
-                                    <ion-option value="1">40</ion-option>
-                                    <ion-option value="2">60</ion-option>
-                                    <ion-option value="3">80</ion-option>
-                                    <ion-option value="4">100</ion-option>
+                                    <ion-option value="1">40 KM</ion-option>
+                                    <ion-option value="2">60 KM</ion-option>
+                                    <ion-option value="3">80 KM</ion-option>
+                                    <ion-option value="4">100 KM</ion-option>
                                 </ion-select>
                               </ion-item>
                           </ion-col>
@@ -1135,6 +1136,183 @@
                             </ion-item>
                         </ion-col>
                       </ion-row>
+                  </ion-card-content>
+                </ion-card>
+            </ion-col>
+          </ion-row>
+          <!-- Row-24 -->
+          <ion-row justify-content-left class="row3-tbl-kendaraan-content">
+              <ion-col col-12 class="col3-tbl">
+                <ion-card class="card">
+                    <ion-card-header class="header">
+                        <ion-label text-wrap class="label">
+                            PHOTO KORBAN
+                        </ion-label>
+                    </ion-card-header>
+                    <ion-card-content text-wrap class="continer">
+                      <ion-row justify-content-left class="full-width">
+                        <ion-col col-3 class="col_label1-input-wrap" >
+                          <ion-item class="col-item">
+                              <ion-textarea rows="4" class="text-input" placeholder="input data"></ion-textarea>
+                          </ion-item>
+                        </ion-col>
+                        <ion-col col-3 class="col_label1-input-wrap">
+                            <ion-item class="col-item">
+                                <ion-textarea rows="4" class="text-input" placeholder="input data"></ion-textarea>
+                            </ion-item>
+                        </ion-col>
+                        <ion-col col-3 class="col_label1-input-wrap" >
+                            <ion-item class="col-item">
+                                <ion-textarea rows="4" class="text-input" placeholder="input data"></ion-textarea>
+                            </ion-item>
+                        </ion-col>
+                        <ion-col col-3 class="col_label2-input-wrap" >
+                            <ion-item class="col-item">
+                                <ion-textarea rows="4" class="text-input" placeholder="input data"></ion-textarea>
+                            </ion-item>
+                        </ion-col>
+                      </ion-row>
+                      <!-- PICTURE -->
+                      <ion-row justify-content-left class="full-width">
+                          <ion-col col-3 class="col_label1-input-wrap" >
+                            <ion-item class="col-item-picture">
+                                <img id="korban1" class="label" src="assets/imgs/pic.png" (click)="ambilPhoto($event)">
+                            </ion-item>
+                          </ion-col>
+                          <ion-col col-3 class="col_label1-input-wrap">
+                              <ion-item class="col-item-picture">
+                                  <img id="korban2" class="label" src="assets/imgs/pic.png" (click)="ambilPhoto($event)">
+                              </ion-item>
+                          </ion-col>
+                          <ion-col col-3 class="col_label1-input-wrap" >
+                              <ion-item class="col-item-picture">
+                                  <img  id="korban3" class="label" src="assets/imgs/pic.png" (click)="ambilPhoto($event)">
+                              </ion-item>
+                          </ion-col>
+                          <ion-col col-3 class="col_label2-input-wrap" >
+                              <ion-item class="col-item-picture">
+                                  <img  id="korban4" class="label" src="assets/imgs/pic.png" (click)="ambilPhoto($event)">
+                              </ion-item>
+                          </ion-col>
+                        </ion-row>
+                  </ion-card-content>
+                </ion-card>
+            </ion-col>
+          </ion-row>
+          <!-- Row-25 -->
+          <ion-row justify-content-left class="row3-tbl-kendaraan-content">
+              <ion-col col-12 class="col3-tbl">
+                <ion-card class="card">
+                    <ion-card-header class="header">
+                        <ion-label text-wrap class="label">
+                            PHOTO KEJADIAN PERKARA
+                        </ion-label>
+                    </ion-card-header>
+                    <ion-card-content text-wrap class="continer">
+                      <ion-row justify-content-left class="full-width">
+                        <ion-col col-3 class="col_label1-input-wrap" >
+                          <ion-item class="col-item">
+                              <ion-textarea rows="4" class="text-input" placeholder="input data"></ion-textarea>
+                          </ion-item>
+                        </ion-col>
+                        <ion-col col-3 class="col_label1-input-wrap">
+                            <ion-item class="col-item">
+                                <ion-textarea rows="4" class="text-input" placeholder="input data"></ion-textarea>
+                            </ion-item>
+                        </ion-col>
+                        <ion-col col-3 class="col_label1-input-wrap" >
+                            <ion-item class="col-item">
+                                <ion-textarea rows="4" class="text-input" placeholder="input data"></ion-textarea>
+                            </ion-item>
+                        </ion-col>
+                        <ion-col col-3 class="col_label2-input-wrap" >
+                            <ion-item class="col-item">
+                                <ion-textarea rows="4" class="text-input" placeholder="input data"></ion-textarea>
+                            </ion-item>
+                        </ion-col>
+                      </ion-row>
+                      <!-- PICTURE -->
+                      <ion-row justify-content-left class="full-width">
+                          <ion-col col-3 class="col_label1-input-wrap" >
+                            <ion-item class="col-item-picture">
+                                <img id="kejadian-perkara1" class="label" src="assets/imgs/pic.png" (click)="ambilPhoto($event)">
+                            </ion-item>
+                          </ion-col>
+                          <ion-col col-3 class="col_label1-input-wrap">
+                              <ion-item class="col-item-picture">
+                                  <img id="kejadian-perkara2" class="label" src="assets/imgs/pic.png" (click)="ambilPhoto($event)">
+                              </ion-item>
+                          </ion-col>
+                          <ion-col col-3 class="col_label1-input-wrap" >
+                              <ion-item class="col-item-picture">
+                                  <img  id="kejadian-perkara3" class="label" src="assets/imgs/pic.png" (click)="ambilPhoto($event)">
+                              </ion-item>
+                          </ion-col>
+                          <ion-col col-3 class="col_label2-input-wrap" >
+                              <ion-item class="col-item-picture">
+                                  <img  id="kejadian-perkara4" class="label" src="assets/imgs/pic.png" (click)="ambilPhoto($event)">
+                              </ion-item>
+                          </ion-col>
+                        </ion-row>
+                  </ion-card-content>
+                </ion-card>
+            </ion-col>
+          </ion-row>
+           <!-- Row-26 -->
+           <ion-row justify-content-left class="row3-tbl-kendaraan-content">
+              <ion-col col-12 class="col3-tbl">
+                <ion-card class="card">
+                    <ion-card-header class="header">
+                        <ion-label text-wrap class="label">
+                            PHOTO KENDARAAN TERLIBAT
+                        </ion-label>
+                    </ion-card-header>
+                    <ion-card-content text-wrap class="continer">
+                      <ion-row justify-content-left class="full-width">
+                        <ion-col col-3 class="col_label1-input-wrap" >
+                          <ion-item class="col-item">
+                              <ion-textarea rows="4" class="text-input" placeholder="input data"></ion-textarea>
+                          </ion-item>
+                        </ion-col>
+                        <ion-col col-3 class="col_label1-input-wrap">
+                            <ion-item class="col-item">
+                                <ion-textarea rows="4" class="text-input" placeholder="input data"></ion-textarea>
+                            </ion-item>
+                        </ion-col>
+                        <ion-col col-3 class="col_label1-input-wrap" >
+                            <ion-item class="col-item">
+                                <ion-textarea rows="4" class="text-input" placeholder="input data"></ion-textarea>
+                            </ion-item>
+                        </ion-col>
+                        <ion-col col-3 class="col_label2-input-wrap" >
+                            <ion-item class="col-item">
+                                <ion-textarea rows="4" class="text-input" placeholder="input data"></ion-textarea>
+                            </ion-item>
+                        </ion-col>
+                      </ion-row>
+                      <!-- PICTURE -->
+                      <ion-row justify-content-left class="full-width">
+                          <ion-col col-3 class="col_label1-input-wrap" >
+                            <ion-item class="col-item-picture">
+                                <img id="kendaraan-terlibat1" class="label" src="assets/imgs/pic.png" (click)="ambilPhoto($event)">
+                            </ion-item>
+                          </ion-col>
+                          <ion-col col-3 class="col_label1-input-wrap">
+                              <ion-item class="col-item-picture">
+                                  <img id="kendaraan-terlibat2" class="label" src="assets/imgs/pic.png" (click)="ambilPhoto($event)">
+                              </ion-item>
+                          </ion-col>
+                          <ion-col col-3 class="col_label1-input-wrap" >
+                              <ion-item class="col-item-picture">
+                                  <img  id="kendaraan-terlibat3" class="label" src="assets/imgs/pic.png" (click)="ambilPhoto($event)">
+                              </ion-item>
+                          </ion-col>
+                          <ion-col col-3 class="col_label2-input-wrap" >
+                              <ion-item class="col-item-picture">
+                                  <img  id="kendaraan-terlibat4" class="label" src="assets/imgs/pic.png" (click)="ambilPhoto($event)">
+                              </ion-item>
+                          </ion-col>
+                        </ion-row>
                   </ion-card-content>
                 </ion-card>
             </ion-col>

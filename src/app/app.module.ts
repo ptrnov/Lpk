@@ -22,6 +22,12 @@ import { FormkecelakaanPage } from '../pages/formkecelakaan/formkecelakaan';
 import { Base64 } from '@ionic-native/base64';
 import { TilangPage } from '../pages/tilang/tilang';
 import { NgxDatatableModule } from '@swimlane/ngx-datatable';
+import { BeritalantasPage } from '../pages/beritalantas/beritalantas';
+import { BeritapoldaPage } from '../pages/beritapolda/beritapolda';
+import { PetalantasPage } from '../pages/petalantas/petalantas';
+import { BarcodeScanner } from '@ionic-native/barcode-scanner';
+import { NgxQRCodeModule } from 'ngx-qrcode2';
+import { RestProvider } from '../providers/rest/rest';
 @NgModule({
   declarations: [
     MyApp,
@@ -32,7 +38,10 @@ import { NgxDatatableModule } from '@swimlane/ngx-datatable';
     NokendaraanPage,
     SimPage,
     FormkecelakaanPage,
-    TilangPage
+    TilangPage,
+    BeritalantasPage,
+    BeritapoldaPage,
+    PetalantasPage
   ],
   imports: [
     BrowserModule,
@@ -48,7 +57,8 @@ import { NgxDatatableModule } from '@swimlane/ngx-datatable';
       user_group:'none'
     }),
     SelectSearchableModule,
-    NgxDatatableModule
+    NgxDatatableModule,
+    NgxQRCodeModule
   ],
   bootstrap: [IonicApp],
   entryComponents: [
@@ -60,7 +70,10 @@ import { NgxDatatableModule } from '@swimlane/ngx-datatable';
     NokendaraanPage,
     SimPage,
     FormkecelakaanPage,
-    TilangPage
+    TilangPage,
+    BeritalantasPage,
+    BeritapoldaPage,
+    PetalantasPage
   ],
   providers: [
     StatusBar,
@@ -72,7 +85,9 @@ import { NgxDatatableModule } from '@swimlane/ngx-datatable';
     DatabaseProvider,
     Camera,
     DatePicker,
-    Base64
+    Base64,
+    BarcodeScanner,
+    RestProvider
   ]
 })
 export class AppModule {}

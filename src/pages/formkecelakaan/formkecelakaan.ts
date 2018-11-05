@@ -22,7 +22,20 @@ export class FormkecelakaanPage {
     public toastCtrl: ToastController,
     private datePicker: DatePicker,
     private base64: Base64
-  ){}
+  ){
+    document.addEventListener("backbutton", onBackKeyDown, false);
+    function onBackKeyDown(e) {
+      this.navCtrl.pop();
+      // e.preventDefault();
+      alert('Back Button is Pressed!');
+    }
+    // document.addEventListener("backbutton", onBackKeyDown, false);
+    // function onBackKeyDown(e) {
+    //   e.preventDefault();
+    //   // alert('Back Button is Pressed!');
+    //   this.navCtrl.popToRoot({ animate: true, direction: 'back' })
+    // }
+  }
 
   ionViewDidEnter(){
     var rslt=[];

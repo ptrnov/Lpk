@@ -1,0 +1,24 @@
+<ion-header>
+    <ion-navbar>
+      <button ion-button menuToggle>
+        <ion-icon name="menu"></ion-icon>
+      </button>
+      <ion-label text-wrap class="title-toolbar">BERITA POLDA</ion-label>
+    </ion-navbar>
+  </ion-header>
+<ion-content class="content-body">
+    <ion-grid class="grid-column">
+        <ion-list >
+            <ion-item  *ngFor="let activity of timelinePic">
+                <ion-avatar item-start>
+                    <img src={{activity.profilePicture}}>
+                </ion-avatar>
+                <h4>{{activity.author}}</h4>
+                <h6>{{activity.title}} on {{activity.date | date: "d MMM"}}</h6>
+                <p>{{activity.text}}</p>
+                <button ion-button clear item-end>View</button>
+            </ion-item>
+        </ion-list>
+    </ion-grid>
+</ion-content>
+

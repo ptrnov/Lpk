@@ -3,7 +3,7 @@
     <button ion-button menuToggle>
       <ion-icon name="menu"></ion-icon>
     </button>
-    <ion-label text-wrap class="title-home">ONLINE APPLICATION KORLANTAS</ion-label>
+    <ion-label text-wrap class="title-toolbar">ONLINE APPLICATION KORLANTAS</ion-label>
   </ion-navbar>
 </ion-header>
 
@@ -13,8 +13,11 @@
             <img src="assets/imgs/avatar.jpg" width="100px"/>
         </div>
         <div class="user" *ngFor="let x1 of userProfile">
-          <label class="label">{{x1.nama}}</label>
+          <!-- <label class="label">{{x1.nama}}</label> -->
+          <label class="label">Teguh Bactiar  |  Briptu  | 89050774</label><br>
+          <label class="label">POLDA METROJAYA - POLRES METRO JAKARTA PUSAT</label>
         </div>
+
     </div>
      <ion-grid class="grid-column">
        <ion-row class="row-menu1">
@@ -31,7 +34,8 @@
             <ion-col col-6 style="padding:0 0 0 0">
                 <ion-card class="card-menu2" (click)="bukaKendaraan()">
                     <ion-card-header class="card-header">
-                        <img class="image" src="assets/imgs/pengecekan_kendaraan1.png">
+                        <!-- <img src="assets/imgs/pengecekan_kendaraan1.png" style="margin-left:-20px;margin-top:10px;width: 20vw;height:15vw;"> -->
+                        <img  class="image" src="assets/imgs/pengecekan_kendaraan1.png">
                     </ion-card-header>
                     <ion-card-content class="card-content">
                         Pengecekan Kendaraan
@@ -61,8 +65,45 @@
                 </ion-card>
             </ion-col>
        </ion-row>
-
+       <ion-row class="row-menu2" style="margin-top:-15px">
+          <ion-col col-6 style="padding:0 0 0 0">
+            <ion-card class="card-menu1" (click)="bukaBeritalantas()">
+              <ion-card-header class="card-header">
+                  <img class="image" src="assets/imgs/newspaper.png">
+              </ion-card-header>
+              <ion-card-content class="card-content">
+                  Berita Lantas
+              </ion-card-content>
+            </ion-card>
+          </ion-col>
+          <ion-col col-6 style="padding:0 0 0 0">
+              <ion-card class="card-menu2" (click)="bukaBeritapolda()">
+                  <ion-card-header class="card-header">
+                      <!-- <img src="assets/imgs/berita_polda.png" style="margin-top:10px;width: 15vw;height: 13vw;"> -->
+                      <img  class="image" src="assets/imgs/berita_polda.png">
+                  </ion-card-header>
+                  <ion-card-content class="card-content">
+                      Berita Polda
+                  </ion-card-content>
+              </ion-card>
+          </ion-col>
+     </ion-row>
+     <ion-row class="row-menu2" style="margin-top:-15px;margin-left:5px">
+        <ion-col col-6 style="padding:0 0 0 0">
+            <ion-card class="card-menu2" (click)="bukaPetalantas()">
+                <ion-card-header class="card-header">
+                    <img class="image" src="assets/imgs/map.png">
+                </ion-card-header>
+                <ion-card-content class="card-content">
+                    Peta Lantas
+                </ion-card-content>
+            </ion-card>
+        </ion-col>
+      </ion-row>
      </ion-grid>
-
+    <div style="height:50px">
+    <button ion-button (click)="testApiKendaraan()">testApi Kendaraan</button>
+    <button ion-button (click)="testApiSim()">testApi SIM</button>
+    </div>
 
 </ion-content>

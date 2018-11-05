@@ -12,15 +12,18 @@ body{
   // overflow : hidden !important;
   //font-weight: 400 !important;
   //overflow-y: scroll !important;
+  // background-color: #1C1F26;
 }
-.title-home{
-  font-size: 3.5vw;
+.title-toolbar{
+  font-size: 10px;
   font-family:"Arial Black";
-  color:rgb(7, 1, 1);
+  //color:rgb(7, 1, 1);
+  color:white;
 }
 //ptr.nov - panel atas menu
 .toolbar-background-md{
-  background-color:rgb(255, 255, 255);
+  // background-color:rgb(255, 255, 255);
+  background-color:#d40707;;
   // background-image: url('../assets/imgs/background.jpg');
   // background-repeat: no-repeat;
   // background-size: cover;
@@ -274,6 +277,16 @@ ion-navbar.no-border {
 .toolbar-background {
   border: none;
   }
+
+}
+.bar-button-default-md {
+  color:white;
+}
+.bar-button-clear-md-default{
+  color:white;
+}
+.bar-button-md-default{
+  color:white;
 }
 //ptr.nov - panel atas menu
 // .toolbar-background-md{

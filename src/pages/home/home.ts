@@ -7,6 +7,11 @@ import { SimPage } from '../../pages/sim/sim';
 import { NokendaraanPage } from '../../pages/nokendaraan/nokendaraan';
 import { FormkecelakaanPage } from '../../pages/formkecelakaan/formkecelakaan';
 import { TilangPage } from '../../pages/tilang/tilang';
+import { BeritalantasPage } from '../../pages/beritalantas/beritalantas';
+import { BeritapoldaPage } from '../../pages/beritapolda/beritapolda';
+import { PetalantasPage } from '../../pages/petalantas/petalantas';
+import { RestProvider } from '../../providers/rest/rest';
+
 class Port {
   public id: number;
   public name: string;
@@ -25,7 +30,8 @@ userProfile=[];
     public events: Events,
     private camera: Camera,
     public toastCtrl: ToastController,
-    private datePicker: DatePicker
+    private datePicker: DatePicker,
+    public rest:RestProvider
   ) {
     // this.events.subscribe('profileLogin', (data:any) =>{
     //   const tgl = new Date();
@@ -116,6 +122,16 @@ userProfile=[];
   public bukaTilang(){
     this.navCtrl.setRoot(TilangPage);
   }
+  public bukaBeritapolda(){
+    this.navCtrl.setRoot(BeritapoldaPage);
+  }
+  public bukaBeritalantas(){
+    this.navCtrl.setRoot(BeritalantasPage);
+  }
+  public bukaPetalantas(){
+    this.navCtrl.setRoot(PetalantasPage);
+  }
+
 
   public ambilPhoto(){
     this.platform.ready().then(() => {
@@ -148,5 +164,23 @@ userProfile=[];
     });
   }
 
+  public testApiKendaraan(){
+    var paramCari={
+      "no_polisi": "B"
+    }
+    this.rest.postData('kendaraan',paramCari).then((data:any)=>{
+      console.log("data-kendaraan",data.result.data);
+    });
+  }
 
+  public testApiSim(){
+    var paramCari={
+      "sim_no": "785876576",
+      // "nama": "Anjar Dp",
+      // "lahir_tgl": "2018-11-21",
+    }
+    this.rest.postData('sim',paramCari).then((data:any)=>{
+      console.log("data-SIM",data);
+    });
+  }
 }

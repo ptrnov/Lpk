@@ -3,32 +3,14 @@
       <button ion-button menuToggle>
         <ion-icon name="menu"></ion-icon>
       </button>
-      <ion-label text-wrap class="title-sim">PENGECEKAN SIM</ion-label>
+      <ion-label text-wrap class="title-toolbar">PENGECEKAN SIM</ion-label>
     </ion-navbar>
   </ion-header>
 <ion-content class="content-body">
-  <!-- <ion-toolbar>
-      <ion-row >
-              <ion-list radio-group [(ngModel)]="relationship">
-                <ion-col col-12>
-                    <ion-row >
-                      <ion-col col-4>
-                        <ion-item>
-                          <ion-label>No.SIM</ion-label>
-                          <ion-radio value="0"  checked="true" ></ion-radio>
-                        </ion-item>
-                      </ion-col>
-                      <ion-col  col-8>
-                        <ion-item>
-                          <ion-label>Nama & Tanggal Lahir</ion-label>
-                          <ion-radio value="1"></ion-radio>
-                        </ion-item>
-                      </ion-col>
-                      </ion-row>
-                  </ion-col>
-                </ion-list>
+  <!-- <ion-toolbar> -->
 
-      </ion-row>
+    <!-- </ion-toolbar> -->
+      <!--
       <ion-row >
         <ion-col>
           <ion-searchbar [(ngModel)]="myInput" [showCancelButton]="shouldShowCancel" (ionCancel)="onCancel($event)"> </ion-searchbar>
@@ -39,9 +21,77 @@
       </ion-row>
     </ion-toolbar> -->
   <ion-grid class="grid-column">
-      <ion-row class="grid_row">
-          <ion-col class="grid_col" col-12 style="margin-top:10px">
-              <ion-searchbar [(ngModel)]="myInput" [showCancelButton]="shouldShowCancel" (ionCancel)="onCancel($event)"  placeholder="Masukan No.SIM"> </ion-searchbar>
+    <ion-row class="grid_row" style="margin-bottom: -35px">
+        <ion-col col-12 class="grid_col">
+            <ion-list radio-group>
+              <ion-row style="padding: 0 0 0 0;margin-left:-10px">
+                <ion-col col-6>
+                  <ion-item >
+                    <ion-label>No.SIM</ion-label>
+                    <ion-radio (ionSelect)="radioklik($event)" value="nosim"  checked="true" style="outline: 0 !important;" ></ion-radio>
+                  </ion-item>
+                </ion-col>
+                <ion-col col-6>
+                  <ion-item >
+                    <ion-label>Nama.SIM</ion-label>
+                    <ion-radio (ionSelect)="radioklik($event)" value="namasim"></ion-radio>
+                  </ion-item>
+                </ion-col>
+              </ion-row>
+          </ion-list>
+        </ion-col>
+      </ion-row>
+      <!-- Pencarian no-sim-->
+      <ion-row class="grid_row" id="cari_nosim" style="margin-bottom: -15px">
+          <ion-col col-10 class="grid_col" style="margin-top:20px;margin-left:3px;padding: 0 0 0 0;width:99%!important;border-radius: 7px 7px 7px 7px!important;">
+            <!-- <ion-card style="margin-top:20px;margin-left:3px;padding: 0 0 0 0;width:99%!important;border-radius: 7px 7px 7px 7px!important;">
+              <ion-card-content> -->
+                <!-- <ion-searchbar [(ngModel)]="myInput" [showCancelButton]="shouldShowCancel" (ionCancel)="onCancel($event)" (change)="cari1($event);" placeholder="Masukan No.SIM"> </ion-searchbar> -->
+                <!-- <ion-searchbar [(ngModel)]="myInput" [showCancelButton]="shouldShowCancel" (keyup.enter)="cari1(q.value)" (change)="cari1($event);" placeholder="Masukan No.SIM"> </ion-searchbar> -->
+                <ion-searchbar #q [(ngModel)]="myInput" [showCancelButton]="shouldShowCancel" (keyup.enter)="cari1(q.value)" (ionInput)="cari_barcode(q.value);" placeholder="Masukan No.SIM"> </ion-searchbar>
+              <!-- </ion-card-content>
+            </ion-card> -->
+          </ion-col>
+          <ion-col col-1 class="grid_col">
+            <button ion-button icon-only class="cari1" style="background-color: #ccd6f7;">
+            <ion-icon name="md-qr-scanner"></ion-icon>
+            </button>
+          </ion-col>
+      </ion-row>
+      <!-- Pencarian nama-sim-->
+      <ion-row class="grid_row" id="cari_namasim" style="margin-bottom: -15px">
+          <ion-col class="grid_col">
+              <ion-card class="card1" style="margin-top:20px;margin-left:3px;padding: 0 0 0 0;width:99%!important;border-radius: 7px 7px 7px 7px!important;">
+                <ion-card-header style="margin-bottom: -20px;">
+                  <ion-row>
+                      <ion-col col-3>
+                          Nama
+                      </ion-col>
+                      <ion-col col-9>
+                          <ion-item style="margin-top: -20px">
+                             <ion-input type="text" ></ion-input>
+                          </ion-item>
+                      </ion-col>
+                  </ion-row>
+                </ion-card-header>
+                <ion-card-content>
+                    <ion-row>
+                      <ion-col col-4>
+                          Tgl.Lahir
+                      </ion-col>
+                      <ion-col col-8>
+                          Pilih Tgl.lahir
+                      </ion-col>
+                    </ion-row>
+                    <ion-row>
+                        <button ion-button icon-start block (click)="login()" class="Cari" style="border-radius: 30px 30px 30px 30px;color: #000000;
+                        background-color: #ffd101;">
+                            <ion-icon name="search"></ion-icon>
+                            CARI
+                        </button>
+                    </ion-row>
+                </ion-card-content>
+              </ion-card>
           </ion-col>
       </ion-row>
       <!-- <ion-row class="grid_row">
@@ -58,23 +108,40 @@
                     </ion-label>
                   </ion-card-header>
                     <ion-card-content class="card1-content">
-                        <ngx-datatable class="tabel1"
-                        [sortType]="multi"
-                        [headerHeight]="0"
-                        [footerHeight]="0"
-                        [rowHeight]="30"
-                        [rows]="rows_datasim"
-                        [columns]="columns_datasim"
-                        [columnMode]="'force'"
-                        [limit]="5">
-                      </ngx-datatable>
+                        <ion-col class="grid_col" col-12>
+                          <ion-row>
+                              <!-- <ion-col col-12>
+                                  <img *ngIf="displayQrCode()" [src]="generated" />
+                              </ion-col> -->
+                              <!-- <ion-thumbnail item-start style="width:100%;position: relative;left:40%">
+                                  <img class="sim-img" src="../assets/imgs/avatar.jpg">
+                              </ion-thumbnail> -->
+                          </ion-row>
+                        </ion-col>
+                        <ion-col class="grid_col" col-12>
+                            <!-- <ion-row style="width:100%!important"> -->
+                                <ngx-datatable class="tabel"
+                                  [sortType]="multi"
+                                  [headerHeight]="0"
+                                  [footerHeight]="0"
+                                  [rowHeight]="30"
+                                  [rows]="rows_datasim"
+                                  [columns]="columns_datasim"
+                                  [columnMode]="'force'"
+                                  [limit]="5">
+                                  <!-- <ngx-datatable-column name="Title" align="right">
+
+                                  </ngx-datatable-column> -->
+                                </ngx-datatable>
+                            <!-- </ion-row> -->
+                        </ion-col>
                   </ion-card-content>
                 </ion-card>
           </ion-col>
       </ion-row>
       <ion-row class="grid_row" >
           <ion-col class="grid_col" col-12>
-              RIWAYAT PEMIKIK SIM
+              RIWAYAT PEMILIK SIM
           </ion-col>
       </ion-row>
       <ion-row class="grid_row">
