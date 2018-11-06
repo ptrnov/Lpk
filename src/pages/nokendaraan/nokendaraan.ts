@@ -19,6 +19,8 @@ export class NokendaraanPage {
   private rsltData:any;
   public columns : any;
   public rows : any;
+  public image_dataKendaraan : any;
+
   public sorts : any;
   public ambilDataRrows : any;
   public rows_datakendaraan: any;
@@ -46,25 +48,98 @@ export class NokendaraanPage {
 
     this.columns = [
       { name: 'Tanggal',prop: 'Tanggal', width: 40 },
-      { name: 'Waktu', prop: 'Waktu', width: 40 },
       { name: 'Pelangaran',prop: 'Pelangaran'}
     ];
 
-    this.rows = [
-      {'Tanggal':'12-12-2018','Waktu':'07:02:08','Pelangaran':'Menerobos lampu merah'},
-      {'Tanggal':'12-12-2018','Waktu':'07:02:08','Pelangaran':'tabrak lari'},
-      {'Tanggal':'12-12-2018','Waktu':'07:02:08','Pelangaran':'tabrak lari'},
-      {'Tanggal':'12-12-2018','Waktu':'07:02:08','Pelangaran':'tabrak lari'},
-      {'Tanggal':'12-12-2018','Waktu':'07:02:08','Pelangaran':'tabrak lari'},
-      {'Tanggal':'12-12-2018','Waktu':'07:02:08','Pelangaran':'tabrak lari'},
-      {'Tanggal':'12-12-2018','Waktu':'07:02:08','Pelangaran':'tabrak lari'},
-      {'Tanggal':'12-12-2018','Waktu':'07:02:08','Pelangaran':'tabrak lari'},
-    ];
+    // this.rows = [
+    //   {'Tanggal':'12-12-2018 07:02:08','Pelangaran':'Menerobos lampu merah'},
+    //   {'Tanggal':'12-12-2017 12:02:08','Pelangaran':'tabrak lari'},
+    // ];
   }
 
   ionViewDidLoad() {
-    console.log('ionViewDidLoad NokendaraanPage');
+    setTimeout(() => {
+      document.getElementById("data-kendaraan1").hidden=true;
+      document.getElementById("data-kendaraan2").hidden=true;
+      document.getElementById("data-kendaraan3").hidden=true;
+    }, 100);
   }
 
-  ad
+  public cari1(event:any){
+    console.log("cari sim=",event);
+    var paramCari;
+    paramCari={
+      "no_polisi": event,
+      //"sim_no": "785876576",
+      // "nama": "Anjar Dp",
+      // "lahir_tgl": "2018-11-21",
+    };
+
+    //Prosess Pencarian Data.
+    if (event!=''){
+
+      document.getElementById("data-kendaraan1").hidden=true;
+      document.getElementById("data-kendaraan2").hidden=true;
+      document.getElementById("data-kendaraan3").hidden=true;
+      setTimeout(() => {
+        this.rest.postData('kendaraan',paramCari).then((data:any)=>{
+          console.log("cari barcode",data);
+            if (data.result.total==1){
+              document.getElementById("data-kendaraan1").hidden=false;
+              document.getElementById("data-kendaraan2").hidden=false;
+              document.getElementById("data-kendaraan3").hidden=false;
+              // var pathImg=data.result.path;
+              // var nmImg =data.result.data[0].gambar;
+              // this.image_dataKendaraan=pathImg + nmImg;
+              this.rows_datakendaraan = [
+                {'Title':'No.Polisi','Sma':':','Keterangan':data.result.data[0].no_polisi},
+                {'Title':'Nama Pemilik','Sma':':','Keterangan':data.result.data[0].nama_pemilik},
+                {'Title':'Alamat Pemilik','Sma':':','Keterangan':data.result.data[0].alamat},
+                {'Title':'Merek/Type','Sma':':','Keterangan':data.result.data[0].merk_type},
+                {'Title':'Jenis Mobil','Sma':':','Keterangan':data.result.data[0].jenis_model},
+                {'Title':'Bahan Bakar','Sma':':','Keterangan':data.result.data[0].bahan_bakar},
+                {'Title':'Berlaku STNK','Sma':':','Keterangan':data.result.data[0].berlaku_stnk},
+                {'Title':'Berlaku Pajak','Sma':':','Keterangan':data.result.data[0].berlaku_pajak},
+                {'Title':'Samsat Provinsi','Sma':':','Keterangan':data.result.data[0].samsat_provinsi},
+                {'Title':'No.BPKAB','Sma':':','Keterangan':data.result.data[0].no_bpkb},
+                {'Title':'Tgl.Daftar','Sma':':','Keterangan':data.result.data[0].tgl_daftar},
+              ];
+              this.rows = [
+                {'Tanggal':'12-12-2018 07:02:08','Pelangaran':'Menerobos lampu merah'},
+                {'Tanggal':'12-12-2017 12:02:08','Pelangaran':'tabrak lari'},
+              ];
+
+            }else{
+              console.log("jaringan bermasalah");
+              // this.dataTidakAdaToast();
+              document.getElementById("data-kendaraan1").hidden=true;
+              document.getElementById("data-kendaraan2").hidden=true;
+              document.getElementById("data-kendaraan3").hidden=true;
+            }
+        },
+        (err) => {
+          // this.koneksiMasalahToast(event);
+            console.log("jaringan bermasalah");
+        });
+      }, 1000);
+
+    }else{
+      console.log("input kosong");
+      console.log("input kosong");
+      let dataValidtoast = this.toastCtrl.create({
+        message: 'Data kosong atau data tidak valid.',
+        duration: 3000,
+        position: 'middle'
+      });
+      dataValidtoast.onDidDismiss(() => {
+        console.log('Dismissed toast');
+        document.getElementById("data-kendaraan1").hidden=true;
+        document.getElementById("data-kendaraan2").hidden=true;
+        document.getElementById("data-kendaraan3").hidden=true;
+      });
+      dataValidtoast.present();
+    }
+  }
+
+
 }

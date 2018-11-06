@@ -344,4 +344,19 @@ export class SimPage {
     });
     toast.present();
   }
+
+  public cari_namatgl(){
+    let toast = this.toastCtrl.create({
+      message: 'Koneksi tidak stabil, coba beberapa saat kembali.',
+      duration: 3000,
+      position: 'middle'
+    });
+    toast.onDidDismiss(() => {
+      console.log('Dismissed toast');
+    });
+    toast.present();
+  }
+
+
+
 }
