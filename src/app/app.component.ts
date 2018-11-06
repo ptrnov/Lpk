@@ -12,6 +12,9 @@ import { SignupPage } from '../pages/signup/signup';
 import { FormkecelakaanPage } from '../pages/formkecelakaan/formkecelakaan';
 import { TilangPage } from '../pages/tilang/tilang';
 import { DatabaseProvider } from '../providers/database/database';
+import {BeritalantasPage} from '../pages/beritalantas/beritalantas';
+import { BeritapoldaPage } from '../pages/beritapolda/beritapolda';
+import { PetalantasPage } from '../pages/petalantas/petalantas';
 
 export interface MenuItem {
   id:string;
@@ -63,6 +66,9 @@ export class MyApp {
       {id:'side-button[2]', title: 'Pengecekan Kendaraan', component: NokendaraanPage, icon: 'assets/imgs/pengecekan_kendaraan1.png', color:'light'},
       {id:'side-button[3]', title: 'Laporan Kecelakaan', component: FormkecelakaanPage, icon: 'assets/imgs/kecelakaan3.png', color:'light'},
       {id:'side-button[4]', title: 'Laporan Tilang', component: TilangPage, icon: 'assets/imgs/tilang.png', color:'light'},
+      {id:'side-button[5]', title: 'Berita Lantas', component: BeritalantasPage, icon: 'assets/imgs/newspaper.png', color:'light'},
+      {id:'side-button[6]', title: 'Berita Polda', component: BeritapoldaPage, icon: 'assets/imgs/berita_polda.png', color:'light'},
+      {id:'side-button[7]', title: 'Peta Lantas', component: PetalantasPage, icon: 'assets/imgs/map.png', color:'light'},
     ];
 
     this.events.subscribe('profileLogin', (data:any) =>{
@@ -76,7 +82,10 @@ export class MyApp {
             {id:'side-button[2]', title: 'Pengecekan Kendaraan', component: NokendaraanPage, icon: 'assets/imgs/pengecekan_kendaraan1.png', color:'light'},
             {id:'side-button[3]', title: 'Laporan Kecelakaan', component: FormkecelakaanPage, icon: 'assets/imgs/kecelakaan3.png', color:'light'},
             {id:'side-button[4]', title: 'Laporan Tilang', component: TilangPage, icon: 'assets/imgs/tilang.png', color:'light'},
-            // {id:'side-button[5]', title: 'Tambah Pengguna', component: SignupPage, icon: 'assets/imgs/sim.png', color:'light'}
+            {id:'side-button[5]', title: 'Berita Lantas', component: BeritalantasPage, icon: 'assets/imgs/newspaper.png', color:'light'},
+            {id:'side-button[6]', title: 'Berita Polda', component: BeritapoldaPage, icon: 'assets/imgs/berita_polda.png', color:'light'},
+            {id:'side-button[7]', title: 'Peta Lantas', component: PetalantasPage, icon: 'assets/imgs/map.png', color:'light'},
+            // {id:'side-button[8]', title: 'Tambah Pengguna', component: SignupPage, icon: 'assets/imgs/sim.png', color:'light'}
           ];
           // this.appMenuItems.push({id:'side-button[3]', title: 'Tambah Pengguna', component: SimPage, icon: 'assets/imgs/sim.png', color:'light'});
         }else{
@@ -87,6 +96,9 @@ export class MyApp {
             {id:'side-button[2]', title: 'Pengecekan Kendaraan', component: NokendaraanPage, icon: 'assets/imgs/pengecekan_kendaraan1.png', color:'light'},
             {id:'side-button[3]', title: 'Laporan Kecelakaan', component: FormkecelakaanPage, icon: 'assets/imgs/kecelakaan3.png', color:'light'},
             {id:'side-button[4]', title: 'Laporan Tilang', component: TilangPage, icon: 'assets/imgs/tilang.png', color:'light'},
+            {id:'side-button[5]', title: 'Berita Lantas', component: BeritalantasPage, icon: 'assets/imgs/newspaper.png', color:'light'},
+            {id:'side-button[6]', title: 'Berita Polda', component: BeritapoldaPage, icon: 'assets/imgs/berita_polda.png', color:'light'},
+            {id:'side-button[7]', title: 'Peta Lantas', component: PetalantasPage, icon: 'assets/imgs/map.png', color:'light'},
           ];
         }
 

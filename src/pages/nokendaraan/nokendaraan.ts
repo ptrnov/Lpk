@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, ToastController,NavParams } from 'ionic-angular';
+import { IonicPage, NavController, LoadingController,ToastController,NavParams } from 'ionic-angular';
 import { RestProvider } from '../../providers/rest/rest';
 // import QRCode from 'qrcode';
 import { oflineDataKendaraan } from "./data";
@@ -26,11 +26,14 @@ export class NokendaraanPage {
   public rows_datakendaraan: any;
   public columns_datakendaraan: any;
 
+  private spinnerKen;
+
   constructor(
     public navCtrl: NavController,
     public navParams: NavParams,
     public rest:RestProvider,
-    public toastCtrl:ToastController
+    public toastCtrl:ToastController,
+    public loadingCtrl: LoadingController,
   ) {
     this.columns_datakendaraan=[
       { name: 'Title',prop: 'Title', width: 100 },
@@ -81,13 +84,23 @@ export class NokendaraanPage {
       document.getElementById("data-kendaraan1").hidden=true;
       document.getElementById("data-kendaraan2").hidden=true;
       document.getElementById("data-kendaraan3").hidden=true;
+
+      this.spinnerKen = this.loadingCtrl.create({
+        spinner:'bubbles',
+        content: 'Persiapan data, Silakan Tunggu...'
+      });
+      this.spinnerKen.present();
+
       setTimeout(() => {
         this.rest.postData('kendaraan',paramCari).then((data:any)=>{
           console.log("cari barcode",data);
             if (data.result.total==1){
+
               document.getElementById("data-kendaraan1").hidden=false;
               document.getElementById("data-kendaraan2").hidden=false;
               document.getElementById("data-kendaraan3").hidden=false;
+
+              this.spinnerKen.dismiss();
               // var pathImg=data.result.path;
               // var nmImg =data.result.data[0].gambar;
               // this.image_dataKendaraan=pathImg + nmImg;
@@ -118,6 +131,16 @@ export class NokendaraanPage {
             }
         },
         (err) => {
+            this.spinnerKen.dismiss();
+            this.spinnerKen.onDidDismiss(() => {
+              let dataValidtoast = this.toastCtrl.create({
+                message: 'Masalah pada jaringan.',
+                duration: 3000,
+                position: 'middle'
+              });
+              dataValidtoast.present();
+            });
+
           // this.koneksiMasalahToast(event);
             console.log("jaringan bermasalah");
         });

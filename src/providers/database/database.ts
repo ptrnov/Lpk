@@ -47,7 +47,7 @@ export class DatabaseProvider {
                   this.createTable(element.UNIQUE,[]);
                   setTimeout(() => {
                     this.setAdministrator();
-                  }, 1000);
+                  }, 5000);
                 }else{
                   console.log("SQL Definition Not Exist")
                 }
@@ -253,7 +253,7 @@ export class DatabaseProvider {
     var querySql ="SELECT id,username,password,nama,jabatan,polda,polwil FROM user where username='administrator'";
     this.selectData(querySql).then((data:any)=>{
       if (!data.length){
-        var qry="INSERT INTO user (id,username,password,nama,jabatan,polda,polwil) VALUES (?,?,?,?,?,?,?)";
+        var qry="INSERT OR REPLACE INTO user (id,username,password,nama,jabatan,polda,polwil) VALUES (?,?,?,?,?,?,?)";
         this.insertData(qry,[
           '0010',
           'hytera',

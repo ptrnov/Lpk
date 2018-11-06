@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, ToastController,NavParams } from 'ionic-angular';
+import { IonicPage, NavController,LoadingController, ToastController,NavParams } from 'ionic-angular';
 import { BarcodeScanner } from '@ionic-native/barcode-scanner';
 import { RestProvider } from '../../providers/rest/rest';
 // import QRCode from 'qrcode';
@@ -25,12 +25,15 @@ export class SimPage {
   createdCode = null;
   scannedCode = null;
 
+  private spinnerSim;
+
   constructor(
       public navCtrl: NavController,
       public navParams: NavParams,
       private barcodeScanner: BarcodeScanner,
       public rest:RestProvider,
-      public toastCtrl:ToastController
+      public toastCtrl:ToastController,
+      public loadingCtrl: LoadingController,
   ){
     // this.barcodeScanner.encode('QR_CODE','1348180502933');
     // this.barcodeScanner.encode(this.barcodeScanner.Encode.TEXT_TYPE,'1348180502933').then((encodedData) => {
@@ -104,6 +107,7 @@ export class SimPage {
    */
   public cari1(event:any){
     console.log("cari sim=",event);
+    var pathImg;
     var paramCari;
     paramCari={
       "sim_no": event,
@@ -119,14 +123,24 @@ export class SimPage {
         document.getElementById("data-sim2").hidden=true;
         document.getElementById("data-sim3").hidden=true;
 
+        this.spinnerSim = this.loadingCtrl.create({
+          spinner:'bubbles',
+          content: 'Persiapan data, Silakan Tunggu...'
+        });
+        this.spinnerSim.present();
+
         setTimeout(() => {
           this.rest.postData('sim',paramCari).then((data:any)=>{
             console.log("cari barcode",data);
               if (data.result.total==1){
+                pathImg=data.url_image;
                 document.getElementById("data-sim1").hidden=false;
                 document.getElementById("data-sim2").hidden=false;
                 document.getElementById("data-sim3").hidden=false;
-                var pathImg=data.result.path;
+
+                this.spinnerSim.dismiss();
+
+
                 var nmImg =data.result.data[0].gambar;
                 this.image_datasim=pathImg + nmImg;
                 this.rows_datasim = [
@@ -193,13 +207,23 @@ export class SimPage {
         document.getElementById("data-sim2").hidden=true;
         document.getElementById("data-sim3").hidden=true;
 
+        this.spinnerSim = this.loadingCtrl.create({
+          spinner:'bubbles',
+          content: 'Persiapan data, Silakan Tunggu...'
+        });
+        this.spinnerSim.present();
+
         setTimeout(() => {
           this.rest.postData('sim',paramCari).then((data:any)=>{
             console.log("cari barcode",data);
             if (data.result.total==1){
+
               document.getElementById("data-sim1").hidden=false;
               document.getElementById("data-sim2").hidden=false;
               document.getElementById("data-sim3").hidden=false;
+
+              this.spinnerSim.dismiss();
+
               var pathImg=data.result.path;
               var nmImg =data.result.data[0].gambar;
               this.image_datasim=pathImg + nmImg;

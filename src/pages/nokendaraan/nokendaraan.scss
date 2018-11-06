@@ -74,7 +74,7 @@ page-nokendaraan {
   .tabel{
     margin-bottom: 50px;
     .datatable-header {
-      background: rgba(164, 192, 214,1);
+      background:#0080FF;// rgba(164, 192, 214,1);
       padding: 1em 0 0 1em;
     }
     .datatable-header-cell {
@@ -107,7 +107,7 @@ page-nokendaraan {
 
     // Style footer appearance
     .datatable-footer {
-      background: rgba(218, 226, 234,1);
+      background:#0080FF;// rgba(218, 226, 234,1);
       padding: 0 1em 0 1em;
       .pager {
         li {
