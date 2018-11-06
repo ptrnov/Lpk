@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
-
+import { IonicPage, NavController, ToastController,NavParams } from 'ionic-angular';
+import { RestProvider } from '../../providers/rest/rest';
+// import QRCode from 'qrcode';
+import { oflineDataKendaraan } from "./data";
 export interface rsltData {
   prop: 'COMPANY';
   name: 'NAME';
@@ -24,7 +26,9 @@ export class NokendaraanPage {
 
   constructor(
     public navCtrl: NavController,
-    public navParams: NavParams
+    public navParams: NavParams,
+    public rest:RestProvider,
+    public toastCtrl:ToastController
   ) {
     this.columns_datakendaraan=[
       { name: 'Title',prop: 'Title', width: 100 },
@@ -62,4 +66,5 @@ export class NokendaraanPage {
     console.log('ionViewDidLoad NokendaraanPage');
   }
 
+  ad
 }

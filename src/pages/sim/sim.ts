@@ -46,30 +46,30 @@ export class SimPage {
       { name: 'Sma',prop: 'Sma', width: 5 },
       { name: 'Keterangan',prop: 'Keterangan' }
     ]
-    this.image_datasim="../assets/imgs/avatar1.jpg";
-    this.rows_datasim = [
-      {'Title':'No.SIM','Sma':':','Keterangan':''},
-      {'Title':'Type.SIM','Sma':':','Keterangan':''},
-      {'Title':'Berlaku','Sma':':','Keterangan':''},
-      {'Title':'No.SIM','Sma':':','Keterangan':''},
-      {'Title':'Nama','Sma':':','Keterangan':''},
-      {'Title':'Tempat','Sma':':','Keterangan':''},
-      {'Title':'Tgl.Lahir','Sma':':','Keterangan':''},
-      {'Title':'Tinggi','Sma':':','Keterangan':''},
-      {'Title':'Pekerjaan','Sma':':','Keterangan':''},
-      {'Title':'Alamat','Sma':':','Keterangan':''},
-    ];
+    this.image_datasim="assets/imgs/avatar1.jpg";
+    // this.rows_datasim = [
+    //   {'Title':'No.SIM','Sma':':','Keterangan':''},
+    //   {'Title':'Type.SIM','Sma':':','Keterangan':''},
+    //   {'Title':'Berlaku','Sma':':','Keterangan':''},
+    //   {'Title':'No.SIM','Sma':':','Keterangan':''},
+    //   {'Title':'Nama','Sma':':','Keterangan':''},
+    //   {'Title':'Tempat','Sma':':','Keterangan':''},
+    //   {'Title':'Tgl.Lahir','Sma':':','Keterangan':''},
+    //   {'Title':'Tinggi','Sma':':','Keterangan':''},
+    //   {'Title':'Pekerjaan','Sma':':','Keterangan':''},
+    //   {'Title':'Alamat','Sma':':','Keterangan':''},
+    // ];
 
     this.columns_riwayatsim = [
       { name: 'Tanggal',prop: 'Tanggal', width: 40 },
       { name: 'Pelangaran',prop: 'Pelangaran'}
     ];
 
-    this.rows_riwayatsim = [
-      {'Tanggal':'12-12-2018 11:02:08','Waktu':'07:02:08','Pelangaran':'Tidak Pakai Helem'},
-      {'Tanggal':'12-12-2017 01:02:08','Waktu':'07:02:08','Pelangaran':'Tidak ada STNK'},
-      {'Tanggal':'12-12-2016 07:02:08','Waktu':'07:02:08','Pelangaran':'Lampu Depan Mati'},
-    ];
+    // this.rows_riwayatsim = [
+    //   {'Tanggal':'12-12-2018 11:02:08','Waktu':'07:02:08','Pelangaran':'Tidak Pakai Helem'},
+    //   {'Tanggal':'12-12-2017 01:02:08','Waktu':'07:02:08','Pelangaran':'Tidak ada STNK'},
+    //   {'Tanggal':'12-12-2016 07:02:08','Waktu':'07:02:08','Pelangaran':'Lampu Depan Mati'},
+    // ];
   }
 
   createCode() {
@@ -79,6 +79,9 @@ export class SimPage {
   ionViewDidLoad() {
     setTimeout(() => {
       document.getElementById("cari_namasim").hidden=true;
+      document.getElementById("data-sim1").hidden=true;
+      document.getElementById("data-sim2").hidden=true;
+      document.getElementById("data-sim3").hidden=true;
     }, 100);
   }
 
@@ -99,7 +102,7 @@ export class SimPage {
    * Enter  Data
    * @param event
    */
-  public cari1(event:String){
+  public cari1(event:any){
     console.log("cari sim=",event);
     var paramCari;
     paramCari={
@@ -108,16 +111,72 @@ export class SimPage {
       // "nama": "Anjar Dp",
       // "lahir_tgl": "2018-11-21",
     };
-    this.rest.postData('sim',paramCari).then((data:any)=>{
-      console.log("data-SIM",data);
-    },
-    (err) => {
-      this.koneksiMasalahToast(event);
-        console.log("jaringan bermasalah");
-    });
+
+    //Prosess Pencarian Data.
+    if (event!=''){
+
+        document.getElementById("data-sim1").hidden=true;
+        document.getElementById("data-sim2").hidden=true;
+        document.getElementById("data-sim3").hidden=true;
+
+        setTimeout(() => {
+          this.rest.postData('sim',paramCari).then((data:any)=>{
+            console.log("cari barcode",data);
+              if (data.result.total==1){
+                document.getElementById("data-sim1").hidden=false;
+                document.getElementById("data-sim2").hidden=false;
+                document.getElementById("data-sim3").hidden=false;
+                var pathImg=data.result.path;
+                var nmImg =data.result.data[0].gambar;
+                this.image_datasim=pathImg + nmImg;
+                this.rows_datasim = [
+                  {'Title':'No.SIM','Sma':':','Keterangan':data.result.data[0].sim_no},
+                  {'Title':'Type.SIM','Sma':':','Keterangan':data.result.data[0].sim_tipe},
+                  {'Title':'Berlaku','Sma':':','Keterangan':data.result.data[0].sim_tglberlaku},
+                  {'Title':'Nama','Sma':':','Keterangan':data.result.data[0].nama},
+                  {'Title':'Tempat','Sma':':','Keterangan':data.result.data[0].lahir_tempat},
+                  {'Title':'Tgl.Lahir','Sma':':','Keterangan':data.result.data[0].lahir_tgl},
+                  {'Title':'Tinggi','Sma':':','Keterangan':data.result.data[0].tinggi},
+                  {'Title':'Pekerjaan','Sma':':','Keterangan':data.result.data[0].pekerjaan},
+                  {'Title':'Alamat','Sma':':','Keterangan':data.result.data[0].alamat},
+                ];
+                this.rows_riwayatsim = [
+                  {'Tanggal':'12-12-2018 11:02:08','Waktu':'07:02:08','Pelangaran':'Tidak Pakai Helem'},
+                  {'Tanggal':'12-12-2017 01:02:08','Waktu':'07:02:08','Pelangaran':'Tidak ada STNK'},
+                  {'Tanggal':'12-12-2016 07:02:08','Waktu':'07:02:08','Pelangaran':'Lampu Depan Mati'},
+                ];
+
+              }else{
+                this.dataTidakAdaToast();
+                document.getElementById("data-sim1").hidden=true;
+                document.getElementById("data-sim2").hidden=true;
+                document.getElementById("data-sim3").hidden=true;
+              }
+          },
+          (err) => {
+            this.koneksiMasalahToast(event);
+              console.log("jaringan bermasalah");
+          });
+        }, 1000);
+      }else{
+        console.log("input kosong");
+        console.log("input kosong");
+        let dataValidtoast = this.toastCtrl.create({
+          message: 'Data kosong atau data tidak valid.',
+          duration: 3000,
+          position: 'middle'
+        });
+        dataValidtoast.onDidDismiss(() => {
+          console.log('Dismissed toast');
+          document.getElementById("data-sim1").hidden=true;
+          document.getElementById("data-sim2").hidden=true;
+          document.getElementById("data-sim3").hidden=true;
+        });
+        dataValidtoast.present();
+      }
   }
 
-  public cari_barcode(event:Event){
+  public cari_barcode(event:any){
     // console.log("cari barcode=",event);
     var paramCari;
     paramCari={
@@ -127,33 +186,67 @@ export class SimPage {
       // "lahir_tgl": "2018-11-21",
     };
 
-    setTimeout(() => {
-      this.rest.postData('sim',paramCari).then((data:any)=>{
-        console.log("cari barcode",data);
-        if (data.result.total==1){
-          var pathImg=data.result.path;
-          var nmImg =data.result.data[0].gambar;
-          this.image_datasim=pathImg + nmImg;
-          this.rows_datasim = [
-            {'Title':'No.SIM','Sma':':','Keterangan':data[0].result.data[0].sim_no},
-            {'Title':'Type.SIM','Sma':':','Keterangan':data[0].result.data[0].sim_tipe},
-            {'Title':'Berlaku','Sma':':','Keterangan':data[0].result.data[0].sim_tglberlaku},
-            {'Title':'Nama','Sma':':','Keterangan':data[0].result.data[0].nama},
-            {'Title':'Tempat','Sma':':','Keterangan':data[0].result.data[0].lahir_tempat},
-            {'Title':'Tgl.Lahir','Sma':':','Keterangan':data[0].result.data[0].lahir_tgl},
-            {'Title':'Tinggi','Sma':':','Keterangan':data[0].result.data[0].tinggi},
-            {'Title':'Pekerjaan','Sma':':','Keterangan':data[0].result.data[0].pekerjaan},
-            {'Title':'Alamat','Sma':':','Keterangan':data[0].result.data[0].alamat},
-          ];
-        }else{
-          this.dataTidakAdaToast();
-        }
-      },
-      (err) => {
-        this.koneksiMasalahToast(event);
-          console.log("jaringan bermasalah");
-      });
-    }, 1000);
+    //Prosess Pencarian Data.
+    if (event!=''){
+
+        document.getElementById("data-sim1").hidden=true;
+        document.getElementById("data-sim2").hidden=true;
+        document.getElementById("data-sim3").hidden=true;
+
+        setTimeout(() => {
+          this.rest.postData('sim',paramCari).then((data:any)=>{
+            console.log("cari barcode",data);
+            if (data.result.total==1){
+              document.getElementById("data-sim1").hidden=false;
+              document.getElementById("data-sim2").hidden=false;
+              document.getElementById("data-sim3").hidden=false;
+              var pathImg=data.result.path;
+              var nmImg =data.result.data[0].gambar;
+              this.image_datasim=pathImg + nmImg;
+              this.rows_datasim = [
+                {'Title':'No.SIM','Sma':':','Keterangan':data[0].result.data[0].sim_no},
+                {'Title':'Type.SIM','Sma':':','Keterangan':data[0].result.data[0].sim_tipe},
+                {'Title':'Berlaku','Sma':':','Keterangan':data[0].result.data[0].sim_tglberlaku},
+                {'Title':'Nama','Sma':':','Keterangan':data[0].result.data[0].nama},
+                {'Title':'Tempat','Sma':':','Keterangan':data[0].result.data[0].lahir_tempat},
+                {'Title':'Tgl.Lahir','Sma':':','Keterangan':data[0].result.data[0].lahir_tgl},
+                {'Title':'Tinggi','Sma':':','Keterangan':data[0].result.data[0].tinggi},
+                {'Title':'Pekerjaan','Sma':':','Keterangan':data[0].result.data[0].pekerjaan},
+                {'Title':'Alamat','Sma':':','Keterangan':data[0].result.data[0].alamat},
+              ];
+              this.rows_riwayatsim = [
+                {'Tanggal':'12-12-2018 11:02:08','Waktu':'07:02:08','Pelangaran':'Tidak Pakai Helem'},
+                {'Tanggal':'12-12-2017 01:02:08','Waktu':'07:02:08','Pelangaran':'Tidak ada STNK'},
+                {'Tanggal':'12-12-2016 07:02:08','Waktu':'07:02:08','Pelangaran':'Lampu Depan Mati'},
+              ];
+
+            }else{
+              this.dataTidakAdaToast();
+              document.getElementById("data-sim1").hidden=true;
+              document.getElementById("data-sim2").hidden=true;
+              document.getElementById("data-sim3").hidden=true;
+            }
+          },
+          (err) => {
+            this.koneksiMasalahToast(event);
+              console.log("jaringan bermasalah");
+          });
+        }, 1000);
+      }else{
+        console.log("input kosong");
+        let dataValidtoast = this.toastCtrl.create({
+          message: 'Data kosong atau data tidak valid.',
+          duration: 3000,
+          position: 'middle'
+        });
+        dataValidtoast.onDidDismiss(() => {
+          console.log('Dismissed toast');
+          document.getElementById("data-sim1").hidden=true;
+          document.getElementById("data-sim2").hidden=true;
+          document.getElementById("data-sim3").hidden=true;
+        });
+        dataValidtoast.present();
+      }
   }
 
   koneksiMasalahToast(sim_no:any) {
@@ -192,7 +285,11 @@ export class SimPage {
             {'Title':'Pekerjaan','Sma':':','Keterangan':filterData[0][0].pekerjaan},
             {'Title':'Alamat','Sma':':','Keterangan':filterData[0][0].alamat},
           ];
+          document.getElementById("data-sim1").hidden=false;
+          document.getElementById("data-sim2").hidden=false;
+          document.getElementById("data-sim3").hidden=false;
         }else{
+
           //Data Ofline Tidak ditemukan
           let tidakDitemukantoast = this.toastCtrl.create({
             message: 'Cari Data SIM Offline, tidak ditemukan.',
@@ -200,18 +297,22 @@ export class SimPage {
             position: 'middle'
           });
           tidakDitemukantoast.onDidDismiss(() => {
-            this.rows_datasim = [
-              {'Title':'No.SIM','Sma':':','Keterangan':''},
-              {'Title':'Type.SIM','Sma':':','Keterangan':''},
-              {'Title':'Berlaku','Sma':':','Keterangan':''},
-              {'Title':'No.SIM','Sma':':','Keterangan':''},
-              {'Title':'Nama','Sma':':','Keterangan':''},
-              {'Title':'Tempat','Sma':':','Keterangan':''},
-              {'Title':'Tgl.Lahir','Sma':':','Keterangan':''},
-              {'Title':'Tinggi','Sma':':','Keterangan':''},
-              {'Title':'Pekerjaan','Sma':':','Keterangan':''},
-              {'Title':'Alamat','Sma':':','Keterangan':''},
-            ];
+            document.getElementById("data-sim1").hidden=true;
+            document.getElementById("data-sim2").hidden=true;
+            document.getElementById("data-sim3").hidden=true;
+            // this.rows_datasim = [{}];
+            // [
+            //   {'Title':'No.SIM','Sma':':','Keterangan':''},
+            //   {'Title':'Type.SIM','Sma':':','Keterangan':''},
+            //   {'Title':'Berlaku','Sma':':','Keterangan':''},
+            //   {'Title':'No.SIM','Sma':':','Keterangan':''},
+            //   {'Title':'Nama','Sma':':','Keterangan':''},
+            //   {'Title':'Tempat','Sma':':','Keterangan':''},
+            //   {'Title':'Tgl.Lahir','Sma':':','Keterangan':''},
+            //   {'Title':'Tinggi','Sma':':','Keterangan':''},
+            //   {'Title':'Pekerjaan','Sma':':','Keterangan':''},
+            //   {'Title':'Alamat','Sma':':','Keterangan':''},
+            // ];
           });
           tidakDitemukantoast.present();
         }

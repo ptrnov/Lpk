@@ -10,7 +10,8 @@ import { Observable } from 'rxjs/Observable';
 @Injectable()
 export class RestProvider {
   //private url: string ="http://polantas.cudo.co.id:8000";
-  private url: string ="http://polantas.cudo.co.id";
+  private url: string ="http://korlantas.api.cudo.co.id";
+  // private url: string ="http://192.168.100.101:8000";
   constructor(
     private http: Http
   ){

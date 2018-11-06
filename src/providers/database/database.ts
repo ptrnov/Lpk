@@ -255,10 +255,10 @@ export class DatabaseProvider {
       if (!data.length){
         var qry="INSERT INTO user (id,username,password,nama,jabatan,polda,polwil) VALUES (?,?,?,?,?,?,?)";
         this.insertData(qry,[
-          '0001',
-          'administrator',
-          'password',
-          'Adminstrator',
+          '0010',
+          'hytera',
+          'hytera123',
+          'Hytera',
           'Jenderal Pol',
           'MetroJaya',
           'Mabes'

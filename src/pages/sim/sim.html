@@ -51,7 +51,8 @@
                 <!-- https://stackoverflow.com/questions/41597828/searchbar-search-on-enter-key -->
                 <!-- <ion-searchbar [(ngModel)]="myInput" [showCancelButton]="shouldShowCancel" (ionCancel)="onCancel($event)" (change)="cari1($event);" placeholder="Masukan No.SIM"> </ion-searchbar> -->
                 <!-- <ion-searchbar [(ngModel)]="myInput" [showCancelButton]="shouldShowCancel" (keyup.enter)="cari1(q.value)" (change)="cari1($event);" placeholder="Masukan No.SIM"> </ion-searchbar> -->
-                <ion-searchbar #q [(ngModel)]="myInput" [showCancelButton]="shouldShowCancel" (keyup.enter)="cari1(q.value)" (ionInput)="cari_barcode(q.value);" placeholder="Masukan No.SIM"> </ion-searchbar>
+                <!-- <ion-searchbar #q [(ngModel)]="myInput" [showCancelButton]="shouldShowCancel" (keyup.enter)="cari1(q.value)" (ionInput)="cari_barcode(q.value);" placeholder="Masukan No.SIM"> </ion-searchbar> -->
+                <ion-searchbar #q [(ngModel)]="myInput" [showCancelButton]="shouldShowCancel" (keyup.enter)="cari1(q.value)" placeholder="Masukan No.SIM"> </ion-searchbar>
               <!-- </ion-card-content>
             </ion-card> -->
           </ion-col>
@@ -102,7 +103,7 @@
             <ion-icon ion-item name="map"></ion-icon>
           </ion-col>
       </ion-row> -->
-      <ion-row class="grid_row">
+      <ion-row class="grid_row" id="data-sim1">
           <ion-col class="grid_col" col-12>
               <ion-card class="card1">
                   <ion-card-header class="card1-header">
@@ -110,7 +111,7 @@
                         DATA PEMILIK SIM
                     </ion-label>
                   </ion-card-header>
-                    <ion-card-content class="card1-content">
+                    <ion-card-content class="card1-content" >
                         <ion-col class="grid_col" col-12>
                           <ion-row>
                               <ion-col col-12>
@@ -126,7 +127,7 @@
                               </ion-thumbnail>
                           </ion-row>
                         </ion-col>
-                        <ion-col class="grid_col" col-12>
+                        <ion-col col-12  class="grid_col" >
                             <!-- <ion-row style="width:100%!important"> -->
                                 <ngx-datatable class="tabel"
                                   [sortType]="multi"
@@ -151,12 +152,12 @@
                 </ion-card>
           </ion-col>
       </ion-row>
-      <ion-row class="grid_row" >
+      <ion-row class="grid_row" id="data-sim2">
           <ion-col class="grid_col" col-12>
               RIWAYAT PEMILIK SIM
           </ion-col>
       </ion-row>
-      <ion-row class="grid_row">
+      <ion-row class="grid_row" id="data-sim3">
           <ion-col class="grid_col" col-12>
             <ngx-datatable class="tabel"
               [sortType]="multi"
