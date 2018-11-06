@@ -46,6 +46,9 @@
           <ion-col col-10 class="grid_col" style="margin-top:20px;margin-left:3px;padding: 0 0 0 0;width:99%!important;border-radius: 7px 7px 7px 7px!important;">
             <!-- <ion-card style="margin-top:20px;margin-left:3px;padding: 0 0 0 0;width:99%!important;border-radius: 7px 7px 7px 7px!important;">
               <ion-card-content> -->
+                <!-- Reff -->
+                <!-- https://forum.ionicframework.com/t/ionic-ion-searchbar-searching-only-when-enter-is-pressed/42003/11 -->
+                <!-- https://stackoverflow.com/questions/41597828/searchbar-search-on-enter-key -->
                 <!-- <ion-searchbar [(ngModel)]="myInput" [showCancelButton]="shouldShowCancel" (ionCancel)="onCancel($event)" (change)="cari1($event);" placeholder="Masukan No.SIM"> </ion-searchbar> -->
                 <!-- <ion-searchbar [(ngModel)]="myInput" [showCancelButton]="shouldShowCancel" (keyup.enter)="cari1(q.value)" (change)="cari1($event);" placeholder="Masukan No.SIM"> </ion-searchbar> -->
                 <ion-searchbar #q [(ngModel)]="myInput" [showCancelButton]="shouldShowCancel" (keyup.enter)="cari1(q.value)" (ionInput)="cari_barcode(q.value);" placeholder="Masukan No.SIM"> </ion-searchbar>
@@ -110,12 +113,17 @@
                     <ion-card-content class="card1-content">
                         <ion-col class="grid_col" col-12>
                           <ion-row>
-                              <!-- <ion-col col-12>
-                                  <img *ngIf="displayQrCode()" [src]="generated" />
-                              </ion-col> -->
-                              <!-- <ion-thumbnail item-start style="width:100%;position: relative;left:40%">
-                                  <img class="sim-img" src="../assets/imgs/avatar.jpg">
-                              </ion-thumbnail> -->
+                              <ion-col col-12>
+                                  <ngx-qrcode
+                                    [qrc-value] = "value"
+                                    qrc-class = "aclass"
+                                    qrc-errorCorrectionLevel = "L">
+                                  </ngx-qrcode>
+                              </ion-col>
+                              <ion-thumbnail item-start style="position: relative;left:35%">
+                                  <!-- <img class="sim-img" src="../assets/imgs/avatar.jpg"> -->
+                                  <img class="sim-img" src="{{image_datasim}}">
+                              </ion-thumbnail>
                           </ion-row>
                         </ion-col>
                         <ion-col class="grid_col" col-12>
@@ -128,10 +136,14 @@
                                   [rows]="rows_datasim"
                                   [columns]="columns_datasim"
                                   [columnMode]="'force'"
-                                  [limit]="5">
-                                  <!-- <ngx-datatable-column name="Title" align="right">
-
+                                  [limit]="10">
+                                  <!-- <ngx-datatable-column name="Title" width="40">
+                                      <ng-template style="text-align:right">
+                                      </ng-template>
                                   </ngx-datatable-column> -->
+                                  <!-- <ngx-datatable-column name="Title" width="22"></ngx-datatable-column>
+                                  <ngx-datatable-column name="Sma"></ngx-datatable-column>
+                                  <ngx-datatable-column name="Keterangan"></ngx-datatable-column> -->
                                 </ngx-datatable>
                             <!-- </ion-row> -->
                         </ion-col>

@@ -117,8 +117,8 @@ page-sim {
     }
   }
   .sim-img{
-    width: 60px;
-    height: 60px;
+    width: 80px;
+    height: 80px;
     text-align: center;
   }
   .tabel{
@@ -190,4 +190,7 @@ page-sim {
   // .datatable-body-cell{
   //   text-align: right;
   // }
+  .datatable .datatable-row-right {
+    display: flex;
+  }
 }

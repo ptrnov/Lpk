@@ -9,7 +9,8 @@ import { Observable } from 'rxjs/Observable';
 
 @Injectable()
 export class RestProvider {
-  private url: string ="http://192.168.43.238:8000";
+  //private url: string ="http://polantas.cudo.co.id:8000";
+  private url: string ="http://polantas.cudo.co.id";
   constructor(
     private http: Http
   ){
@@ -48,7 +49,8 @@ export class RestProvider {
       let rslt=this.http.post(this.url + "/"+ aktivituCtr, postData, requestOptions).map(res => res.json());
 
       // this.http.post(this.url + "/"+ aktivituCtr, postData, requestOptions)
-       rslt.subscribe(res => {
+      rslt.timeout(1000);
+      rslt.subscribe(res => {
           resolve(res);
         }, (err) => {
           reject(err);
