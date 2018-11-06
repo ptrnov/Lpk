@@ -11,12 +11,44 @@
 <ion-content class="content-body">
 
   <ion-grid class="grid-column">
+      <!-- <ion-row class="grid_row" style="margin-bottom: -35px">
+          <ion-col col-12 class="grid_col">
+              <ion-list radio-group>
+                <ion-row style="padding: 0 0 0 0;margin-left:0px">
+                  <ion-col col-4>
+                    <ion-item >
+                      <ion-label>Nama</ion-label>
+                      <ion-radio (ionSelect)="radioklik($event)" value="nosim"  checked="true" style="outline: 0 !important;" ></ion-radio>
+                    </ion-item>
+                  </ion-col>
+                  <ion-col col-4>
+                    <ion-item >
+                      <ion-label>BPKB</ion-label>
+                      <ion-radio (ionSelect)="radioklik($event)" value="namasim"></ion-radio>
+                    </ion-item>
+                  </ion-col>
+                  <ion-col col-4>
+                      <ion-item >
+                        <ion-label>No.Mesin</ion-label>
+                        <ion-radio (ionSelect)="radioklik($event)" value="namasim"></ion-radio>
+                      </ion-item>
+                    </ion-col>
+                </ion-row>
+            </ion-list>
+          </ion-col>
+        </ion-row> -->
       <ion-row class="grid_row">
           <ion-col class="grid_col" col-12 style="margin-top:10px">
               <!-- <ion-searchbar [(ngModel)]="myInput" [showCancelButton]="shouldShowCancel" (ionCancel)="onCancel($event)"  placeholder="Masukan No.Kendaraan"> </ion-searchbar> -->
               <!-- <ion-searchbar [(ngModel)]="myInput" [showCancelButton]="shouldShowCancel" (ionCancel)="onCancel($event)"  placeholder="Masukan No.Kendaraan"> </ion-searchbar> -->
-              <ion-searchbar #q [(ngModel)]="myInput" [showCancelButton]="shouldShowCancel" (keyup.enter)="cari1(q.value)" placeholder="Masukan No.Kendaraan"> </ion-searchbar>
+              <ion-searchbar #q [(ngModel)]="myInput" (ionChange)="mergeSearch(q.value)" [showCancelButton]="shouldShowCancel" (keyup.enter)="cari1(q.value)" placeholder="Masukan No.Kendaraan" class=""> </ion-searchbar>
           </ion-col>
+      </ion-row>
+      <ion-row>
+        <button ion-button icon-start block (click)="submitCari()" class="cari1">
+            <ion-icon name="search"></ion-icon>
+            CARI
+        </button>
       </ion-row>
       <!-- <ion-row class="grid_row">
           <ion-col  class="grid_col" col-2>

@@ -1,16 +1,19 @@
-import { Component } from '@angular/core';
-import { IonicPage, NavController,LoadingController, ToastController,NavParams } from 'ionic-angular';
+import { ViewChild,Component } from '@angular/core';
+import { Searchbar,IonicPage, NavController,LoadingController, ToastController,NavParams, Platform } from 'ionic-angular';
 import { BarcodeScanner } from '@ionic-native/barcode-scanner';
 import { RestProvider } from '../../providers/rest/rest';
 // import QRCode from 'qrcode';
 import { oflineDataSim } from "./data";
+
+let cariId:any;
+let brcodeStt:any=0;
 @IonicPage()
 @Component({
   selector: 'page-sim',
   templateUrl: 'sim.html',
 })
 export class SimPage {
-
+  @ViewChild('q') searchbar:Searchbar;
   public columns_datasim : any;
   public rows_datasim : any;
   public image_datasim : any;
@@ -25,10 +28,13 @@ export class SimPage {
   createdCode = null;
   scannedCode = null;
 
+  public nilaiVarcode;
+
   private spinnerSim;
 
   constructor(
       public navCtrl: NavController,
+      private platform: Platform,
       public navParams: NavParams,
       private barcodeScanner: BarcodeScanner,
       public rest:RestProvider,
@@ -381,6 +387,52 @@ export class SimPage {
     toast.present();
   }
 
+  public submitCari(){
+    console.log("button submit=",cariId);
+    this.cari1(cariId);
+  }
 
+  public mergeSearch(event:any){
+    cariId=event;
+    if (brcodeStt==1){
+      this.cari1(cariId);
+      brcodeStt=0;
+    }
+    console.log("merge search=",cariId);
+  }
+
+  public pushTombolBarcode(){
+    this.platform.ready().then(() => {
+      if (this.platform._platforms[0] == 'cordova') {
+        this.barcodeScanner.scan({
+          preferFrontCamera: false, // iOS and Android
+          showFlipCameraButton: false, // iOS and Android
+          showTorchButton: true, // iOS and Android
+          torchOn: false, // Android, launch with the torch switched on (if available)
+          resultDisplayDuration: 500,
+          formats: 'QR_CODE,PDF_417,EAN_8,EAN_13'
+        }).then(barcodeData => {
+          console.log('Barcode data', barcodeData);
+          // this.nilaiVarcode=barcodeData.text;
+          // document.getElementById("nilai-cari").innerHTML=barcodeData.text;
+          this.searchbar.value='785876576';
+          brcodeStt=1;
+       }).catch(err => {
+           console.log('Error', err);
+           brcodeStt=0;
+       });
+      }else{
+        let platformtoast = this.toastCtrl.create({
+          message: 'Digunakan pada perangkat Android/ios.',
+          duration: 3000,
+          position: 'middle'
+        });
+        platformtoast.onDidDismiss(() => {
+          console.log('Dismissed toast');
+        });
+        platformtoast.present();
+      }
+    });
+  }
 
 }

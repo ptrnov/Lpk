@@ -43,7 +43,7 @@
       </ion-row>
       <!-- Pencarian no-sim-->
       <ion-row class="grid_row" id="cari_nosim" style="margin-bottom: -15px">
-          <ion-col col-10 class="grid_col" style="margin-top:20px;margin-left:3px;padding: 0 0 0 0;width:99%!important;border-radius: 7px 7px 7px 7px!important;">
+          <ion-col col-9 class="grid_col" style="margin-top:20px;margin-left:3px;padding: 0 0 0 0;width:99%!important;border-radius: 7px 7px 7px 7px!important;">
             <!-- <ion-card style="margin-top:20px;margin-left:3px;padding: 0 0 0 0;width:99%!important;border-radius: 7px 7px 7px 7px!important;">
               <ion-card-content> -->
                 <!-- Reff -->
@@ -52,12 +52,18 @@
                 <!-- <ion-searchbar [(ngModel)]="myInput" [showCancelButton]="shouldShowCancel" (ionCancel)="onCancel($event)" (change)="cari1($event);" placeholder="Masukan No.SIM"> </ion-searchbar> -->
                 <!-- <ion-searchbar [(ngModel)]="myInput" [showCancelButton]="shouldShowCancel" (keyup.enter)="cari1(q.value)" (change)="cari1($event);" placeholder="Masukan No.SIM"> </ion-searchbar> -->
                 <!-- <ion-searchbar #q [(ngModel)]="myInput" [showCancelButton]="shouldShowCancel" (keyup.enter)="cari1(q.value)" (ionInput)="cari_barcode(q.value);" placeholder="Masukan No.SIM"> </ion-searchbar> -->
-                <ion-searchbar #q [(ngModel)]="myInput" [showCancelButton]="shouldShowCancel" (keyup.enter)="cari1(q.value)" placeholder="Masukan No.SIM"> </ion-searchbar>
+                <!-- <ion-searchbar #q [(ngModel)]="myInput" [showCancelButton]="shouldShowCancel" (keyup.enter)="cari1(q.value)" placeholder="Masukan No.SIM"> </ion-searchbar> -->
+                <ion-searchbar id="nilai-cari" #q [(ngModel)]="myInput" [showCancelButton]="shouldShowCancel" (ionChange)="mergeSearch(q.value)" placeholder="Masukan No.SIM"> </ion-searchbar>
               <!-- </ion-card-content>
             </ion-card> -->
           </ion-col>
           <ion-col col-1 class="grid_col">
-            <button ion-button icon-only class="cari1" style="background-color: #ccd6f7;">
+            <button ion-button icon-only class="cari1" (click)="submitCari()">
+            <ion-icon name="md-search"></ion-icon>
+            </button>
+          </ion-col>
+          <ion-col col-1 class="grid_col">
+            <button ion-button icon-only class="btb_barcode" (click)="pushTombolBarcode()">
             <ion-icon name="md-qr-scanner"></ion-icon>
             </button>
           </ion-col>

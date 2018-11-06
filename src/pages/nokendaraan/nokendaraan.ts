@@ -8,7 +8,7 @@ export interface rsltData {
   name: 'NAME';
   name1: 'COMPANY';
 }
-
+let inputCari;
 @IonicPage()
 @Component({
   selector: 'page-nokendaraan',
@@ -70,7 +70,7 @@ export class NokendaraanPage {
 
   public cari1(event:any){
     console.log("cari sim=",event);
-    var paramCari;
+        var paramCari;
     paramCari={
       "no_polisi": event,
       //"sim_no": "785876576",
@@ -164,5 +164,12 @@ export class NokendaraanPage {
     }
   }
 
+  public mergeSearch(event:any){
+    inputCari=event;
+  }
 
+  public submitCari(){
+
+    this.cari1(inputCari);
+  }
 }
