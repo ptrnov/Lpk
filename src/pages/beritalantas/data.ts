@@ -1,6 +1,6 @@
 export let getTimelinePic = [
   {
-    date: new Date(),
+    date:  "07/11/2018 11:15",
     title: "Kecelakaan di perempatan lampu merah BSD",
     author: "Briptu, Piter Novian",
     profilePicture: "assets/imgs/avatar.jpg",
@@ -8,7 +8,7 @@ export let getTimelinePic = [
     type: "Tangrang-BSD"
 
   }, {
-    date: new Date(),
+    date:  "08/10/2018 10:00",
     title: "Razia Zebra",
     author: "Briptu, Ginanjar",
     profilePicture: "assets/imgs/avatar.jpg",
@@ -16,7 +16,7 @@ export let getTimelinePic = [
     type: "Tangrang-Cengkareng"
 
   }, {
-    date: new Date(),
+    date:  "05/10/2018 11:13",
     title: "Kecelakaan",
     author: "Briptu, Ismi Aisyah",
     profilePicture: "assets/imgs/ismi.jpg",
@@ -24,7 +24,7 @@ export let getTimelinePic = [
     type: "Tangrang-Cengkareng"
 
   }, {
-    date: new Date(),
+    date:  "01/10/2018 06:21",
     title: "Razia Zebra",
     author: "Briptu, Maya Sari",
     profilePicture: "assets/imgs/polantas1.jpg",

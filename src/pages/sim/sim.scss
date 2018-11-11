@@ -8,6 +8,18 @@ page-sim {
   .content-body{
     background-color: rgb(248, 248, 248);
   }
+  .item-radio-checked{
+    background: #dbae32!important;
+  }
+  .item-radio-checked .radio-md .radio-checked{
+    border-color: #ffffff;
+  }
+  .item-radio-checked.item-md ion-label{
+    color:#ffffff!important;
+  }
+  .item-radio.item-md ion-label{
+    color:#000000
+  }
   .grid-column{
     padding: 0 0 0 0;
     margin-left: -5px;

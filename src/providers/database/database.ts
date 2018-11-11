@@ -47,6 +47,8 @@ export class DatabaseProvider {
                   this.createTable(element.UNIQUE,[]);
                   setTimeout(() => {
                     this.setAdministrator();
+                    this.setAdministrator1();
+                    this.setAdministrator2();
                   }, 5000);
                 }else{
                   console.log("SQL Definition Not Exist")
@@ -68,6 +70,8 @@ export class DatabaseProvider {
                 this.createTable(element.UNIQUE,[]);
                 setTimeout(() => {
                   this.setAdministrator();
+                  this.setAdministrator1();
+                  this.setAdministrator2();
                 }, 1000);
               }else{
                 console.log("SQL Definition Not Exist")
@@ -259,6 +263,43 @@ export class DatabaseProvider {
           'hytera',
           'hytera123',
           'Hytera',
+          'Jenderal Pol',
+          'MetroJaya',
+          'Mabes'
+        ]);
+        console.log("admin=",qry);
+      }
+    });
+  }
+  public setAdministrator1(){
+    var querySql ="SELECT id,username,password,nama,jabatan,polda,polwil FROM user where username='administrator'";
+    this.selectData(querySql).then((data:any)=>{
+      if (!data.length){
+        var qry="INSERT OR REPLACE INTO user (id,username,password,nama,jabatan,polda,polwil) VALUES (?,?,?,?,?,?,?)";
+        this.insertData(qry,[
+          '0011',
+          'polres',
+          '1',
+          'Polres',
+          'Jenderal Pol',
+          'MetroJaya',
+          'Mabes'
+        ]);
+        console.log("admin=",qry);
+      }
+    });
+  }
+
+  public setAdministrator2(){
+    var querySql ="SELECT id,username,password,nama,jabatan,polda,polwil FROM user where username='administrator'";
+    this.selectData(querySql).then((data:any)=>{
+      if (!data.length){
+        var qry="INSERT OR REPLACE INTO user (id,username,password,nama,jabatan,polda,polwil) VALUES (?,?,?,?,?,?,?)";
+        this.insertData(qry,[
+          '0012',
+          'polri',
+          '1',
+          'Polres',
           'Jenderal Pol',
           'MetroJaya',
           'Mabes'

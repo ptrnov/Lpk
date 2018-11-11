@@ -123,6 +123,7 @@ export class NokendaraanPage {
               ];
 
             }else{
+              this.spinnerKen.dismiss();
               console.log("jaringan bermasalah");
               // this.dataTidakAdaToast();
               document.getElementById("data-kendaraan1").hidden=true;

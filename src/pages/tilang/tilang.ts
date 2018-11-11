@@ -15,5 +15,12 @@ export class TilangPage {
   ionViewDidLoad() {
     console.log('ionViewDidLoad TilangPage');
   }
+  public check(e){
+    if(e == 1){
+      document.getElementById('bg-form').style.backgroundColor = 'red';
+    }else{
+      document.getElementById('bg-form').style.backgroundColor = 'blue';
+    }
+  }
 
 }

@@ -1,0 +1,46 @@
+<ion-header>
+    <ion-navbar>
+      <ion-label text-wrap class="title-toolbar" style="margin-left:20px">TAMBAH BERITA LANTAS</ion-label>
+    </ion-navbar>
+  </ion-header>
+<ion-content class="content-body">
+    <ion-grid class="grid-column">
+        <ion-row justify-content-left>
+            <ion-col col-12>
+                <ion-item  style="background-color: transparent;">
+                    <ion-label floating >
+                      <ion-icon name="ios-book-outline" item-start ></ion-icon>
+                        Isi Berita
+                    </ion-label>
+                    <ion-textarea  [(ngModel)]="serialData.text" rows="5" maxLength="500"></ion-textarea>
+                </ion-item>
+          </ion-col>
+        </ion-row>
+        <ion-row justify-content-center>
+            <ion-col col-4>
+                <ion-item class="col-item-picture">
+                    <img id="img1" [(ngModel)]="serialImage.image1" class="label" src="assets/imgs/pic.png" (click)="ambilPhoto($event)">
+                </ion-item>
+            </ion-col>
+            <ion-col col-4>
+                <ion-item class="col-item-picture">
+                    <img id="img2" [(ngModel)]="serialImage.image2" class="label" src="assets/imgs/pic.png" (click)="ambilPhoto($event)">
+                </ion-item>
+            </ion-col>
+            <ion-col col-4>
+                <ion-item class="col-item-picture">
+                    <img id="img3" [(ngModel)]="serialImage.image3" class="label" src="assets/imgs/pic.png" (click)="ambilPhoto($event)">
+                </ion-item>
+            </ion-col>
+        </ion-row>
+
+        <ion-row justify-content-center style="margin-top: 0px">
+          <ion-col col-8>
+             <button ion-button icon-start block (click)="submitBerita()" class="tombolLogin" style="border-radius: 30px 30px 30px 30px;">
+                  <ion-icon name="ios-send-outline"></ion-icon>
+                  Simpan
+              </button>
+          </ion-col>
+        </ion-row>
+    </ion-grid>
+</ion-content>

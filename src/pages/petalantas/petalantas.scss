@@ -11,6 +11,37 @@ page-petalantas {
     padding: 0 0 0 0;
     margin-left: -5px;
   }
+  .list-info-map{
+    width:100%;
+    overflow: hidden;
+  }
+  .list-info-map ul{
+    width:100%;
+    text-align: center;
+  }
+  .list-info-map ul li{
+    list-style: none;
+    display: inline-block;
+  }
+  .bg-color-001{
+    background: #84ca50;
+  }
+  .bg-color-002{
+    background: #f07d02;
+  }
+  .bg-color-003{
+    background: #e60000;
+  }
+  .bg-color-004{
+    background: #9e1313;
+  }
+  .map-info{
+    width:20px;
+    height: 10px;
+  }
+  .relative{
+    position: relative;
+  }
   .grid_row{
     width:100%!important;
     padding: 0 0 0 0;

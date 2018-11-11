@@ -51,7 +51,7 @@ export class SimPage {
     // });
 
     this.columns_datasim=[
-      { name: 'Title',prop: 'Title', width: 100},
+      { name: 'Title',prop: 'Title', width: 120},
       { name: 'Sma',prop: 'Sma', width: 5 },
       { name: 'Keterangan',prop: 'Keterangan' }
     ]
@@ -100,10 +100,12 @@ export class SimPage {
     console.log("radio=",event);
     if (rslt=="nosim"){
       document.getElementById("cari_nosim").hidden=false;
+      document.getElementById("cari_nosim").style.backgroundColor="#ffd101";
       document.getElementById("cari_namasim").hidden=true;
     }else if(rslt=="namasim"){
       document.getElementById("cari_nosim").hidden=true;
       document.getElementById("cari_namasim").hidden=false;
+      document.getElementById("cari_namasim").style.background="#ffd101";
     };
   }
 
@@ -251,6 +253,7 @@ export class SimPage {
               ];
 
             }else{
+
               this.dataTidakAdaToast();
               document.getElementById("data-sim1").hidden=true;
               document.getElementById("data-sim2").hidden=true;
@@ -258,11 +261,13 @@ export class SimPage {
             }
           },
           (err) => {
+            this.spinnerSim.dismiss();
             this.koneksiMasalahToast(event);
               console.log("jaringan bermasalah");
           });
         }, 1000);
       }else{
+        // this.spinnerSim.dismiss();
         console.log("input kosong");
         let dataValidtoast = this.toastCtrl.create({
           message: 'Data kosong atau data tidak valid.',
@@ -371,6 +376,7 @@ export class SimPage {
     });
     toast.onDidDismiss(() => {
       console.log('Dismissed toast');
+      this.spinnerSim.dismiss();
     });
     toast.present();
   }

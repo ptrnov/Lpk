@@ -1,4 +1,4 @@
-page-beritapolda {
+page-beritalantasadd {
   .title{
     font-size: 3.5vw;
     font-family:"Arial Black";
@@ -6,18 +6,6 @@ page-beritapolda {
   }
   .content-body{
     background-color: white;
-  }
-  .item .label h4{
-    font-weight: bold;
-    margin-bottom: 5px;
-  }
-
-  .item .label h6{
-    font-size: 13px;
-  }
-  .item .label p{
-    font-style: italic;
-    font-size: 13px;
   }
   .grid-column{
     padding: 0 0 0 0;
@@ -34,4 +22,5 @@ page-beritapolda {
     padding: 0 0 0 0;
     margin-left: 5px;
   }
+
 }

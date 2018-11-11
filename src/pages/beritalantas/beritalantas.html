@@ -3,15 +3,21 @@
       <button ion-button menuToggle>
         <ion-icon name="menu"></ion-icon>
       </button>
-      <ion-label text-wrap class="title-toolbar">BERITA LANTAS</ion-label>
+      <ion-row>
+          <ion-label text-wrap class="title-toolbar">BERITA LANTAS</ion-label>
+          <button ion-button icon-only class="addberita" (click)="tambahberita()" style="background-color: transparent">
+            <ion-icon name="md-add"></ion-icon>
+          </button>
+      </ion-row>
+
     </ion-navbar>
   </ion-header>
 <ion-content class="content-body">
     <ion-grid class="grid-column">
         <ion-list >
           <ion-item  *ngFor="let activity of timelinePic">
-              <h4>{{activity.author}}  on {{activity.date | date: "d MMM"}}</h4>
-              <h6>{{activity.title}}</h6>
+              <h4>{{activity.author}}</h4>
+              <h6>{{activity.date}} on {{activity.title}}</h6>
               <p>{{activity.text}}</p>
               <button ion-button clear item-end>View</button>
           </ion-item>

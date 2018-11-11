@@ -34,83 +34,83 @@ export let getTimelinePic = [
 ];
 export let getTimelinePoldaPic = [
   {
-    date: new Date(),
+    date: "07/11/2018 09:30",
     title: "Struktur Organisasi Polri",
     author: "Jendral Polisi, Tito Karnavian",
-    profilePicture: "../assets/imgs/titok.jpg",
+    profilePicture: "assets/imgs/titok.jpg",
     text: "Organisasi Polri disusun secara berjenjang dari tingkat pusat sampai ke kewilayahan. Organisasi Polri tingkat pusat disebut Markas Besar Kepolisian Negara Republik Indonesia (Mabes Polri); sedang organisasi Polri tingkat kewilayahan disebut Kepolisian Negara Republik Indonesia Daerah (Polda) di tingkat provinsi, Kepolisian Negara Republik Indonesia Resort (Polres) di tingkat kabupaten/kota, dan Kepolisian Negara Republik Indonesia Sektor (Polsek) di wilayah kecamatan.",
     type: "Jakarta Pusat"
 
   },
   {
-    date: new Date(),
-    title: "Struktur Organisasi Polri",
+    date: "07/11/2018 09:22",
+    title: "Aksi Damai",
     author: "Jendral Polisi, Tito Karnavian",
-    profilePicture: "../assets/imgs/titok.jpg",
-    text: "Organisasi Polri disusun secara berjenjang dari tingkat pusat sampai ke kewilayahan. Organisasi Polri tingkat pusat disebut Markas Besar Kepolisian Negara Republik Indonesia (Mabes Polri); sedang organisasi Polri tingkat kewilayahan disebut Kepolisian Negara Republik Indonesia Daerah (Polda) di tingkat provinsi, Kepolisian Negara Republik Indonesia Resort (Polres) di tingkat kabupaten/kota, dan Kepolisian Negara Republik Indonesia Sektor (Polsek) di wilayah kecamatan.",
+    profilePicture: "assets/imgs/titok.jpg",
+    text: "Amankan secara damai dan santun.",
     type: "Jakarta Pusat"
 
   },
   {
-    date: new Date(),
-    title: "Struktur Organisasi Polri",
+    date: "07/11/2018 09:01",
+    title: "Narkoba",
     author: "Jendral Polisi, Tito Karnavian",
-    profilePicture: "../assets/imgs/titok.jpg",
-    text: "Organisasi Polri disusun secara berjenjang dari tingkat pusat sampai ke kewilayahan. Organisasi Polri tingkat pusat disebut Markas Besar Kepolisian Negara Republik Indonesia (Mabes Polri); sedang organisasi Polri tingkat kewilayahan disebut Kepolisian Negara Republik Indonesia Daerah (Polda) di tingkat provinsi, Kepolisian Negara Republik Indonesia Resort (Polres) di tingkat kabupaten/kota, dan Kepolisian Negara Republik Indonesia Sektor (Polsek) di wilayah kecamatan.",
+    profilePicture: "assets/imgs/titok.jpg",
+    text: "Tembak mati pengedar narkoba.",
     type: "Jakarta Pusat"
 
   },
   {
-    date: new Date(),
-    title: "Struktur Organisasi Polri",
+    date: "07/10/2018 20:22",
+    title: "Jaringan teroris",
     author: "Jendral Polisi, Tito Karnavian",
-    profilePicture: "../assets/imgs/titok.jpg",
-    text: "Organisasi Polri disusun secara berjenjang dari tingkat pusat sampai ke kewilayahan. Organisasi Polri tingkat pusat disebut Markas Besar Kepolisian Negara Republik Indonesia (Mabes Polri); sedang organisasi Polri tingkat kewilayahan disebut Kepolisian Negara Republik Indonesia Daerah (Polda) di tingkat provinsi, Kepolisian Negara Republik Indonesia Resort (Polres) di tingkat kabupaten/kota, dan Kepolisian Negara Republik Indonesia Sektor (Polsek) di wilayah kecamatan.",
+    profilePicture: "assets/imgs/titok.jpg",
+    text: "Junjung tingi asas prodiga tak bersalah.",
     type: "Jakarta Pusat"
 
   },
   {
-    date: new Date(),
-    title: "Struktur Organisasi Polri",
+    ate: "07/9/2018 23:22",
+    title: "Kemacetan Jakarta",
     author: "Jendral Polisi, Tito Karnavian",
-    profilePicture: "../assets/imgs/titok.jpg",
-    text: "Organisasi Polri disusun secara berjenjang dari tingkat pusat sampai ke kewilayahan. Organisasi Polri tingkat pusat disebut Markas Besar Kepolisian Negara Republik Indonesia (Mabes Polri); sedang organisasi Polri tingkat kewilayahan disebut Kepolisian Negara Republik Indonesia Daerah (Polda) di tingkat provinsi, Kepolisian Negara Republik Indonesia Resort (Polres) di tingkat kabupaten/kota, dan Kepolisian Negara Republik Indonesia Sektor (Polsek) di wilayah kecamatan.",
+    profilePicture: "assets/imgs/titok.jpg",
+    text: "Mengunakan 3 in 1 dalam jam sibuk.",
     type: "Jakarta Pusat"
 
   },
   {
-    date: new Date(),
-    title: "Struktur Organisasi Polri",
+    date: "07/08/1918 11:17",
+    title: "Genap Ganjl",
     author: "Jendral Polisi, Tito Karnavian",
-    profilePicture: "../assets/imgs/titok.jpg",
-    text: "Organisasi Polri disusun secara berjenjang dari tingkat pusat sampai ke kewilayahan. Organisasi Polri tingkat pusat disebut Markas Besar Kepolisian Negara Republik Indonesia (Mabes Polri); sedang organisasi Polri tingkat kewilayahan disebut Kepolisian Negara Republik Indonesia Daerah (Polda) di tingkat provinsi, Kepolisian Negara Republik Indonesia Resort (Polres) di tingkat kabupaten/kota, dan Kepolisian Negara Republik Indonesia Sektor (Polsek) di wilayah kecamatan.",
+    profilePicture: "assets/imgs/titok.jpg",
+    text: "Diberlakukanya genap ganjil pada titik yang padat.",
     type: "Jakarta Pusat"
 
   },
   {
-    date: new Date(),
-    title: "Struktur Organisasi Polri",
+    date: "07/08/2018 11:19",
+    title: "Korupsi",
     author: "Jendral Polisi, Tito Karnavian",
-    profilePicture: "../assets/imgs/titok.jpg",
-    text: "Organisasi Polri disusun secara berjenjang dari tingkat pusat sampai ke kewilayahan. Organisasi Polri tingkat pusat disebut Markas Besar Kepolisian Negara Republik Indonesia (Mabes Polri); sedang organisasi Polri tingkat kewilayahan disebut Kepolisian Negara Republik Indonesia Daerah (Polda) di tingkat provinsi, Kepolisian Negara Republik Indonesia Resort (Polres) di tingkat kabupaten/kota, dan Kepolisian Negara Republik Indonesia Sektor (Polsek) di wilayah kecamatan.",
+    profilePicture: "assets/imgs/titok.jpg",
+    text: "Katakan tidak pada korupsi.",
     type: "Jakarta Pusat"
 
   },
   {
-    date: new Date(),
-    title: "Struktur Organisasi Polri",
+    date:  "05/08/2018 11:16",
+    title: "KKN",
     author: "Jendral Polisi, Tito Karnavian",
-    profilePicture: "../assets/imgs/titok.jpg",
-    text: "Organisasi Polri disusun secara berjenjang dari tingkat pusat sampai ke kewilayahan. Organisasi Polri tingkat pusat disebut Markas Besar Kepolisian Negara Republik Indonesia (Mabes Polri); sedang organisasi Polri tingkat kewilayahan disebut Kepolisian Negara Republik Indonesia Daerah (Polda) di tingkat provinsi, Kepolisian Negara Republik Indonesia Resort (Polres) di tingkat kabupaten/kota, dan Kepolisian Negara Republik Indonesia Sektor (Polsek) di wilayah kecamatan.",
+    profilePicture: "assets/imgs/titok.jpg",
+    text: "Bersikan Organisasi dari KKN.",
     type: "Jakarta Pusat"
 
   },
   {
-    date: new Date(),
-    title: "Struktur Organisasi Polri",
+    date:  "07/09/2018 11:15",
+    title: "Tembak di tempat",
     author: "Jendral Polisi, Tito Karnavian",
-    profilePicture: "../assets/imgs/titok.jpg",
-    text: "Organisasi Polri disusun secara berjenjang dari tingkat pusat sampai ke kewilayahan. Organisasi Polri tingkat pusat disebut Markas Besar Kepolisian Negara Republik Indonesia (Mabes Polri); sedang organisasi Polri tingkat kewilayahan disebut Kepolisian Negara Republik Indonesia Daerah (Polda) di tingkat provinsi, Kepolisian Negara Republik Indonesia Resort (Polres) di tingkat kabupaten/kota, dan Kepolisian Negara Republik Indonesia Sektor (Polsek) di wilayah kecamatan.",
+    profilePicture: "assets/imgs/titok.jpg",
+    text: "Pelaku begal harus di tembak di tempat.",
     type: "Jakarta Pusat"
 
   },

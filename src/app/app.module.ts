@@ -25,6 +25,7 @@ import { NgxDatatableModule } from '@swimlane/ngx-datatable';
 import { BeritalantasPage } from '../pages/beritalantas/beritalantas';
 import { BeritapoldaPage } from '../pages/beritapolda/beritapolda';
 import { PetalantasPage } from '../pages/petalantas/petalantas';
+import { BeritalantasaddPage } from '../pages/beritalantasadd/beritalantasadd';
 import { BarcodeScanner } from '@ionic-native/barcode-scanner';
 import { NgxQRCodeModule } from 'ngx-qrcode2';
 import { RestProvider } from '../providers/rest/rest';
@@ -41,7 +42,8 @@ import { RestProvider } from '../providers/rest/rest';
     TilangPage,
     BeritalantasPage,
     BeritapoldaPage,
-    PetalantasPage
+    PetalantasPage,
+    BeritalantasaddPage
   ],
   imports: [
     BrowserModule,
@@ -73,7 +75,8 @@ import { RestProvider } from '../providers/rest/rest';
     TilangPage,
     BeritalantasPage,
     BeritapoldaPage,
-    PetalantasPage
+    PetalantasPage,
+    BeritalantasaddPage
   ],
   providers: [
     StatusBar,

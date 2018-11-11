@@ -87,7 +87,7 @@
     <preference name="ShowSplashScreenSpinner" value="true" />
     <preference name="SplashShowOnlyFirstTime" value="false" />
     <preference name="FadeSplashScreen" value="true" />
-    <preference name="loadUrlTimeoutValue" value="25000" />
+    <preference name="loadUrlTimeoutValue" value="70000" />
     <feature name="StatusBar">
         <param name="ios-package" onload="true" value="CDVStatusBar" />
     </feature>
